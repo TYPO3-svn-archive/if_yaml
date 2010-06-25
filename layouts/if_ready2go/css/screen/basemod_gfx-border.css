@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+
+@media screen, projection
+{
+/** if you have a background-image you can not use the gfx-borders without png-fix */
+  body { background-color: #dddddd; }
+
+  .page_margins {
+    border: 0 none;
+    background-image:  url(../../images/gfx-border/if_yaml/border_left.gif);
+    background-repeat:repeat-y;
+    background-position:left;
+  }
+
+  .page {
+    border: 0 none;
+    margin: 0 0 0 5px; padding: 0px 5px 0px 0px;
+    background-image:  url(../../images/gfx-border/if_yaml/border_right.gif);
+    background-repeat:repeat-y;
+    background-position:right;
+  }
+
+
+  .border-top {
+    overflow:hidden;
+    width: auto;
+    height: 20px;
+    font-size:0;
+    margin-bottom: -15px;
+    background-image:  url(../../images/gfx-border/if_yaml/border_top.gif);
+    background-repeat:repeat-x;
+    background-position:top left;
+  }
+
+  .border-bottom {
+    overflow:hidden;
+    width: auto;
+    height: 20px;
+    margin-top: -15px;
+    font-size:0;
+    background-image:  url(../../images/gfx-border/if_yaml/border_bottom.gif);
+    background-repeat:repeat-x;
+    background-position:bottom left;
+  }
+
+  .edge-tl {
+    float:left;
+    width: 20px;
+    height: 20px;
+    font-size:0;
+    background-image:  url(../../images/gfx-border/if_yaml/corner_tl.gif);
+    background-position: top left;
+  }
+
+  .edge-tr {
+    position:relative; /* IE Fix | z-index */
+    float:right;
+    width: 20px;
+    height: 20px;
+    font-size:0;
+    background-image:  url(../../images/gfx-border/if_yaml/corner_tr.gif);
+    background-position: top right;
+  }
+
+  .edge-bl {
+    float:left;
+    width: 20px;
+    height: 20px;
+    background-image:  url(../../images/gfx-border/if_yaml/corner_bl.gif);
+    background-position: bottom left;
+  }
+
+  .edge-br {
+    position:relative; /* IE Fix | z-index */
+    float:right;
+    width: 20px;
+    height: 20px;
+    background-image:  url(../../images/gfx-border/if_yaml/corner_br.gif);
+    background-position: bottom right;
+  }
+}

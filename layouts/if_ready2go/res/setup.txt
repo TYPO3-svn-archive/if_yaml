@@ -1,0 +1,118 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.1.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+################################################################################
+### dropdown sitemap  
+plugin.tx_dropdownsitemap_pi1._CSS_DEFAULT_STYLE >
+
+################################################################################
+### cssstyledcontent (Copied to content.css, in order to be able to modify them there.)
+plugin.tx_cssstyledcontent._CSS_DEFAULT_STYLE >
+
+################################################################################
+### srlanguagemenu (this overwrites the settings from constantseditor of this extension)
+plugin.tx_srlanguagemenu_pi1 {
+  _CSS_DEFAULT_STYLE >
+  englishFlagFile = {$if_yaml.templatesDir}flags/en.gif
+  defaultLanguageISOCode = {$if_yaml.lang.std.isoCode}
+# Possible values: 0 = flags, 1 = selection list, 2 = list of links.
+  defaultLayout = 0
+  hideIfNoAltLanguages = 0
+  showCurrent = 1
+  doNotLinkCurrent = 1
+  doNotLinkInactive = 1
+  addSelectionListHeader = 1
+  selectionListSeparator = .........
+  file {
+    templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}language/template.html
+  }
+  languagesUidsList = {$if_yaml.lang.templateUsesLanguages}
+}
+
+################################################################################
+### felogin
+plugin.tx_felogin_pi1._CSS_DEFAULT_STYLE >
+
+################################################################################
+### rgtabs ... CSS for rgtabs was moved and edited in content.css
+plugin.tx_rgtabs_pi1.pathToCSS >
+
+################################################################################
+## perfectlightbox ... delete inclusion of CSS, because we put it in content.css 
+page.headerData.1337.1 >
+[globalVar = TSFE:id = 23]
+page.headerData.1337.99 = TEXT
+page.headerData.1337.99.value = <link rel="stylesheet" href="{$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}res/pin.txt" type="text/css" media="screen,projection" />
+[global]
+
+################################################################################
+### tt_news
+plugin.tt_news {
+  _CSS_DEFAULT_STYLE >
+  displayLatest.subheader_stdWrap.crop = 100 | ... | 1
+}
+
+################################################################################
+### indexedsearch
+plugin.tx_indexedsearch {
+  _CSS_DEFAULT_STYLE >
+  _DEFAULT_PI_VARS.results = 10
+  forwardSearchWordsInResultLink = 1
+  blind {
+    type=-1
+    defOp=0
+    sections=0
+    media=1
+    order=-1
+    group=-1
+    extResume=-1
+    lang=-1
+    desc=-1
+    results=0
+  }
+  show {
+    rules=0
+    parsetimes=1
+    L2sections=1
+    L1sections=1
+    LxALLtypes=0
+    clearSearchBox = 0
+    clearSearchBox.enableSubSearchCheckBox=0
+  }
+  search {
+    rootPidList =
+  }
+  templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}indexed_search/template_css.tmpl
+}
+
+################################################################################
+### tt_content
+tt_content.stdWrap.innerWrap.cObject {
+## redifinition of existing ones:
+#  1.value = <div class="frame01">|</div>
+#  5.value = <div class="frame05">|</div>
+#  6.value = <div class="frame06">|</div>
+#  10.value = <div class="frame10">|</div>
+#  11.value = <div class="frame11">|</div>
+#  12.value = <div class="frame12">|</div>
+#  20.value = <div class="frame20">|</div>
+#  21.value = <div class="frame21">|</div>
+## definition of own:
+  50 = TEXT
+  50.value = <div class="frame50">|</div>
+  51 = TEXT
+  51.value = <div class="frame51">|</div>
+  52 = TEXT
+  52.value = <div class="frame52">|</div>
+  53 = TEXT
+  53.value = <div class="frame53">|</div>
+}
+
+################################################################################
+###

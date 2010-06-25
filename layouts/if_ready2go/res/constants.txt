@@ -1,0 +1,272 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.0.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+########################################################################################
+### Begin of standard constants for current page layout -  Sprache english  ###
+########################################################################################
+
+######################################
+###             basics             ###
+######################################
+if_yaml.layoutHtmlName = c3_132.html
+if_yaml.layoutCssName = c3_132.css
+if_yaml.layoutPatchName = patch_c3_132.css
+if_yaml.conf.layoutStyle = c3
+#if_yaml.conf.switchMenuAndSideContent = 0
+if_yaml.conf.overrideCssFromTemplateHead = 0	
+if_yaml.conf.specialTypeSite = 0
+if_yaml.conf.specialTypeSiteWrap = <div class="page_margins"><div class="page"> | </div></div>
+
+######################################
+###          url-rewrite           ###
+######################################
+if_yaml.conf.url.simStatDocOn = 0
+if_yaml.conf.url.realUrlOn = 0
+if_yaml.conf.url.coolUriOn = 0
+if_yaml.conf.url.userBaseUrl = http://www.changeme.tld/
+
+######################################
+###       special-configuation     ###
+######################################
+if_yaml.conf.userAdmPanelOn = 0
+if_yaml.conf.userIndexingOn = 0
+if_yaml.conf.userIndexExternalsOn = 0
+if_yaml.conf.userIndexMetaTagsOn = 0
+if_yaml.conf.pngFixOn = 0
+
+######################################
+###            language            ###
+######################################
+if_yaml.lang.templateUsesLanguages = 1
+
+# it is good practise to tet the standardlanguage to "0" - but it will also work (not realy tested) if you use the language ID (in this case "2")
+if_yaml.lang.std.UID = 0
+if_yaml.lang.std.isoCode = en
+if_yaml.lang.std.locale = english
+#if_yaml.lang.std.locale = en_EN.utf8
+# you have to set the right locale !!!
+
+### Change message, if user did not fill out mandatory fields:
+styles.content.mailform.badMess = You must fill in these fields:
+[globalVar = GP:L = 1]
+styles.content.mailform.badMess = 
+[global]
+
+########################################################################################
+###                                  navigation                                      ###
+########################################################################################
+###      skiplink-navigation       ###
+######################################
+if_yaml.nav.skip.toNavID = nav
+if_yaml.lang.std.nav.skip.toNavText =  Jump to navigation (press enter)
+if_yaml.lang.std.nav.skip.toContentText = Jump to content (press enter)
+
+######################################
+###       topnav-navigation        ###
+######################################
+if_yaml.nav.top.switchOff = 0
+if_yaml.nav.top.wrap = <div id="topnav" role="navigation"> | </div>
+if_yaml.nav.top.includeList = 23,6,4
+
+######################################
+###      language-navigation       ###
+######################################
+if_yaml.nav.language.switchOff = 0
+
+######################################
+###      rootline-navigation       ###
+######################################
+if_yaml.nav.rootline.switchOff = 0
+if_yaml.nav.rootline.linkWrap = |&nbsp;/&nbsp; |*| |&nbsp;/&nbsp; |*| |
+if_yaml.lang.std.nav.rootline.clickPathPrefix = You are here:
+
+######################################
+###     selectorbox-navigation     ###
+######################################
+if_yaml.nav.selectorBox.switchOff = 1
+if_yaml.nav.selectorBox.showOnPage = TSFE:id=23
+if_yaml.nav.selectorBox.allWrap = |
+if_yaml.lang.std.nav.selectorBox.label = Last modified:
+
+######################################
+###         main-navigation        ###
+######################################
+if_yaml.nav.main.switchOff = 0
+if_yaml.nav.main.allWrap = <div id="nav" role="navigation"> | </div>
+
+if_yaml.nav.main.1st.tabNav.switchOff = 0
+if_yaml.nav.main.1st.tabNav.allWrap = <div id="nav_main" class="hlist">|</div>
+if_yaml.nav.main.1st.tabNav.entryLevel = 0
+if_yaml.nav.main.1st.tabNav.excludeList = 
+if_yaml.nav.main.1st.tabNav.linkWrap = <span>|</span>
+if_yaml.nav.main.1st.tabNav.ifsubLinkWrap = |
+if_yaml.nav.main.1st.tabNav.headerWrap = |
+
+if_yaml.nav.main.useSecondTabNav = 0
+if_yaml.nav.main.2nd.tabNav.allWrap = <div id="nav_main_2" class="hlist">|</div>
+if_yaml.nav.main.2nd.tabNav.entryLevel = 1
+if_yaml.nav.main.2nd.tabnav.excludeList =
+if_yaml.nav.main.2nd.tabnav.linkWrap = <span>|</span>
+if_yaml.nav.main.2nd.tabnav.ifsubLinkWrap = |
+if_yaml.nav.main.2nd.tabnav.headerWrap = |
+if_yaml.nav.main.2nd.useForJsMenu = 0
+
+######################################
+###         sub-navigation         ###
+######################################
+if_yaml.nav.sub.switchOff = 0
+if_yaml.nav.sub.allWrap = <div id="submenu" class="vlist" role="navigation">|</div>
+if_yaml.nav.sub.headlineOff = 0
+if_yaml.nav.sub.entryLevel = 1
+if_yaml.nav.sub.expandToggle = 1
+if_yaml.nav.sub.excludeList =
+if_yaml.nav.sub.headerWrap = <h6 class="vlist">|</h6>
+if_yaml.nav.sub.linkWrap = |
+if_yaml.nav.sub.ifsubLinkWrap = |
+
+######################################
+###        footer-navigation       ###
+######################################
+if_yaml.nav.footer.switchOff = 1
+if_yaml.nav.footer.wrap = <div id="footernav" role="navigation"> | </div>
+if_yaml.nav.footer.includeList =
+
+########################################################################################
+###                                    content                                       ###
+########################################################################################
+###              header            ###
+######################################
+if_yaml.content.header.switchOff = 0
+if_yaml.content.header.allWrap = <div id="header" role="banner"> | </div>
+
+######################################
+###        headerimage-1st         ###
+######################################
+if_yaml.content.header.image.1st.switchOff = 0
+if_yaml.content.header.image.1st.allWrap = <div id="logo">|</div>
+if_yaml.content.header.image.1st.overridePageResource = 1
+if_yaml.content.header.image.1st.overrideFile = logo.png
+if_yaml.content.header.image.1st.linkOn = 1
+if_yaml.content.header.image.1st.linkUID = 23
+
+######################################
+###        headerimage-2nd         ###
+######################################
+if_yaml.content.header.image.2nd.switchOff = 0
+if_yaml.content.header.image.2nd.allWrap = <div id="banner">|</div>
+if_yaml.content.header.image.2nd.overridePageResource = 1
+if_yaml.content.header.image.2nd.overrideFile = banner.jpg
+if_yaml.content.header.image.2nd.linkOn = 0
+if_yaml.content.header.image.2nd.linkUID = 23
+
+######################################
+###           searchbox            ###
+######################################
+if_yaml.content.searchbox.switchOff = 0
+if_yaml.content.searchbox.pagePID = 5
+if_yaml.lang.std.content.searchbox.tmplFile = searchbox/template_en.htm
+
+######################################
+###            Teaser              ###
+######################################
+if_yaml.content.teaser.switchOff = 0
+if_yaml.content.teaser.allWrap = <div id="teaser" class="clearfix" role="navigation">|</div>
+
+######################################
+###           dateAndTime          ###
+######################################
+if_yaml.content.dateAndTime.switchOff = 0
+if_yaml.lang.std.content.dateAndTime.format = %A, %Y-%m-%d
+
+######################################
+###         ttnewsDateFormat   
+if_yaml.lang.std.content.ttnews.listDateFormat = %A, %Y-%m-%d
+if_yaml.lang.std.content.ttnews.latestDateFormat = %Y-%m-%d
+if_yaml.lang.std.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+if_yaml.lang.std.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years 
+if_yaml.lang.std.content.ttnews.timeFormat = %H:%M
+if_yaml.lang.std.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+if_yaml.lang.std.content.ttnews.archivTitleFormat = %B - %Y
+
+######################################
+###    CSC stdHeader DateFormat    ###
+######################################
+if_yaml.lang.std.content.CSCstdheaderDateFormat = y/m/d
+
+######################################
+###           linkToTop            ###
+######################################
+if_yaml.lang.std.content.linkTextToTop = To top
+if_yaml.lang.std.content.linkImageToTop = images/icons/top.gif
+
+######################################
+###            extended            ###
+######################################
+if_yaml.content.extended.switchOff = 0
+if_yaml.content.extended.allWrap = <div id="extended" role="complementary"> | </div>
+
+######################################
+###              footer            ###
+######################################
+if_yaml.content.footer.switchOff = 0
+if_yaml.content.footer.allWrap = <div id="footer" role="contentinfo"> | </div>
+if_yaml.lang.std.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+
+
+
+################################################################################
+################################################################################
+### Change additional settings : extensions and standards
+################################################################################
+styles.content {
+  loginform.pid = 89
+}
+################################################################################
+plugin.tt_news {
+  pid_list = 27
+  singlePid = 8
+}
+################################################################################
+plugin.tx_dropdownsitemap_pi1 {
+  effectsEngine = mootools
+  picture.params = hspace="5" vspace="0" border="0"
+}
+################################################################################
+plugin.perfectlightbox {
+  libraryToUse = mootools
+}
+################################################################################
+plugin.tq_seo.metaTags {
+  copyright = mein Copyright
+  email =
+  author = Mein name
+  publisher =
+  language = {$if_yaml.lang.std.isoCode}
+  distribution =
+  rating =
+  revisit = 7
+  geoPositionLatitude =
+  geoPositionLongitude =
+  geoRegion =
+  geoPlacename =
+  picsLabel =
+  useLastUpdate = 1
+  useDetectLanguage = 1
+  useCanonical = 1
+  useExpire = 1
+  p3pCP =
+  p3pPolicyUrl =
+  linkGeneration = 1
+}
+plugin.tq_seo.metaTags.description =
+plugin.tq_seo.metaTags.keywords =
+plugin.tq_seo.metaTags.description.1st =
+plugin.tq_seo.metaTags.keywords.1st =
+
+################################################################################

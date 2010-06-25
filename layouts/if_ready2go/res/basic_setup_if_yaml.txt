@@ -1,0 +1,1666 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.1.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+#########################
+######### 100 ###########
+#########################
+
+################################################################################
+### site constants 
+constants {
+  IF_YAML_VERSION = 1.1.0
+}
+
+################################################################################
+### TYPO3 config array
+config {
+  linkVars = L(1-6)
+  uniqueLinkVars = 1
+  renderCharset = utf-8
+  metaCharset = utf-8
+  disableCharsetHeader = 0
+  enableContentLengthHeader = 1
+  sendCacheHeaders = 1
+  doctype = {$if_yaml.conf.docTypeToUse}
+#  xmlprologue = none
+  doctypeSwitch = {$if_yaml.conf.doctypesw_cond}
+  htmlTag_langKey = {$if_yaml.lang.std.isoCode}
+  htmlTag_dir = {$if_yaml.conf.userHtmlTagDir}
+  removeDefaultJS = external
+#  removeDefaultJS = 1
+  inlineStyle2TempFile = 1
+  debug = 0
+  sword_standAlone = 0
+  sword_noMixedCase = 0
+  intTarget = _self
+  extTarget = _blank
+#  spamProtectEmailAddresses = ascii
+  spamProtectEmailAddresses = 5
+  spamProtectEmailAddresses_atSubst = <span class="mailprotect">if20</span><span>&#064;</span>
+  spamProtectEmailAddresses_lastDotSubst = <span class="mailprotect">if20</span><span>&#046;</span>
+  noScaleUp = 1
+  no_cache = 0
+#  additionalHeaders = Content-Type:text/html;charset=utf-8
+  stat = {$if_yaml.conf.stat.switchOn}
+  stat_apache = {$if_yaml.conf.stat.apacheSetting}
+  stat_apache_logfile = {$if_yaml.conf.stat.apacheLogFile}
+  stat_mysql = {$if_yaml.conf.stat.mysqlSetting}
+#  stat_excludeBEuserHits =
+#  stat_excludeIPList =
+#  stat_apache_pagenames =
+#  stat_apache_notExtended =
+#  stat_apache_noHost =
+#  stat_titleLen =
+  content_from_pid_allowOutsideDomain = 1
+  noPageTitle = 0
+  pageTitleFirst = 1
+  headerComment (
+  developer template
+  based on: if20 YAML Templates for TYPO3 °.°.°http://if-20.com°.°.° copyright Ralf-Rene Schroeder - image[FORMAT]
+)
+  language = {$if_yaml.lang.std.isoCode}
+  sys_language_uid = {$if_yaml.lang.std.UID}
+  locale_all = {$if_yaml.lang.std.locale}
+  sys_language_mode = content_fallback
+  sys_language_overlay = hideNonTranslated
+  simulateStaticDocuments = 0
+  admPanel = {$if_yaml.conf.userAdmPanelOn}
+  index_enable = {$if_yaml.conf.userIndexingOn}
+  index_externals = {$if_yaml.conf.userIndexExternalsOn}
+  index_metatags = {$if_yaml.conf.userIndexMetaTagsOn}
+  xhtml_cleaning = {$if_yaml.conf.userXhtmlCleaning}
+  disablePrefixComment = {$if_yaml.conf.userDisablePrefComm}
+}
+
+################################################################################
+### If using simulateStaticDocuments
+[globalVar = LIT:1 = {$if_yaml.conf.url.simStatDocOn}]&&[globalVar = LIT:1 > {$if_yaml.conf.url.realUrlOn}]&&[globalVar = LIT:1 > {$if_yaml.conf.url.coolUriOn}]
+config {
+  simulateStaticDocuments = 1
+  simulateStaticDocuments_addTitle = {$if_yaml.conf.url.simStatDocAddTitle}
+  simulateStaticDocuments_pEnc = {$if_yaml.conf.url.simStatDocPenc}
+  simulateStaticDocuments_pEnc_onlyP = {$if_yaml.conf.url.simStatDocPencOnlyP}
+}
+[global]
+
+################################################################
+### If using realURL
+[globalVar = LIT:1 = {$if_yaml.conf.url.realUrlOn}]
+config {
+  baseURL = {$if_yaml.conf.url.userBaseUrl}
+  tx_realurl_enable = 1
+  prefixLocalAnchors = {$if_yaml.conf.url.userPrefixLocalAnchors}
+}
+[global]
+
+################################################################
+### If using cooluri
+[globalVar = LIT:1 = {$if_yaml.conf.url.coolUriOn}]
+config {
+  baseURL = {$if_yaml.conf.url.userBaseUrl}
+  tx_cooluri_enable = 1
+  redirectOldLinksToNew = 1
+  prefixLocalAnchors = {$if_yaml.conf.url.userPrefixLocalAnchors}
+}
+[global]
+
+################################################################
+### Language-specific settings
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+config.sys_language_uid = {$if_yaml.lang.1st.UID}
+config.language = {$if_yaml.lang.1st.isoCode}
+config.locale_all = {$if_yaml.lang.1st.locale}
+config.htmlTag_langKey = {$if_yaml.lang.1st.isoCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+config.sys_language_uid = {$if_yaml.lang.2nd.UID}
+config.language = {$if_yaml.lang.2nd.isoCode}
+config.locale_all = {$if_yaml.lang.2nd.locale}
+config.htmlTag_langKey = {$if_yaml.lang.2nd.isoCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+config.sys_language_uid = {$if_yaml.lang.3rd.UID}
+config.language = {$if_yaml.lang.3rd.isoCode}
+config.locale_all = {$if_yaml.lang.3rd.locale}
+config.htmlTag_langKey = {$if_yaml.lang.3rd.isoCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+config.sys_language_uid = {$if_yaml.lang.4th.UID}
+config.language = {$if_yaml.lang.4th.isoCode}
+config.locale_all = {$if_yaml.lang.4th.locale}
+config.htmlTag_langKey = {$if_yaml.lang.4th.isoCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+config.sys_language_uid = {$if_yaml.lang.5th.UID}
+config.language = {$if_yaml.lang.5th.isoCode}
+config.locale_all = {$if_yaml.lang.5th.locale}
+config.htmlTag_langKey = {$if_yaml.lang.5th.isoCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+config.sys_language_uid = {$if_yaml.lang.6th.UID}
+config.language = {$if_yaml.lang.6th.isoCode}
+config.locale_all = {$if_yaml.lang.6th.locale}
+config.htmlTag_langKey = {$if_yaml.lang.6th.isoCode}
+[global]
+
+
+#########################
+######### 200 ###########
+#########################
+
+################################################################################
+## temp.buildHeaderData
+
+################################################################################
+###  manual setting of css files
+[globalVar = LIT:manCSS = {$if_yaml.conf.overrideCssFromTemplateHead}]
+temp.buildHeaderData {
+  11 = COA
+  11 {
+    10 = TEXT
+    10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutCssDir}{$if_yaml.layoutCssName}
+    10.wrap = <link href="|" rel="stylesheet" type="text/css" />
+    20 = TEXT
+    20.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutPatchDir}{$if_yaml.layoutPatchName}
+    20.wrap = <link href="|" rel="stylesheet" type="text/css" />
+    20.outerWrap =  <!--[if lte IE 7]> | <![endif]-->
+  }
+}
+[global]
+
+################################################################################
+### JavaScript Filler-Link, if user switched on feature
+[globalVar = LIT:1 = {$if_yaml.conf.devFillerLinkOn}]
+temp.buildHeaderData {
+  111 = TEXT
+  111.value = <script type="text/javascript" src="{$if_yaml.templatesDir}scripts/ftod.js"></script>
+  112 = TEXT
+  112.value = <script type="text/javascript">window.onload=function(){AddFillerLink("col1_content","col2_content","col3_content","extended_content");}</script>
+}
+[global]
+
+################################################################################
+### PNGfix will be done later
+[globalVar = LIT:1 = {$if_yaml.conf.pngFixOn}]
+temp.buildHeaderData {
+#  120 = TEXT
+#  120.value = <!--[if lte IE 7]>
+
+#  130 = TEXT
+#  130.value = <![endif]-->   
+}
+[global]
+
+page = PAGE
+page.headerData < temp.buildHeaderData
+
+
+#########################
+######### 300 ###########
+#########################
+
+plugin.tx_felogin_pi1.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.content.felogin.template}
+
+################################################################################
+### dropdown sitemap  (there was a wrongtyping "linkText" and "excludeDoktypes")
+plugin.tx_dropdownsitemap_pi1 {
+  excludeDoktypes = {$plugin.tx_dropdownsitemap_pi1.excludeDoktypes}
+  linkText = {$plugin.tx_dropdownsitemap_pi1.linkText}
+  linkTest = {$plugin.tx_dropdownsitemap_pi1.linkText}
+}
+
+################################################################################
+### apimacmade (there was a wrongtyping "hasWebToolKit <> hasWebToolkit")
+plugin.tx_apimacmade_pi1 {
+  hasWebToolkit { 
+    base64 = {$plugin.tx_apimacmade_pi1.hasWebToolKit.base64}
+    crc32 = {$plugin.tx_apimacmade_pi1.hasWebToolKit.crc32}
+    md5 = {$plugin.tx_apimacmade_pi1.hasWebToolKit.md5}
+    sha1 = {$plugin.tx_apimacmade_pi1.hasWebToolKit.sha1}
+    sha256 = {$plugin.tx_apimacmade_pi1.hasWebToolKit.sha256}
+    url = {$plugin.tx_apimacmade_pi1.hasWebToolKit.url}
+    utf8 = {$plugin.tx_apimacmade_pi1.hasWebToolKit.utf8}
+  }
+}
+
+################################################################################
+## tq_seo metatags
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.std.isoCode}
+plugin.tq_seo.metaTags.description = {$plugin.tq_seo.metaTags.description}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords}
+
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.1st.isoCode}
+plugin.tq_seo.metaTags.description = {$plugin.tq_seo.metaTags.description.1st}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.1st}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.2nd.isoCode}
+plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.2nd}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.2nd}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.3rd.isoCode}
+plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.3rd}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.3rd}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.4th.isoCode}
+plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.4th}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.4th}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.5th.isoCode}
+plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.5th}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.5th}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+plugin.tq_seo.metaTags.language = {$if_yaml.lang.6th.isoCode}
+plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.6th}
+plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.6th}
+[global]
+config.titleTagFunction = user_tqseo_pagetitle->main
+page {
+  headerData.84113002 = USER
+  headerData.84113002 {
+    userFunc = user_tqseo_metatags->main
+  }   
+  headerData.84113003 = USER_INT
+  headerData.84113003 {
+    userFunc = user_tqseo_http->main
+  } 
+  84113002 = USER
+  84113002 {
+    userFunc = user_tqseo_pagefooter->main
+  }
+}
+
+################################################################################
+### tt_news
+plugin.tt_news {
+  usePagesRelations = 1
+  usePiBasePagebrowser = 1
+  excludeAlreadyDisplayedNews = 0
+  dontUseBackPid = 0
+  archiveTitleCObject {
+    10.strftime = {$if_yaml.lang.std.content.ttnews.archivTitleFormat}
+  }
+  getRelatedCObject {
+    10.1.20.strftime = {$if_yaml.lang.std.content.ttnews.fullDateTimeFormat}
+    10.2.20.strftime = {$if_yaml.lang.std.content.ttnews.fullDateTimeFormat}
+    10.default.20.strftime = {$if_yaml.lang.std.content.ttnews.fullDateTimeFormat}
+  }
+  displaySingle {
+    date_stdWrap.strftime= {$if_yaml.lang.std.content.ttnews.singleDateFormat}
+    time_stdWrap.strftime= {$if_yaml.lang.std.content.ttnews.timeFormat}
+    age_stdWrap.age = {$if_yaml.lang.std.content.ttnews.singleAgeWrap}
+  }
+  displayLatest {
+    date_stdWrap.strftime= {$if_yaml.lang.std.content.ttnews.latestDateFormat}
+    time_stdWrap.strftime= {$if_yaml.lang.std.content.ttnews.timeFormat}
+    subheader_stdWrap.crop = 100 | ... | 1
+  }
+  displayList {
+    date_stdWrap.strftime= {$if_yaml.lang.std.content.ttnews.listDateFormat}
+    time_stdWrap.strftime= {$if_yaml.lang.std.content.ttnews.timeFormat}
+  }
+  catOrderBy = title
+  displayCatMenu {
+    catmenuRootIconFile = EXT:tt_news/res/tt_news_cat.gif
+    catmenuNoRootIcon = 0
+    catmenuIconMode = -1
+  }
+  pageBrowser {
+    dontLinkActivePage = 1
+    maxPages = 10
+    showRange = 0
+    showPBrowserText = 1
+    showResultCount = 0
+    showFirstLast = 0
+  }
+}
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+plugin.tt_news.archiveTitleCObject.10.strftime = {$if_yaml.lang.1st.content.ttnews.archivTitleFormat}
+plugin.tt_news.getRelatedCObject.10.1.20.strftime = {$if_yaml.lang.1st.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.2.20.strftime = {$if_yaml.lang.1st.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.default.20.strftime = {$if_yaml.lang.1st.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.displaySingle.date_stdWrap.strftime= {$if_yaml.lang.1st.content.ttnews.singleDateFormat}
+plugin.tt_news.displaySingle.time_stdWrap.strftime= {$if_yaml.lang.1st.content.ttnews.timeFormat}
+plugin.tt_news.displaySingle.age_stdWrap.age = {$if_yaml.lang.1st.content.ttnews.singleAgeWrap}
+plugin.tt_news.displayLatest.date_stdWrap.strftime= {$if_yaml.lang.1st.content.ttnews.latestDateFormat}
+plugin.tt_news.displayLatest.time_stdWrap.strftime= {$if_yaml.lang.1st.content.ttnews.timeFormat}
+plugin.tt_news.displayList.date_stdWrap.strftime= {$if_yaml.lang.1st.content.ttnews.listDateFormat}
+plugin.tt_news.displayList.time_stdWrap.strftime= {$if_yaml.lang.1st.content.ttnews.timeFormat}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+plugin.tt_news.archiveTitleCObject.10.strftime = {$if_yaml.lang.2nd.content.ttnews.archivTitleFormat}
+plugin.tt_news.getRelatedCObject.10.1.20.strftime = {$if_yaml.lang.2nd.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.2.20.strftime = {$if_yaml.lang.2nd.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.default.20.strftime = {$if_yaml.lang.2nd.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.displaySingle.date_stdWrap.strftime= {$if_yaml.lang.2nd.content.ttnews.singleDateFormat}
+plugin.tt_news.displaySingle.time_stdWrap.strftime= {$if_yaml.lang.2nd.content.ttnews.timeFormat}
+plugin.tt_news.displaySingle.age_stdWrap.age = {$if_yaml.lang.2nd.content.ttnews.singleAgeWrap}
+plugin.tt_news.displayLatest.date_stdWrap.strftime= {$if_yaml.lang.2nd.content.ttnews.latestDateFormat}
+plugin.tt_news.displayLatest.time_stdWrap.strftime= {$if_yaml.lang.2nd.content.ttnews.timeFormat}
+plugin.tt_news.displayList.date_stdWrap.strftime= {$if_yaml.lang.2nd.content.ttnews.listDateFormat}
+plugin.tt_news.displayList.time_stdWrap.strftime= {$if_yaml.lang.2nd.content.ttnews.timeFormat}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+plugin.tt_news.archiveTitleCObject.10.strftime = {$if_yaml.lang.3rd.content.ttnews.archivTitleFormat}
+plugin.tt_news.getRelatedCObject.10.1.20.strftime = {$if_yaml.lang.3rd.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.2.20.strftime = {$if_yaml.lang.3rd.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.default.20.strftime = {$if_yaml.lang.3rd.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.displaySingle.date_stdWrap.strftime= {$if_yaml.lang.3rd.content.ttnews.singleDateFormat}
+plugin.tt_news.displaySingle.time_stdWrap.strftime= {$if_yaml.lang.3rd.content.ttnews.timeFormat}
+plugin.tt_news.displaySingle.age_stdWrap.age = {$if_yaml.lang.3rd.content.ttnews.singleAgeWrap}
+plugin.tt_news.displayLatest.date_stdWrap.strftime= {$if_yaml.lang.3rd.content.ttnews.latestDateFormat}
+plugin.tt_news.displayLatest.time_stdWrap.strftime= {$if_yaml.lang.3rd.content.ttnews.timeFormat}
+plugin.tt_news.displayList.date_stdWrap.strftime= {$if_yaml.lang.3rd.content.ttnews.listDateFormat}
+plugin.tt_news.displayList.time_stdWrap.strftime= {$if_yaml.lang.3rd.content.ttnews.timeFormat}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+plugin.tt_news.archiveTitleCObject.10.strftime = {$if_yaml.lang.4th.content.ttnews.archivTitleFormat}
+plugin.tt_news.getRelatedCObject.10.1.20.strftime = {$if_yaml.lang.4th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.2.20.strftime = {$if_yaml.lang.4th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.default.20.strftime = {$if_yaml.lang.4th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.displaySingle.date_stdWrap.strftime= {$if_yaml.lang.4th.content.ttnews.singleDateFormat}
+plugin.tt_news.displaySingle.time_stdWrap.strftime= {$if_yaml.lang.4th.content.ttnews.timeFormat}
+plugin.tt_news.displaySingle.age_stdWrap.age = {$if_yaml.lang.4th.content.ttnews.singleAgeWrap}
+plugin.tt_news.displayLatest.date_stdWrap.strftime= {$if_yaml.lang.4th.content.ttnews.latestDateFormat}
+plugin.tt_news.displayLatest.time_stdWrap.strftime= {$if_yaml.lang.4th.content.ttnews.timeFormat}
+plugin.tt_news.displayList.date_stdWrap.strftime= {$if_yaml.lang.4th.content.ttnews.listDateFormat}
+plugin.tt_news.displayList.time_stdWrap.strftime= {$if_yaml.lang.4th.content.ttnews.timeFormat}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+plugin.tt_news.archiveTitleCObject.10.strftime = {$if_yaml.lang.5th.content.ttnews.archivTitleFormat}
+plugin.tt_news.getRelatedCObject.10.1.20.strftime = {$if_yaml.lang.5th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.2.20.strftime = {$if_yaml.lang.5th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.default.20.strftime = {$if_yaml.lang.5th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.displaySingle.date_stdWrap.strftime= {$if_yaml.lang.5th.content.ttnews.singleDateFormat}
+plugin.tt_news.displaySingle.time_stdWrap.strftime= {$if_yaml.lang.5th.content.ttnews.timeFormat}
+plugin.tt_news.displaySingle.age_stdWrap.age = {$if_yaml.lang.5th.content.ttnews.singleAgeWrap}
+plugin.tt_news.displayLatest.date_stdWrap.strftime= {$if_yaml.lang.5th.content.ttnews.latestDateFormat}
+plugin.tt_news.displayLatest.time_stdWrap.strftime= {$if_yaml.lang.5th.content.ttnews.timeFormat}
+plugin.tt_news.displayList.date_stdWrap.strftime= {$if_yaml.lang.5th.content.ttnews.listDateFormat}
+plugin.tt_news.displayList.time_stdWrap.strftime= {$if_yaml.lang.5th.content.ttnews.timeFormat}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+plugin.tt_news.archiveTitleCObject.10.strftime = {$if_yaml.lang.6th.content.ttnews.archivTitleFormat}
+plugin.tt_news.getRelatedCObject.10.1.20.strftime = {$if_yaml.lang.6th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.2.20.strftime = {$if_yaml.lang.6th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.getRelatedCObject.10.default.20.strftime = {$if_yaml.lang.6th.content.ttnews.fullDateTimeFormat}
+plugin.tt_news.displaySingle.date_stdWrap.strftime= {$if_yaml.lang.6th.content.ttnews.singleDateFormat}
+plugin.tt_news.displaySingle.time_stdWrap.strftime= {$if_yaml.lang.6th.content.ttnews.timeFormat}
+plugin.tt_news.displaySingle.age_stdWrap.age = {$if_yaml.lang.6th.content.ttnews.singleAgeWrap}
+plugin.tt_news.displayLatest.date_stdWrap.strftime= {$if_yaml.lang.6th.content.ttnews.latestDateFormat}
+plugin.tt_news.displayLatest.time_stdWrap.strftime= {$if_yaml.lang.6th.content.ttnews.timeFormat}
+plugin.tt_news.displayList.date_stdWrap.strftime= {$if_yaml.lang.6th.content.ttnews.listDateFormat}
+plugin.tt_news.displayList.time_stdWrap.strftime= {$if_yaml.lang.6th.content.ttnews.timeFormat}
+[global]
+
+#########################
+######### 600 ###########
+#########################
+ 
+################################################################################
+### lib.modul.skiplinks (in the DS the fields toContentID and toNavID must be set)
+lib.modul.skiplinks = COA
+lib.modul.skiplinks {
+  wrap = <ul id="skiplinks">|</ul>
+  stdWrap.prefixComment = 2|Output of lib.modul.skiplinks
+  10 = COA
+  10 {
+    12 = TEXT
+    12.value = {$if_yaml.nav.skip.toNavID}
+    12.wrap =  <li><a class="skip" href="#|">{$if_yaml.lang.std.nav.skip.toNavText}</a></li>
+    22 = TEXT
+    22.value = content
+    22.wrap =  <li><a class="skip" href="#|">{$if_yaml.lang.std.nav.skip.toContentText}</a></li>
+  }
+}
+### c1_Layout
+[globalVar = LIT:c1 = {$if_yaml.conf.layoutStyle}]
+lib.modul.skiplinks.10.22.value = col1
+[global]
+### c2_Layout
+[globalVar = LIT:c2 = {$if_yaml.conf.layoutStyle}]
+lib.modul.skiplinks.10.22.value = col2
+[global]
+### c3_Layout
+[globalVar = LIT:c3 = {$if_yaml.conf.layoutStyle}]
+lib.modul.skiplinks.10.22.value = col3
+[global]
+### Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.modul.skiplinks.10.14.value = {$if_yaml.lang.1st.nav.skip.toNavText}
+lib.modul.skiplinks.10.24.value = {$if_yaml.lang.1st.nav.skip.toContentText}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.modul.skiplinks.10.14.value = {$if_yaml.lang.2nd.nav.skip.toNavText}
+lib.modul.skiplinks.10.24.value = {$if_yaml.lang.2nd.nav.skip.toContentText}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.modul.skiplinks.10.14.value = {$if_yaml.lang.3rd.nav.skip.toNavText}
+lib.modul.skiplinks.10.24.value = {$if_yaml.lang.3rd.nav.skip.toContentText}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.modul.skiplinks.10.14.value = {$if_yaml.lang.4th.nav.skip.toNavText}
+lib.modul.skiplinks.10.24.value = {$if_yaml.lang.4th.nav.skip.toContentText}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.modul.skiplinks.10.14.value = {$if_yaml.lang.5th.nav.skip.toNavText}
+lib.modul.skiplinks.10.24.value = {$if_yaml.lang.5th.nav.skip.toContentText}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.modul.skiplinks.10.14.value = {$if_yaml.lang.6th.nav.skip.toNavText}
+lib.modul.skiplinks.10.24.value = {$if_yaml.lang.6th.nav.skip.toContentText}
+[global]
+
+################################################################################
+### lib.modul.searchbox
+lib.modul.searchbox = COA
+lib.modul.searchbox {
+  stdWrap.prefixComment = 2|Output of lib.modul.searchbox
+  wrap = {$if_yaml.content.searchbox.allWrap}
+  10 =< plugin.tx_macinasearchbox_pi1
+  10.pidSearchpage = {$if_yaml.content.searchbox.pagePID}
+  10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.std.content.searchbox.tmplFile}
+}
+
+### Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.modul.searchbox.10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.1st.content.searchbox.tmplFile}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.modul.searchbox.10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.2nd.content.searchbox.tmplFile}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.modul.searchbox.10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.3rd.content.searchbox.tmplFile}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.modul.searchbox.10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.4th.content.searchbox.tmplFile}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.modul.searchbox.10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.5th.content.searchbox.tmplFile}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.modul.searchbox.10.templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.lang.6th.content.searchbox.tmplFile}
+[global]
+### Delete lib.searchbox if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.content.searchbox.switchOff}]
+lib.modul.searchbox >
+[global]
+
+################################################################################
+### lib.modul.nav_top
+lib.modul.nav_top = COA
+lib.modul.nav_top  {
+  stdWrap.prefixComment = 2|Output of lib.modul.nav.top
+  wrap = {$if_yaml.nav.top.wrap}
+  20 = HMENU
+  20 {
+    special = list
+    special.value = {$if_yaml.nav.top.includeList}
+    1 = TMENU
+    1 {
+      noBlur = 1
+      wrap = |
+      IProcFunc = user_cronaccessiblemenus->makeAccessible
+      IProcFunc {
+        accessKeys = 1
+        accessKeys.noAutoGenerated = 0
+        forbiddenKeys =
+        accessKeyWrap = <span class="accessKey"> | </span>
+        appendWrap = <span class="showAccessKey">&nbsp;(ALT- | )</span>
+        dfn = 0
+      }
+      NO = 1
+      NO.ATagTitle.field = abstract // description // subtitle
+      NO.linkWrap = |&nbsp;&#124;&nbsp; |*| |&nbsp;&#124;&nbsp; |*| |
+      NO.allWrap = |
+      NO.stdWrap.htmlSpecialChars = 1
+      CUR < .NO
+      CUR = 1
+      CUR.allWrap = |&nbsp;&#124;&nbsp; |*| |&nbsp;&#124;&nbsp; |*| |
+      CUR.linkWrap = <strong>|</strong>
+      CUR.doNotLinkIt = 1
+      CUR.stdWrap.htmlSpecialChars = 1
+    }
+  }
+}
+
+### Delete lib.modul.nav_top if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.top.switchOff}]
+lib.modul.nav_top >
+[global]
+
+################################################################################
+### lib.modul.header_image_1st
+### First image in header id="logo"
+lib.modul.header_image_1st = COA
+lib.modul.header_image_1st {
+  10 = IMG_RESOURCE
+  10 {
+    file = IMAGE
+    file {
+      import {
+        required = 1
+        data = levelmedia: -1, slide
+        wrap = uploads/media/ |
+        listNum = 0
+      }
+    }
+  }
+}
+### Variant: manual file override
+[globalVar = LIT:1 = {$if_yaml.content.header.image.1st.override}]
+lib.modul.header_image_1st.10 = TEXT
+lib.modul.header_image_1st.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}images/{$if_yaml.content.header.image.1st.overrideFile}
+[global]
+
+lib.modul.header_image_1st.stdWrap.prefixComment = 2|Output of lib.modul.header_image_1st
+lib.modul.header_image_1st.stdWrap.outerWrap.cObject = COA
+lib.modul.header_image_1st.stdWrap.outerWrap.cObject {
+  wrap = {$if_yaml.content.header.image.1st.allWrap}
+  10 = TEXT
+  10.value = <img class="headImg1" src="|"
+  20 = TEXT
+  20.value = alt="
+  30 = TEXT
+  30.data = page:title
+  40 = TEXT
+  40.value = "
+  50 = TEXT
+  50.value = title="
+  60 = TEXT
+  60.data = page:title
+  70 = TEXT
+  70.value = " />
+}
+### Variant: User has chosen to link it with homepage
+[globalVar = LIT:1 = {$if_yaml.content.header.image.1st.linkOn}]
+lib.modul.header_image_1st.stdWrap.outerWrap.cObject {
+  10 = TEXT
+  10.value = <img class="headImg1" src="|" alt="" title="Home" />
+  10.typolink.parameter = {$if_yaml.content.header.image.1st.linkUID}
+  10.typolink.target =
+  20 >
+  30 >
+  40 >
+  50 >
+  60 >
+  70 >
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.header.image.1st.switchOff}]
+lib.modul.header_image_1st >
+[global]
+
+################################################################################
+### lib.modul.header_image_2nd
+### second image in header id="banner"
+lib.modul.header_image_2nd = COA
+lib.modul.header_image_2nd {
+  10 = IMG_RESOURCE
+  10 {
+    file = IMAGE
+    file {
+      import {
+        required = 1
+        data = levelmedia: -1, slide
+        wrap = uploads/media/ |
+        listNum = 1
+      }
+    }
+  }
+}
+### Variant: manual file override
+[globalVar = LIT:1 = {$if_yaml.content.header.image.2nd.override}]
+lib.modul.header_image_2nd.10 = TEXT
+lib.modul.header_image_2nd.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}images/{$if_yaml.content.header.image.2nd.overrideFile}
+[global]
+
+lib.modul.header_image_2nd.stdWrap.prefixComment = 2|Output of lib.modul.header_image_2nd
+lib.modul.header_image_2nd.stdWrap.outerWrap.cObject = COA
+lib.modul.header_image_2nd.stdWrap.outerWrap.cObject {
+    wrap = {$if_yaml.content.header.image.2nd.allWrap}
+    10 = TEXT
+    10.value = <img class="headImg2" src="|"
+    20 = TEXT
+    20.value = alt="
+    30 = TEXT
+    30.data = page:title
+    40 = TEXT
+    40.value = "
+    50 = TEXT
+    50.value = title="
+    60 = TEXT
+    60.data = page:title
+    70 = TEXT
+    70.value = " />
+}
+### Variant: User has chosen to link it
+[globalVar = LIT:1 = {$if_yaml.content.header.image.2nd.linkOn}]
+lib.modul.header_image_2nd.stdWrap.outerWrap.cObject {
+    10 = TEXT
+    10.value = <img class="headImg2" src="|" alt="" title="Home" />
+    10.typolink.parameter = {$if_yaml.content.header.image.2nd.linkUID}
+    10.typolink.target =
+    20 >
+    30 >
+    40 >
+    50 >
+    60 >
+    70 >
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.header.image.2nd.switchOff}]
+lib.modul.header_image_2nd >
+[global]
+
+################################################################################
+### lib.modul.nav_main (Button Navigation unter dem Header)
+lib.modul.nav_main = HMENU
+lib.modul.nav_main {
+  stdWrap.prefixComment = 2|Output of lib.modul.nav_main
+  wrap = {$if_yaml.nav.main.1st.tabNav.allWrap}
+  entryLevel = {$if_yaml.nav.main.1st.tabNav.entryLevel}
+  excludeUidList = {$if_yaml.nav.main.1st.tabNav.excludeList}
+  1 = TMENU
+  1 {
+    noBlur = 1
+    wrap = <ul>|</ul>
+    IProcFunc = user_cronaccessiblemenus->makeAccessible
+    IProcFunc {
+      accessKeys = 1
+      accessKeys.noAutoGenerated = 0
+      forbiddenKeys =
+      accessKeyWrap = <span class="accessKey"> | </span>
+      appendWrap = <span class="showAccessKey">&nbsp;(ALT- | )</span>
+      dfn = 0
+    }
+    NO = 1
+    NO.subst_elementUid = 1
+    NO.ATagTitle.field = abstract // description // subtitle
+    NO.allWrap = <li class="menuid-{elementUid}">|</li>
+    NO.linkWrap = {$if_yaml.nav.main.1st.tabNav.linkWrap}
+    NO.ATagBeforeWrap = 1
+    NO.stdWrap.htmlSpecialChars = 1
+    ACT = 1
+    ACT < .NO
+    ACT.allWrap = <li class="menuid-{elementUid} active">|</li>
+    CUR = 1
+    CUR< .NO
+    CUR.allWrap = <li class="menuid-{elementUid} current" id="current">|</li>
+    CUR.linkWrap = <strong>{$if_yaml.nav.main.1st.tabNav.linkWrap}</strong>
+    CUR.doNotLinkIt = 1
+  }
+}
+
+################################################################################
+### lib.modul.nav_main_2
+### zweite Navigationszeile (oder alternativ fuer JS dropdown)
+[globalVar = LIT:1 = {$if_yaml.nav.main.useSecondTabNav}]
+lib.modul.nav_main_2 = HMENU
+lib.modul.nav_main_2 {
+  stdWrap.prefixComment = 2|Output of lib.modul.nav_main_2
+  wrap = {$if_yaml.nav.main.2nd.tabNav.allWrap}
+  entryLevel = {$if_yaml.nav.main.2nd.tabNav.entryLevel}
+  excludeUidList = {$if_yaml.nav.main.2nd.tabNav.excludeList}
+  1 = TMENU
+  1 {
+    noBlur = 1
+    wrap = <ul>|</ul>
+    IProcFunc = user_cronaccessiblemenus->makeAccessible
+    IProcFunc {
+      accessKeys = 1
+      accessKeys.noAutoGenerated = 0
+      forbiddenKeys =
+      accessKeyWrap = <span class="accessKey"> | </span>
+      appendWrap = <span class="showAccessKey">&nbsp;(ALT- | )</span>
+      dfn = 0
+    }
+    NO = 1
+    NO.subst_elementUid = 1
+    NO.ATagTitle.field = abstract // description // subtitle
+    NO.allWrap = <li class="menuid-{elementUid}">|</li>
+    NO.linkWrap = {$if_yaml.nav.main.2nd.tabNav.linkWrap}
+    NO.ATagBeforeWrap = 1
+    NO.stdWrap.htmlSpecialChars = 1
+    ACT = 1
+    ACT < .NO
+    ACT.allWrap = <li class="menuid-{elementUid} active">|</li>
+    CUR = 1
+    CUR< .NO
+    CUR.allWrap = <li class="menuid-{elementUid} current" id="current">|</li>
+    CUR.linkWrap = <strong>{$if_yaml.nav.main.2nd.tabNav.linkWrap}</strong>
+    CUR.doNotLinkIt = 1
+  }
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.nav.main.2nd.useForJsMenu}]
+lib.modul.nav_main_2 {
+  1.expAll = 1
+  2 < .1
+  3 < .1
+  4 < .1
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.nav.main.1st.tabNav.switchOff}]
+lib.modul.nav_main >
+### Modify the skiplink to submenu instead!!!
+lib.skiplinks.10.12 = TEXT
+lib.skiplinks.10.12.value = submenu
+### until now it is hardcoded
+[global]
+[globalVar = LIT:1 = {$if_yaml.nav.main.useSecondTabNav}]
+### Modify the skiplink back to nav when second tabnav is used!!!
+lib.skiplinks.10.12 = TEXT
+lib.skiplinks.10.12.value = {$if_yaml.nav.skip.toNavID}
+[global]
+
+################################################################################
+### lib.modul.nav_rootline
+lib.modul.nav_rootline = COA
+lib.modul.nav_rootline {
+  stdWrap.prefixComment = 2|Output of lib.modul.nav_rootline
+  wrap = <div class="rootline">|</div>
+  10 = TEXT
+  10.value = {$if_yaml.lang.std.nav.rootline.clickPathPrefix}
+  10.noTrimWrap = || |
+  20 = HMENU
+  20 {
+    special = rootline
+    special.range = 1|-1
+    1 = TMENU
+    1 {
+      allWrap = |
+      noBlur = 1
+      NO.linkWrap = {$if_yaml.nav.rootline.linkWrap}
+      NO.doNotLinkIt = 0 |*| 0 |*| 1
+      NO.ATagTitle.field = abstract // description // subtitle
+      NO.stdWrap.htmlSpecialChars = 1
+    }
+  }
+}
+
+### Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.modul.nav_rootline.10.value = {$if_yaml.lang.1st.nav.rootline.clickPathPrefix}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.modul.nav_rootline.10.value = {$if_yaml.lang.2nd.nav.rootline.clickPathPrefix}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.modul.nav_rootline.10.value= {$if_yaml.lang.3rd.nav.rootline.clickPathPrefix}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.modul.nav_rootline.10.value = {$if_yaml.lang.4th.nav.rootline.clickPathPrefix}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.modul.nav_rootline.10.value = {$if_yaml.lang.5th.nav.rootline.clickPathPrefix}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.modul.nav_rootline.10.value = {$if_yaml.lang.6th.nav.rootline.clickPathPrefix}
+[global]
+### Delete lib.modul.nav_rootline if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.rootline.switchOff}]
+lib.modul.nav_rootline >
+[global]
+
+################################################################################
+### lib.modul.nav_language
+lib.modul.nav_language = COA
+lib.modul.nav_language {
+  stdWrap.prefixComment = 2|Output of lib.modul.nav_language
+  wrap = <div class="langMenu">|</div>
+  10 =< plugin.tx_srlanguagemenu_pi1
+}
+
+### Delete lib.modul.nav_language if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.language.switchOff}]
+lib.modul.nav_language >
+[global]
+
+################################################################################
+### lib.modul.datetime
+lib.modul.datetime = COA
+lib.modul.datetime {
+  stdWrap.prefixComment = 2|Output of lib.modul.datetime
+  wrap = <div class="aktDatum">|</div>
+  10 = TEXT
+  10 {
+    data = date:U
+    strftime = {$if_yaml.lang.std.content.dateAndTime.format}
+  }
+}
+
+### Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.modul.datetime.10.strftime = {$if_yaml.lang.1st.content.dateAndTime.format}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.modul.datetime.10.strftime = {$if_yaml.lang.2nd.content.dateAndTime.format}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.modul.datetime.10.strftime = {$if_yaml.lang.3rd.content.dateAndTime.format}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.modul.datetime.10.strftime = {$if_yaml.lang.4th.content.dateAndTime.format}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.modul.datetime.10.strftime = {$if_yaml.lang.5th.content.dateAndTime.format}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.modul.datetime.10.strftime = {$if_yaml.lang.6th.content.dateAndTime.format}
+[global]
+### Delete lib.datetime if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.content.dateAndTime.switchOff}]
+lib.modul.datetime >
+[global]
+
+################################################################################
+### lib.modul.selectorBox
+lib.modul.selectorBox = HMENU
+lib.modul.selectorBox {
+  stdWrap.prefixComment = 2|Output of lib.modul.selectorBox
+}
+
+### show on desired pages
+[globalVar = {$if_yaml.nav.selectorBox.showOnPage}]
+lib.modul.selectorBox {
+  wrap = {$if_yaml.nav.selectorBox.allWrap}
+  special = updated
+  special.value = 1
+  special.maxAge = 3600*24*7
+  limit = 10
+  1 = JSMENU
+  1.target = _top
+  1.firstLabelGeneral = {$if_yaml.lang.std.nav.selectorBox.label}
+}
+[global]
+### Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.modul.selectorBox.1.firstLabelGeneral = {$if_yaml.lang.1st.nav.selectorBox.label}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.modul.selectorBox.1.firstLabelGeneral = {$if_yaml.lang.2nd.nav.selectorBox.label}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.modul.selectorBox.1.firstLabelGeneral = {$if_yaml.lang.3rd.nav.selectorBox.label}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.modul.selectorBox.1.firstLabelGeneral = {$if_yaml.lang.4th.nav.selectorBox.label}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.modul.selectorBox.1.firstLabelGeneral = {$if_yaml.lang.5th.nav.selectorBox.label}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.modul.selectorBox.1.firstLabelGeneral = {$if_yaml.lang.6th.nav.selectorBox.label}
+[global]
+### Delete lib.modul.selectorbox if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.selectorBox.switchOff}]
+lib.modul.selectorBox >
+[global]
+
+################################################################################
+### lib.modul.submenu
+lib.modul.submenu = COA
+lib.modul.submenu {
+  stdWrap.prefixComment = 2|Output of lib.modul.submenu
+  wrap = {$if_yaml.nav.sub.allWrap}
+  20 = TEXT
+  20.data = leveltitle:1
+  20.ifEmpty.cObject = TEXT
+  20.ifEmpty.cObject.value = if_yaml Layout
+  20.wrap = {$if_yaml.nav.sub.headlineWrap}
+  30 = HMENU
+  30 {
+    wrap = |
+    entryLevel = {$if_yaml.nav.sub.entryLevel}
+    excludeUidList = {$if_yaml.nav.sub.excludeList}
+    1 = TMENU
+    1 {
+      expAll = {$if_yaml.nav.sub.expandToggle}
+      noBlur = 1
+      wrap = <ul class="level-1">|</ul>
+      IProcFunc = user_cronaccessiblemenus->makeAccessible
+      IProcFunc {
+        accessKeys = 1
+        accessKeys.noAutoGenerated = 0
+        forbiddenKeys =
+        accessKeyWrap = <span class="accessKey"> | </span>
+        appendWrap = <span class="showAccessKey">&nbsp;(ALT- | )</span>
+        dfn = 1
+        dfn {
+          menuSet = submenu
+          start = 1
+          stdWrap.noTrimWrap = || |
+          inATag = 1
+        }
+      }
+      NO = 1
+      NO.ATagTitle.field = abstract // description // subtitle
+      NO.allWrap = |<span class="hidden">.</span>
+      NO.wrapItemAndSub = <li>|</li>
+      NO.stdWrap.htmlSpecialChars = 1
+      NO.linkWrap = {$if_yaml.nav.sub.linkWrap}
+      NO.ATagBeforeWrap = 1
+      ACT = 1
+      ACT < .NO
+      ACT.wrapItemAndSub = <li class="active">|</li>
+      CUR = 1
+      CUR < .NO
+      CUR.allWrap = <strong>|</strong><span class="hidden">.</span>
+      CUR.wrapItemAndSub = <li id="current">|</li>
+      CUR.doNotLinkIt = 1
+      CUR.stdWrap.htmlSpecialChars = 1
+      IFSUB = 1
+      IFSUB < .NO
+      IFSUB.linkWrap = {$if_yaml.nav.sub.ifsubLinkWrap}
+    }
+    2 < .1
+    2.wrap = <ul class="level-2">|</ul>
+    3 < .1
+    3.wrap = <ul class="level-3">|</ul>
+    4 < .1
+    4.wrap = <ul class="level-4">|</ul>
+  }
+}
+### Delete entire lib.modul.submenu if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.sub.switchOff}]
+lib.modul.submenu >
+[global]
+### Delete headline of submenu if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.sub.headlineOff}]
+lib.modul.submenu.20 >
+[global]
+
+################################################################################
+### lib.modul.footer_content
+lib.modul.footer_content = TEXT
+lib.modul.footer_content {
+  stdWrap.prefixComment = 2|Output of lib.modul.footer_content
+  value = {$if_yaml.lang.std.content.footer.htmlCode}
+  wrap = <div id="footer_content">|</div>
+}
+
+### Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.modul.footer_content.value = {$if_yaml.lang.1st.content.footer.htmlCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.modul.footer_content.value = {$if_yaml.lang.2nd.content.footer.htmlCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.modul.footer_content.value = {$if_yaml.lang.3rd.content.footer.htmlCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.modul.footer_content.value = {$if_yaml.lang.4th.content.footer.htmlCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.modul.footer_content.value = {$if_yaml.lang.5th.content.footer.htmlCode}
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.modul.footer_content.value = {$if_yaml.lang.6th.content.footer.htmlCode}
+[global]
+### Delete lib.modul.footer_content if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.content.footer_content.switchOff}]
+lib.modul.footer_content >
+[global]
+
+################################################################################
+### lib.modul.nav_footer
+lib.modul.nav_footer = COA
+lib.modul.nav_footer  {
+  stdWrap.prefixComment = 2|Output of lib.modul.nav.footer
+  wrap = {$if_yaml.nav.footer.wrap}
+  20 = HMENU
+  20 {
+    special = list
+    special.value = {$if_yaml.nav.footer.includeList}
+    1 = TMENU
+    1 {
+      noBlur = 1
+      wrap = |
+      IProcFunc = user_cronaccessiblemenus->makeAccessible
+      IProcFunc {
+        accessKeys = 1
+        accessKeys.noAutoGenerated = 0
+        forbiddenKeys =
+        accessKeyWrap = <span class="accessKey"> | </span>
+        appendWrap = <span class="showAccessKey">&nbsp;(ALT- | )</span>
+        dfn = 0
+      }
+      NO = 1
+      NO.ATagTitle.field = abstract // description // subtitle
+      NO.linkWrap = |&nbsp;&#124;&nbsp; |*| |&nbsp;&#124;&nbsp; |*| |
+      NO.allWrap = |
+      NO.stdWrap.htmlSpecialChars = 1
+      CUR < .NO
+      CUR = 1
+      CUR.allWrap = |&nbsp;&#124;&nbsp; |*| |&nbsp;&#124;&nbsp; |*| |
+      CUR.linkWrap = <strong>|</strong>
+      CUR.doNotLinkIt = 1
+      CUR.stdWrap.htmlSpecialChars = 1
+    }
+  }
+}
+
+### Delete lib.modul.nav_footer if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.footer.switchOff}]
+lib.modul.nav_footer >
+[global]
+
+################################################################################
+### lib.modul.extended_news
+lib.modul.extended_news < plugin.tt_news
+lib.modul.extended_news {
+  stdWrap.prefixComment = 2|Output of lib.modul.extended_example
+  templateFile = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}news/tt_news_list_eqbox3.html
+  alternatingLayouts = 3
+  code = LIST  
+  pid_list = 27
+  limit = 3
+  displayList.subheader_stdWrap.crop = 500 | ... | 1
+  catImageMode = 0  
+  catTextMode = 0
+}
+
+################################################################################
+### Delete accesskeyes if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.conf.accessKeysAndDfnOff}]
+lib.modul.submenu.30.1.IProcFunc >
+lib.modul.submenu.30.2.IProcFunc >
+lib.modul.submenu.30.3.IProcFunc >
+lib.modul.submenu.30.4.IProcFunc >
+lib.modul.submenu.30.1.NO.allWrap >
+lib.modul.submenu.30.1.ACT.allWrap >
+lib.modul.submenu.30.1.IFSUB.allWrap >
+lib.modul.submenu.30.1.CUR.allWrap = <strong>|</strong>
+lib.modul.submenu.30.2.NO.allWrap >
+lib.modul.submenu.30.2.NO.allWrap >
+lib.modul.submenu.30.2.ACT.allWrap >
+lib.modul.submenu.30.2.IFSUB.allWrap >
+lib.modul.submenu.30.2.CUR.allWrap = <strong>|</strong>
+lib.modul.submenu.30.3.NO.allWrap >
+lib.modul.submenu.30.3.NO.allWrap >
+lib.modul.submenu.30.3.ACT.allWrap >
+lib.modul.submenu.30.3.IFSUB.allWrap >
+lib.modul.submenu.30.3.CUR.allWrap = <strong>|</strong>
+lib.modul.submenu.30.4.NO.allWrap >
+lib.modul.submenu.30.4.NO.allWrap >
+lib.modul.submenu.30.4.ACT.allWrap >
+lib.modul.submenu.30.4.IFSUB.allWrap >
+lib.modul.submenu.30.4.CUR.allWrap = <strong>|</strong>
+lib.modul.nav_main.1.IProcFunc >
+lib.modul.nav_main_2.1.IProcFunc >
+lib.modul.nav_top.20.1.IProcFunc >
+lib.modul.nav_footer.20.1.IProcFunc >
+[global]
+
+################################################################################
+### Delete accesskey help if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.conf.accessKeyHelpOff}]
+lib.modul.submenu.30.1.IProcFunc.appendWrap >
+lib.modul.submenu.30.2.IProcFunc.appendWrap >
+lib.modul.submenu.30.3.IProcFunc.appendWrap >
+lib.modul.submenu.30.4.IProcFunc.appendWrap >
+lib.modul.nav_main.1.IProcFunc.appendWrap >
+lib.modul.nav_main_2.1.IProcFunc.appendWrap >
+lib.modul.nav_top.20.1.IProcFunc.appendWrap >
+lib.modul.nav_footer.20.1.IProcFunc.appendWrap >
+[global]
+
+
+#########################
+######### 700 ###########
+#########################
+
+################################################################################
+### lib.area.header
+lib.area.header = COA
+lib.area.header {
+  wrap = |
+  stdWrap.outerWrap = {$if_yaml.content.header.allWrap}
+  stdWrap.prefixComment = 2|Output of lib.area.header
+  10 =< lib.modul.searchbox
+  20 =< lib.modul.nav_top
+  30 =< lib.modul.header_image_1st
+  40 =< lib.modul.header_image_2nd
+}
+
+[globalVar = LIT:1 = {$if_yaml.conf.specialTypeSite}]
+lib.area.header.wrap = {$if_yaml.conf.specialTypeSiteWrap}
+[global]
+[globalVar = LIT:1 = {$if_yaml.content.header.switchOff}]
+lib.area.header >
+[global]
+
+################################################################################
+### lib.area.nav
+lib.area.nav = COA
+lib.area.nav {
+  wrap = |
+  stdWrap.outerWrap = {$if_yaml.nav.main.allWrap}
+  stdWrap.prefixComment = 2|Output of lib.area.nav
+  20 =< lib.modul.nav_main
+  30 =< lib.modul.nav_main_2
+}
+  
+[globalVar = LIT:1 = {$if_yaml.conf.specialTypeSite}]
+lib.area.nav.wrap = {$if_yaml.conf.specialTypeSiteWrap}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.nav.main.switchOff}]
+lib.area.nav >
+# Modify the skiplink to submenu instead!!!
+lib.modul.skiplinks.10.12 = TEXT
+lib.modul.skiplinks.10.12.value = submenu
+### until now it is hardcoded
+[global]
+
+################################################################################
+### lib.area.teaser
+lib.area.teaser = COA
+lib.area.teaser {
+  wrap = |
+  stdWrap.outerWrap = {$if_yaml.content.teaser.allWrap}
+  stdWrap.prefixComment = 2|Output of lib.area.teaser
+  10 =< lib.modul.nav_rootline
+  20 =< lib.modul.nav_language
+  30 >
+  40 =< lib.modul.datetime
+}
+
+[globalVar = LIT:1 = {$if_yaml.content.teaser.switchOff}]
+lib.area.teaser >
+[global]
+
+################################################################################
+### lib.area.menu_content
+lib.area.menu_content = COA
+lib.area.menu_content {
+  stdWrap.prefixComment = 2|Output of lib.area.menu_content
+  10 =< lib.modul.submenu
+  20 =< lib.modul.selectorBox
+  50 < styles.content.getRight
+}
+################################################################################
+### lib.area.side_content
+lib.area.side_content = COA
+lib.area.side_content {
+  stdWrap.prefixComment = 2|Output of lib.area.side_content
+  50 < styles.content.getLeft
+}
+
+################################################################################
+### lib.area.main_content
+lib.area.main_content = COA
+lib.area.main_content {
+  stdWrap.prefixComment = 2|Output of lib.area.main_content
+  50 < styles.content.get
+}
+
+################################################################################
+### lib.area.extended
+### make it a COA, just in case the user wants to put anything else here.
+lib.area.extended = COA
+lib.area.extended {
+  wrap = |
+  stdWrap.outerWrap = {$if_yaml.content.extended.allWrap}
+  stdWrap.prefixComment = 2|Output of lib.area.extended
+  10 =< lib.modul.extended_news
+  50 < styles.content.getBorder
+}
+
+[globalVar = LIT:1 = {$if_yaml.conf.specialTypeSite}]
+lib.area.extended.wrap = {$if_yaml.conf.specialTypeSiteWrap}
+[global]
+
+# Delete entire extended area if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.content.extended.switchOff}]
+lib.area.extended >
+[global]
+
+################################################################################
+### lib.area.footer
+### make it a COA, just in case the user wants to put anything else here.
+lib.area.footer = COA
+lib.area.footer {
+  wrap = |
+  stdWrap.prefixComment = 2|Output of lib.area.footer
+  stdWrap.outerWrap = {$if_yaml.content.footer.allWrap}
+  10 =< lib.modul.footer_content
+  20 =< lib.modul.nav_footer
+}
+
+[globalVar = LIT:1 = {$if_yaml.conf.specialTypeSite}]
+lib.area.footer.wrap = {$if_yaml.conf.specialTypeSiteWrap}
+[global]
+
+# Delete entire extended area if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.content.footer.switchOff}]
+lib.area.footer >
+[global]
+
+################################################################################
+### lib.area.
+
+####################################
+### switching menu and side content
+#[globalVar = LIT:1 = {$if_yaml.conf.switchMenuAndSideContent}]
+#temp.area.side_content < lib.area.menu_content
+#temp.area.menu_content < lib.area.side_content
+#lib.area.side_content >
+#lib.area.menu_content >
+#lib.area.side_content < temp.area.side_content
+#lib.area.menu_content < temp.area.menu_content
+#temp.area.side_content >
+#temp.area.menu_content >
+#[global]
+
+
+#########################
+######### 800 ###########
+#########################
+
+###############################################################################
+### main page object for standard templating (the if_yaml html temlates ar NOT configured for that)
+page {
+  headerData {
+    10 = TEMPLATE
+    10 {
+      template = FILE
+      template.file = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlName}
+      workOnSubpart = DOCUMENT_HEADER
+    }
+  }
+  typeNum = 0
+  20 = TEMPLATE
+  20 {
+    template = FILE
+    template.file = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlName} 
+    subparts {
+      skiplinks =< lib.skiplinks
+      header =< lib.area.header  
+      nav =< lib.area.nav
+      teaser =< lib.area.teaser
+      col1_content =< lib.area.menu_content
+      col2_content =< lib.area.side_content
+      col3_content =< lib.area.main_content
+      extended =< lib.area.extended   
+      footer =< lib.area.footer
+    }
+    workOnSubpart = DOCUMENT_BODY
+  }
+  bodyTag >
+  bodyTagCObject = TEXT
+  bodyTagCObject.field = uid
+  bodyTagCObject.wrap = <body id="pageUID-|">
+  includeJSFooter {
+    file0 = {$if_yaml.templatesDir}{$if_yaml.frameworkDir}{$if_yaml.nav.skip.jsEndOfBodyFile}
+    file0.type = text/javascript
+  }
+  adminPanelStyles = 0
+}
+
+### c1_Layout
+[globalVar = LIT:c1 = {$if_yaml.conf.layoutStyle}]
+page.headerData.10.template.file =< {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC1Dir}{$if_yaml.layoutHtmlName}
+page.20.template.file =< {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC1Dir}{$if_yaml.layoutHtmlName}
+[global]
+### c2_Layout
+[globalVar = LIT:c2 = {$if_yaml.conf.layoutStyle}]
+page.headerData.10.template.file =< {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC2Dir}{$if_yaml.layoutHtmlName}
+page.20.template.file =< {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC2Dir}{$if_yaml.layoutHtmlName}
+[global]
+### c3_Layout
+[globalVar = LIT:c3 = {$if_yaml.conf.layoutStyle}]
+page.headerData.10.template.file =< {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC3Dir}{$if_yaml.layoutHtmlName}
+page.20.template.file =< {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC3Dir}{$if_yaml.layoutHtmlName}
+[global]
+
+
+###############################################################################
+### main page object  with rlmp_tmplselector
+### Template-Selector konfigurieren
+[globalVar = LIT:1 = {$if_yaml.conf.useTemplateSelector}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}
+  templatePathSub = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}PAGE-subtemplates/
+  defaultTemplateFileNameMain = {$if_yaml.layoutHtmlName}
+}
+[global]
+### c1_Layout
+[globalVar = LIT:c1 = {$if_yaml.conf.layoutStyle}] && [globalVar = LIT:1 = {$if_yaml.conf.useTemplateSelector}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC1Dir}
+}
+[global]
+### c2_Layout
+[globalVar = LIT:c2 = {$if_yaml.conf.layoutStyle}] && [globalVar = LIT:1 = {$if_yaml.conf.useTemplateSelector}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC2Dir}
+}
+[global]
+### c3_Layout
+[globalVar = LIT:c3 = {$if_yaml.conf.layoutStyle}] && [globalVar = LIT:1 = {$if_yaml.conf.useTemplateSelector}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC3Dir}
+}
+[global]
+[globalVar = LIT:1 = {$if_yaml.conf.useTemplateSelector}]
+page.headerData.10.template.file < plugin.tx_rlmptmplselector_pi1.template.file
+page.headerData.10.template.content.templateType = main
+page.20.template.file < plugin.tx_rlmptmplselector_pi1.template.file 
+page.20.template.content.templateType = main
+[global]
+
+################################################################################
+###  loeschen der css links aus dem Template-Head (funktioniert noch nicht bei templavoila - manuell in den headerparts)
+[globalVar = LIT:manCSS = {$if_yaml.conf.overrideCssFromTemplateHead}]
+page.headerData.10 >
+[global]
+
+################################################################################
+### put scripts for skiplinks at the end of body if not in template
+[globalVar = LIT:1 = {$if_yaml.nav.skip.jsIsInTemplate}] 
+page.includeJSFooter >
+[global]
+
+################################################################################
+### switch AdminPanel on
+[globalVar = LIT:1 = {$if_yaml.conf.userAdmPanelOn}]
+page.adminPanelStyles = 1
+[global]
+
+
+#########################
+######### 900 ###########
+#########################
+
+################################################################################
+###  Changes to CSS styled content
+lib.parseFunc_RTE {
+  nonTypoTagStdWrap.encapsLines {
+# remove 'class=bodytext' in P-tags
+    addAttributes.P.class =
+  }
+}
+lib.stdheader {
+# remove the DIV-tag around headlines
+  stdWrap.dataWrap =
+  5.date = {$if_yaml.lang.std.content.cscDateFormat}
+# remove 'csc-firstHeader' from Hx-tags
+  10.1.fontTag = <h1{register:headerStyle}>|</h1>
+  10.2.fontTag = <h2{register:headerStyle}>|</h2>
+  10.3.fontTag = <h3{register:headerStyle}>|</h3>
+  10.4.fontTag = <h4{register:headerStyle}>|</h4>
+  10.5.fontTag = <h5{register:headerStyle}>|</h5>
+}
+
+tt_content.stdWrap.innerWrap2 = | <p class="csc-linkToTop">
+tt_content.stdWrap.innerWrap2.stdWrap.innerWrap = | <a href="#content">
+tt_content.stdWrap.innerWrap2.stdWrap.wrap = | <img src="{$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.std.content.linkImageToTop}" alt="" title="{$if_yaml.lang.std.content.linkTextToTop}" /></a></p>
+### c1_Layout
+[globalVar = LIT:c1 = {$if_yaml.conf.layoutStyle}]
+tt_content.stdWrap.innerWrap2.stdWrap.innerWrap = | <a href="#col1">
+[global]
+### c2_Layout
+[globalVar = LIT:c2 = {$if_yaml.conf.layoutStyle}]
+tt_content.stdWrap.innerWrap2.stdWrap.innerWrap = | <a href="#col2">
+[global]
+### c3_Layout
+[globalVar = LIT:c3 = {$if_yaml.conf.layoutStyle}]
+tt_content.stdWrap.innerWrap2.stdWrap.innerWrap = | <a href="#col3">
+[global]
+# Language-specific settings:
+[globalVar = GP:L = {$if_yaml.lang.1st.UID}]
+lib.stdheader.5.date = {$if_yaml.lang.1st.content.cscDateFormat}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.1st.content.linkImageToTop}" alt="" title="{$if_yaml.lang.1st.content.linkTextToTop}" /></a></p>
+[global]
+[globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
+lib.stdheader.5.date = {$if_yaml.lang.2nd.content.cscDateFormat}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.2nd.content.linkImageToTop}" alt="" title="{$if_yaml.lang.2nd.content.linkTextToTop}" /></a></p>
+[global]
+[globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
+lib.stdheader.5.date = {$if_yaml.lang.3rd.content.cscDateFormat}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.3rd.content.linkImageToTop}" alt="" title="{$if_yaml.lang.3rd.content.linkTextToTop}" /></a></p>
+[global]
+[globalVar = GP:L = {$if_yaml.lang.4th.UID}]
+lib.stdheader.5.date = {$if_yaml.lang.4th.content.cscDateFormat}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.4th.content.linkImageToTop}" alt="" title="{$if_yaml.lang.4th.content.linkTextToTop}" /></a></p>
+[global]
+[globalVar = GP:L = {$if_yaml.lang.5th.UID}]
+lib.stdheader.5.date = {$if_yaml.lang.5th.content.cscDateFormat}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.5th.content.linkImageToTop}" alt="" title="{$if_yaml.lang.5th.content.linkTextToTop}" /></a></p>
+[global]
+[globalVar = GP:L = {$if_yaml.lang.6th.UID}]
+lib.stdheader.5.date = {$if_yaml.lang.6th.content.cscDateFormat}
+tt_content.stdWrap.innerWrap2.stdWrap.outerWrap = | {$if_yaml.lang.6th.content.linkImageToTop}" alt="" title="{$if_yaml.lang.6th.content.linkTextToTop}" /></a></p>
+[global]
+
+# Remove target for content element filelist
+tt_content.uploads.20.linkProc.target >
+
+################################################################################
+### Replace Hx Tags with graphics if user choosed this option
+### Phark-Method for image-replacement, see
+### http://meiert.com/de/publications/articles/20050513/#toc-phark for details.
+[globalVar = LIT:1 = {$if_yaml.content.replace.H1.switchOn}]
+lib.stdheader.10.1 >
+lib.stdheader.10 {
+  1 = IMG_RESOURCE
+  1 {
+    file = GIFBUILDER
+    file {
+      XY = [10.w]+10,[10.h]+10
+      backColor = {$if_yaml.content.replace.H1.bgColor}
+      transparentBackground = {$if_yaml.content.replace.H1.bgTransparency}
+      format = png
+      10 = TEXT
+      10 {
+        text.field = header
+        fontSize = {$if_yaml.content.replace.H1.fontSize}
+        fontFile = {$if_yaml.templatesDir}fonts/{$if_yaml.content.replace.H1.imageFont}
+        fontColor = {$if_yaml.content.replace.H1.imageColor}
+        offset = 0,{$if_yaml.content.replace.H1.fontSize}
+        niceText = {$if_yaml.content.replace.H1.niceText}
+      }
+    }
+    stdWrap {
+      prepend = TEXT
+      prepend {
+        dataWrap = <h1 class="G" style=
+      }
+      innerWrap.cObject = COA
+      innerWrap.cObject {
+        10 = TEXT
+        10.value = "background: {$if_yaml.content.replace.H1.bgColor} url(|) no-repeat;">
+      }
+      append = TEXT
+      append {
+        current = 1
+        wrap = |</h1>
+      }
+    }
+  }
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.replace.H2.switchOn}]
+lib.stdheader.10.2 >
+lib.stdheader.10 {
+  2 = IMG_RESOURCE
+  2 {
+    file = GIFBUILDER
+    file {
+      XY = [10.w]+10,[10.h]+10
+      backColor = {$if_yaml.content.replace.H2.bgColor}
+      transparentBackground = {$if_yaml.content.replace.H2.bgTransparency}
+      format = png
+      10 = TEXT
+      10 {
+        text.field = header
+        fontSize = {$if_yaml.content.replace.H2.fontSize}
+        fontFile = {$if_yaml.templatesDir}fonts/{$if_yaml.content.replace.H2.imageFont}
+        fontColor = {$if_yaml.content.replace.H2.imageColor}
+        offset = 0,{$if_yaml.content.replace.H2.fontSize}
+        niceText = {$if_yaml.content.replace.H2.niceText}
+      }
+    }
+    stdWrap {
+      prepend = TEXT
+      prepend {
+        dataWrap = <h2 class="G" style=
+      }
+      innerWrap.cObject = COA
+      innerWrap.cObject {
+        10 = TEXT
+        10.value = "background: {$if_yaml.content.replace.H2.bgColor} url(|) no-repeat;">
+      }
+      append = TEXT
+      append {
+        current = 1
+        wrap = |</h2>
+      }
+    }
+  }
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.replace.H3.switchOn}]
+lib.stdheader.10.3 >
+lib.stdheader.10 {
+  3 = IMG_RESOURCE
+  3 {
+    file = GIFBUILDER
+    file {
+      XY = [10.w]+10,[10.h]+10
+      backColor = {$if_yaml.content.replace.H3.bgColor}
+      transparentBackground = {$if_yaml.content.replace.H3.bgTransparency}
+      format = png
+      10 = TEXT
+      10 {
+        text.field = header
+        fontSize = {$if_yaml.content.replace.H3.fontSize}
+        fontFile = {$if_yaml.templatesDir}fonts/{$if_yaml.content.replace.H3.imageFont}
+        fontColor = {$if_yaml.content.replace.H3.imageColor}
+        offset = 0,{$if_yaml.content.replace.H3.fontSize}
+        niceText = {$if_yaml.content.replace.H3.niceText}
+      }
+    }
+    stdWrap {
+      prepend = TEXT
+      prepend {
+        dataWrap = <h3 class="G" style=
+      }
+      innerWrap.cObject = COA
+      innerWrap.cObject {
+        10 = TEXT
+        10.value = "background: {$if_yaml.content.replace.H3.bgColor} url(|) no-repeat;">
+      }
+      append = TEXT
+      append {
+        current = 1
+        wrap = |</h3>
+      }
+    }
+  }
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.replace.H4.switchOn}]
+lib.stdheader.10.4 >
+lib.stdheader.10 {
+  4 = IMG_RESOURCE
+  4 {
+    file = GIFBUILDER
+    file {
+      XY = [10.w]+10,[10.h]+10
+      backColor = {$if_yaml.content.replace.H4.bgColor}
+      transparentBackground = {$if_yaml.content.replace.H4.bgTransparency}
+      format = png
+      10 = TEXT
+      10 {
+        text.field = header
+        fontSize = {$if_yaml.content.replace.H4.fontSize}
+        fontFile = {$if_yaml.templatesDir}fonts/{$if_yaml.content.replace.H4.imageFont}
+        fontColor = {$if_yaml.content.replace.H4.imageColor}
+        offset = 0,{$if_yaml.content.replace.H4.fontSize}
+        niceText = {$if_yaml.content.replace.H4.niceText}
+      }
+    }
+    stdWrap {
+      prepend = TEXT
+      prepend {
+        dataWrap = <h4 class="G" style=
+      }
+      innerWrap.cObject = COA
+      innerWrap.cObject {
+        10 = TEXT
+        10.value = "background: {$if_yaml.content.replace.H4.bgColor} url(|) no-repeat;">
+      }
+      append = TEXT
+      append {
+        current = 1
+        wrap = |</h4>
+      }
+    }
+  }
+}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.replace.H5.switchOn}]
+lib.stdheader.10.5 >
+lib.stdheader.10 {
+  5 = IMG_RESOURCE
+  5 {
+    file = GIFBUILDER
+    file {
+      XY = [10.w]+10,[10.h]+10
+      backColor = {$if_yaml.content.replace.H5.bgColor}
+      transparentBackground = {$if_yaml.content.replace.H5.bgTransparency}
+      format = png
+      10 = TEXT
+      10 {
+        text.field = header
+        fontSize = {$if_yaml.content.replace.H5.fontSize}
+        fontFile = {$if_yaml.templatesDir}fonts/{$if_yaml.content.replace.H5.imageFont}
+        fontColor = {$if_yaml.content.replace.H5.imageColor}
+        offset = 0,{$if_yaml.content.replace.H5.fontSize}
+        niceText = {$if_yaml.content.replace.H5.niceText}
+      }
+    }
+    stdWrap {
+      prepend = TEXT
+      prepend {
+        dataWrap = <h5 class="G" style=
+      }
+      innerWrap.cObject = COA
+      innerWrap.cObject {
+        10 = TEXT
+        10.value = "background: {$if_yaml.content.replace.H5.bgColor} url(|) no-repeat;">
+      }
+      append = TEXT
+      append {
+        current = 1
+        wrap = |</h5>
+      }
+    }
+  }
+}
+[global]
+

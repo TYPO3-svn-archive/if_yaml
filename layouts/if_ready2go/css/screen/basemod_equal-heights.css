@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+
+@media screen, projection
+{
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Styling of equal heights elements
+   */
+
+  .example1 { margin-bottom: 1em; }
+
+  .example1 .subc  { margin: 0 5px; padding: 10px; }
+  .example1 .subcl { margin: 0 10px 0 0; padding: 10px; }
+  .example1 .subcr { margin: 0 0 0 10px; padding: 10px; }
+
+  .example1 h6 { background: #600; color: #fff; text-transform:uppercase; font-weight:bold; padding: 5px 10px; }
+  .example1 ul { margin: 10px 10px 10px 20px; }
+  .example1 p { }
+
+  .example1 .subcl,
+  .example1 .subcr,
+  .example1 .subc {
+    background: #f0f0f0;
+    color: #666;
+    padding-bottom: 100em;
+    margin-bottom: -100em;
+  }
+  
+  
+  .box-top .c50l,
+  .box-top .c50r,
+  .box-top .c33l,
+  .box-top .c33r,
+  .box-top .c25l,
+  .box-top .c25r,
+  .box-top .c20l,
+  .box-top .c20r,
+  .box-top .c40l,
+  .box-top .c40r,
+  .box-top .c60l,
+  .box-top .c60r,
+  .box-top .c80l,
+  .box-top .c80r,
+  .box-top .c66l,
+  .box-top .c66r,
+  .box-top .c62l,
+  .box-top .c62r,
+  .box-top .c38l,
+  .box-top .c38r,
+  .box-top .c100 { background: url("../../images/frame/lframe.png") top left no-repeat; }
+
+  .box-top .subcl,
+  .box-top .subcr,
+  .box-top .subc {
+    padding: 15px;
+    background: url("../../images/frame/rframe.png") top right no-repeat;
+    padding-bottom: 100em;
+    margin-bottom: -100em;
+  }
+
+  .box-bottom { margin-bottom: 1em; text-align:right; }
+
+  .box-bottom .c50l,
+  .box-bottom .c50r,
+  .box-bottom .c33l,
+  .box-bottom .c33r,
+  .box-bottom .c25l,
+  .box-bottom .c25r,
+  .box-bottom .c20l,
+  .box-bottom .c20r,
+  .box-bottom .c40l,
+  .box-bottom .c40r,
+  .box-bottom .c60l,
+  .box-bottom .c60r,
+  .box-bottom .c80l,
+  .box-bottom .c80r,
+  .box-bottom .c66l,
+  .box-bottom .c66r,
+  .box-bottom .c62l,
+  .box-bottom .c62r,
+  .box-bottom .c38l,
+  .box-bottom .c38r,
+  .box-bottom .c100 { background: url("../../images/frame/lframe.png") bottom left no-repeat; }
+
+  .box-bottom .subcl,
+  .box-bottom .subcr,
+  .box-bottom .subc {
+    padding: 0 20px 15px 20px;
+    background: url("../../images/frame/rframe.png") bottom right no-repeat;
+  }
+
+  /* adjustment of conent elements within the boxes */
+  .box-top h6 { display: block; margin: 10px 5px 5px 5px; border-bottom: 1px #c88 solid; font-style:normal; font-variant:small-caps; }
+  .box-top p { padding: 5px; margin-bottom: 0;}
+  
+  
+   /* modifications for transparent PNGs */ 
+  .box-top .c50l,
+  .box-top .c50r,
+  .box-top .c33l,
+  .box-top .c33r,
+  .box-top .c25l,
+  .box-top .c25r,
+  .box-top .c20l,
+  .box-top .c20r,
+  .box-top .c40l,
+  .box-top .c40r,
+  .box-top .c60l,
+  .box-top .c60r,
+  .box-top .c80l,
+  .box-top .c80r,
+  .box-top .c66l,
+  .box-top .c66r,
+  .box-top .c62l,
+  .box-top .c62r,
+  .box-top .c38l,
+  .box-top .c38r,
+  .box-top .c100 { background: url("../../images/frame/rframe-trans.png") top right no-repeat; }
+  
+  .box-top .subcl,
+  .box-top .subcr,
+  .box-top .subc {
+    padding: 15px 0 5px 20px;
+	 margin-right: 20px;
+    background: url("../../images/frame/lframe-trans.png") top left no-repeat;
+    padding-bottom: 100em;
+    margin-bottom: -100em;
+  }
+  
+  .box-bottom .c50l,
+  .box-bottom .c50r,
+  .box-bottom .c33l,
+  .box-bottom .c33r,
+  .box-bottom .c25l,
+  .box-bottom .c25r,
+  .box-bottom .c20l,
+  .box-bottom .c20r,
+  .box-bottom .c40l,
+  .box-bottom .c40r,
+  .box-bottom .c60l,
+  .box-bottom .c60r,
+  .box-bottom .c80l,
+  .box-bottom .c80r,
+  .box-bottom .c66l,
+  .box-bottom .c66r,
+  .box-bottom .c62l,
+  .box-bottom .c62r,
+  .box-bottom .c38l,
+  .box-bottom .c38r,
+  .box-bottom .c100 { background: url("../../images/frame/rframe-trans.png") bottom right no-repeat; }
+  
+  .box-bottom .subcl,
+  .box-bottom .subcr,
+  .box-bottom .subc {
+    padding: 0 0 15px 20px;
+	 margin-right: 20px;
+    background: url("../../images/frame/lframe-trans.png") bottom left no-repeat;
+  }
+  
+}

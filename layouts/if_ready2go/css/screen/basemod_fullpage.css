@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+
+@media screen, projection
+{
+ 
+  /* (en) Layout: width, background, borders */
+  /* (de) Layout: Breite, Hintergrund, Rahmen */
+  body {background: Silver url(); padding:0; }
+  .page_margins { max-width: 80em; background:none; }
+  .page { border:none; }
+  
+  #header, #nav, #main, #extended, #footer { overflow:hidden; min-width: 720px; }
+
+  /* (en) Designing main layout elements */
+  /* (de) Gestaltung der Hauptelemente des Layouts */
+  #header {
+    color: #fff;
+    background: #4d87c7 url("../../images/bg_blue.png") repeat-x top left;
+  }
+
+  #header .page { position:relative; }
+
+  #topnav { color: #88a; background: transparent; }
+
+  #nav { background: #e8e8e8; }
+
+  #main { background: #fff;padding:10px 0; }
+  
+  #extended { background: #aaa; padding:10px 0; }
+  
+  #footer {
+    color:#666;
+    background: #f9f9f9;
+    border-top: 5px #efefef solid;
+  line-height: 1.5em;
+  }
+
+  #footer .page { padding: 10px 20px; }
+
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * (en) Modifying "shiny buttons" navigation
+  * (en) Anpassung der "Shiny Buttons" Navigation
+  * 
+  */
+
+  #nav * { border-top: 0px none !important; border-bottom: 0px none !important;}
+  #nav  {background:url("../../images/navigation/shiny_buttons/background.png") repeat-x scroll right center #C0C0C0;}
+  #nav_main { background: transparent none; }
+  .hlist ul { margin-left: 0px; }
+  .hlist ul li { line-height: 1.2em; }
+
+  .hlist ul li a,
+  .hlist ul li strong { color: #666; font-weight: normal; padding: 0.5em 0.8em 0.5em 0.8em; }
+
+  .hlist ul li a:focus,
+  .hlist ul li a:hover,
+  .hlist ul li a:active  { background: #182E7A; color: #fff; }
+
+  .hlist ul li.active { background: #f8f8f8; }
+
+  .hlist ul li.active strong,
+  .hlist ul li.active a,
+  .hlist ul li.active a:focus,
+  .hlist ul li.active a:hover,
+  .hlist ul li.active a:active { color: #4D87C7; font-weight: bold; }
+
+}

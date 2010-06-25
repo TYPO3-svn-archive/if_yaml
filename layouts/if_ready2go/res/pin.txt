@@ -1,0 +1,1 @@
+#overlay {background-image: url(http://pin.if-20.com/layout-xxx.gif) !important;}

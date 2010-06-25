@@ -1,0 +1,736 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.1.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+### FIX_TS: NON_EDITABLE_CONSTANTS ###
+
+PAGE_TARGET = _self
+styles.content.imgtext.captionSplit = 1
+styles.content.imgtext.imageTextSplit = 1
+content.pageFrameObj =
+
+[browser = msie]
+if_yaml.conf.doctypesw_cond = 1
+[else]
+if_yaml.conf.doctypesw_cond = 0
+[end]
+
+
+### MOD_TS: EDITABLE_CONSTANTS ###
+
+##################################################################################
+###                                     basics                                 ###
+##################################################################################
+###             basics             ###
+######################################
+# cat=if_yaml_basics/other/aa; type=options[No=0,Yes=manCSS]; label= override CSS from Template Head:
+if_yaml.conf.overrideCssFromTemplateHead = 0
+# cat=if_yaml_basics/other/bi; type=string; label= Filename HTML layout
+if_yaml.layoutHtmlName = my_layout.html
+# cat=if_yaml_basics/other/bk; type=string; label= Filename central CSS stylesheet
+if_yaml.layoutCssName = my_layout.css
+# cat=if_yaml_basics/other/bm; type=string; label= Filename IE patchfile
+if_yaml.layoutPatchName = patch_my_layout.css
+# cat=if_yaml_basics/other/ca; type=boolean; label= specialTypeSite, maybe Full Page Layout
+if_yaml.conf.specialTypeSite = 0
+# cat=if_yaml_basics/other/cb; type=wrap; label= special wrap in main areas: will be wrapped when specialTypeSite is set to "yes"
+if_yaml.conf.specialTypeSiteWrap = <div class="page_margins"><div class="page"> | </div></div>
+# cat=if_yaml_basics/other/cc; type=options[XHTML 1.0 Transitional=xhtml_trans,XHTML 1.0 Frameset=xhtml_frames,XHTML 1.0 Strict=xhtml_strict,XHTML 1.1=xhtml_11,XHTML 2=xhtml_2,NO doctype at all=none]; label=Doctype to use:Be careful and change this setting only if you know, what you are doing. Otherwise your pages might NOT be valid.
+if_yaml.conf.docTypeToUse = xhtml_trans
+# cat=if_yaml_basics/other/da; type=boolean; label= useTemplateSelector: 
+if_yaml.conf.useTemplateSelector = 0
+# cat=if_yaml_basics/other/db; type=options[Manuell=0,Autoparser=autoparser,Jetts=jetts,Templavoila=templavoila]; label= Templating Engine: 
+if_yaml.conf.templatingEngine = 0
+# cat=if_yaml_basics/other/dc; type=options[noLayoutStyle=0,c1_Layout=c1,c2_Layout=c2,c3_Layout=c3]; label=Layout Style:Choose one of the c1 c2 c3 layouts.
+if_yaml.conf.layoutStyle = 0
+# cat=if_yaml_basics/other/dd; type=boolean; label=switchMenuAndSideContent:in a c3 layout the normal menuposition is col1, here this switches to col2... in the other Styles c2 and c3 the normal menu position is col3, here this switches to col1...
+#if_yaml.conf.switchMenuAndSideContent = 0
+
+######################################
+###           url-rewrite          ###
+######################################
+# cat=if_yaml_basics/other/ea; type=boolean; label=Use simulateStaticDocuments?:If you are NOT using realURL, you can use simulateStaticDocuments instead. You CANNOT use this in conjunction with realURL. If enabled, the next 3 option are important for simulateStaticDocuments and must be either left at its default values or set to values that fit your needs. No extension is required, everything is included in TYPO3 already. IMPORTANT: Apache-module mod_rewrite must be installed on your webserver and you need a file named .htaccess in the root of your webserver.
+if_yaml.conf.url.simStatDocOn = 0
+# cat=if_yaml_basics/other/eb; type=int+; label=Add pagetitle:If not zero, TYPO3 generates urls with the title in, limited to the first x number of chars. If set to zero (0) this feature is turned off.
+if_yaml.conf.url.simStatDocAddTitle = 40
+# cat=if_yaml_basics/other/ec; type=options[base64,md5]; label=Encode additional parameters:Allows you to also encode additional parameters into the simulated filename. If you don't understand this, just leave the default setting.
+if_yaml.conf.url.simStatDocPenc = md5
+# cat=if_yaml_basics/other/ed; type=string; label=List of variables:A list of variables that may be a part of the md5/base64 encoded part of a simulate_static_document virtual filename.
+if_yaml.conf.url.simStatDocPencOnlyP = cHash, tx_ttnews[backPid], tx_ttnews[tt_news], tx_ttnews[pS], tx_ttnews[pL], tx_ttnews[arc], tx_ttnews[cat], tx_ttnews[pointer], tx_ttnews[swords]
+# cat=if_yaml_basics/other/fa; type=boolean; label=Use realurl?:Enable this feature only, if you have installed the TYPO3 extension realurl. IMPORTANT: You have to configure realurl by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_realurl_enable = 1, which is required by realurl, is set automatically, if this feature is enabled. Do not forget to set Base URL also.
+if_yaml.conf.url.realUrlOn = 0
+# cat=if_yaml_basics/other/ga; type=boolean; label=Use cooluri?:Enable this feature only, if you have installed the TYPO3 extension cooluri. IMPORTANT: You have to configure cooluri by means of its documentation. Read it! If you enable this feature, simulateStaticDocuments is switched off automatically, no matter what you set there. The option tx_cooluri_enable = 1, which is required by cooluri, is set automatically, if this feature is enabled. Do not forget to set Base URL also.
+if_yaml.conf.url.coolUriOn = 0
+# cat=if_yaml_basics/other/ha; type=string; label=Base URL:YOU MUST CHANGE this default-setting to YOUR domain. Use the same format as the default-setting (including the trailing slash '/'). IMPORTANT: The online-documentation of realurl instructs you to set this to '1' - THIS IS WRONG, set it to a domain, otherwise it will not work.
+if_yaml.conf.url.userBaseUrl = http://www.changeme.tld/
+# cat=if_yaml_basics/other/hb; type=options[all,cached,output]; label=Prefix local anchors:If realurl or cooluri is used and this feature is set to one of the keywords, the content will have all local anchors in links prefixed with the path of the script. Basically this means that <a href="#"> will be transformed to <a href="path/path/script?params#">. This procedure is necessary if Base URL is set. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.)
+if_yaml.conf.url.userPrefixLocalAnchors = all
+
+##################################################################################
+###                                expert                                      ###
+##################################################################################
+###      special-configuation      ###
+######################################
+# cat=if_yaml_expert/other/ja; type=boolean; label=Admin-Panel, enable:If set, the admin panel appears in the bottom of pages. NOTE: In addition the panel must be enabled for non-admin users as well, if you want this, using the TSconfig for the non-admin user! See adminguide documentation.
+if_yaml.conf.userAdmPanelOn = 0
+# cat=if_yaml_expert/other/ka; type=boolean; label=Indexing at all, enable:Enables cached pages to be indexed. Must be enabled to get indexed_search to work.
+if_yaml.conf.userIndexingOn = 0
+# cat=if_yaml_expert/other/kb; type=boolean; label=Indexing external documents:If set, external media linked to on the pages is indexed as well. Certain software must to be installed on your webserver to use this feature. See indexed_serach documentation.
+if_yaml.conf.userIndexExternalsOn = 0
+# cat=if_yaml_expert/other/kc; type=boolean; label=Indexing metatags:If set, all words contained in the metatags will be also be indexed. Should be turned on only in special circumstances.
+if_yaml.conf.userIndexMetaTagsOn = 0
+# cat=if_yaml_expert/other/la; type=options[all,cached,output]; label=XHTML cleaning:Tries to clean up the output to make it XHTML compliant and a bit more. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.)
+if_yaml.conf.userXhtmlCleaning = all
+# cat=if_yaml_expert/other/ma; type=options[ltr,rtl]; label=Text direction:Sets text direction for whole document (useful for display of Arabic, Hebrew pages). Basically the value becomes the attribute value of "dir" for the <html> tag. (ltr = Left-To-Right, rtl = Right-To-Left)
+if_yaml.conf.userHtmlTagDir = ltr
+# cat=if_yaml_expert/other/na; type=boolean; label=Prefix comments off?:This is for debugging your TypoScript Code. If switched On, HTML comments are added like <!-- Output of lib.header.20 [begin] --> and <!-- Output of lib.header.20 [end] --> to find the output of an element easier in HTML source. The COA-Elements must be prepared to do this. Turn off for production environments!
+if_yaml.conf.userDisablePrefComm = 1
+# cat=if_yaml_expert/other/oa; type=boolean; label=Show Filler-Link?:If switched on, a link is shown at the end of each page, to fill in dummy text. This is for testing the layout.
+if_yaml.conf.devFillerLinkOn = 0
+# cat=if_yaml_expert/other/pa; type=boolean; label=Access Keys Off?:Switch off alle access keys used in menus.
+if_yaml.conf.accessKeysAndDfnOff = 1
+# cat=if_yaml_expert/other/pb; type=boolean; label=Access Key Help Off?:If access keys are switched on, they can be shown after the pagetitle (e.g. (ALT-E)) if this feature is enabled.
+if_yaml.conf.accessKeyHelpOff = 1
+# cat=if_yaml_expert/other/qa; type=boolean; label=Use PNG-fix:For display transparent PNG files in IE <7 (not includet now)
+if_yaml.conf.pngFixOn = 0
+
+######################################
+###             statistic          ###
+######################################
+# cat=if_yaml_expert/other/qa; type=boolean; label=Awstats, switchOn:Set to On, if you have installed cc_awstats and want to use it. You MUST either manually (not recommended) add $TYPO3_CONF_VARS['FE']['logfile_dir'] = 'fileadmin/' to localconf.php OR (recommended) use the install-tool and set logfile_dir to fileadmin/ - This works ONLY if you install cc_awstats, which is NOT part of this Project.
+if_yaml.conf.stat.switchOn = 0
+# cat=if_yaml_expert/other/qb; type=boolean; label=Awstats, config.stat_apache:MUST be set if you want to use cc_awstats.
+if_yaml.conf.stat.apacheSetting = 0
+# cat=if_yaml_expert/other/qc; type=string; label=Awstats, Logfile:The file must reside in folder fileadmin/ and must be writeable for the webserver.
+if_yaml.conf.stat.apacheLogFile = logfile.log
+# cat=if_yaml_expert/other/qd; type=boolean; label=Awstats, config.stat_mysql:You can use this if you want database logging also but it's not needed.
+if_yaml.conf.stat.mysqlSetting = 0
+
+
+##################################################################################
+###                                   navigations                              ###
+##################################################################################
+###      skiplink-navigation       ###
+######################################
+# cat=if_yaml_navigations/other/aa1; type=boolean; label= Skiplink, JS is in Template: Use this checkbox if the javascript for the skiplinks is in the template.
+if_yaml.nav.skip.jsIsInTemplate = 0
+# cat=if_yaml_navigations/other/aa2; type=string; label=Skiplink, JS file based on fraamework dir.
+if_yaml.nav.skip.jsEndOfBodyFile = core/js/yaml-focusfix.js
+# cat=if_yaml_navigations/other/aa3; type=string; label=Skiplink to navigation ID:
+if_yaml.nav.skip.toNavID = nav
+# cat=if_yaml_navigations/other/aa4; type=string; label=Skiplink to content ID:(for c1, c2, c3 layouts this will be overwritten))
+if_yaml.nav.skip.toContentID = content
+# cat=if_yaml_navigations/language/ab0; type=string; label=Skiplink to navigation text (std)
+if_yaml.lang.std.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ab1; type=string; label=Skiplink to navigation text (1st)
+if_yaml.lang.1st.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ab2; type=string; label=Skiplink to navigation text (2nd)
+if_yaml.lang.2nd.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ab3; type=string; label=Skiplink to navigation text(3rd)
+if_yaml.lang.3rd.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ab4; type=string; label=Skiplink to navigation text (4th)
+if_yaml.lang.4th.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ab5; type=string; label=Skiplink to navigation text (5th)
+if_yaml.lang.5th.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ab6; type=string; label=Skiplink to navigation text (6th)
+if_yaml.lang.6th.nav.skip.toNavText = Jump to navigation (press enter)
+# cat=if_yaml_navigations/language/ac0; type=string; label=Skiplink to content text (std)
+if_yaml.lang.std.nav.skip.toContentText = Jump to content (press enter)
+# cat=if_yaml_navigations/language/ac1; type=string; label=Skiplink to content text (1st)
+if_yaml.lang.1st.nav.skip.toContentText = Jump to content (press enter)
+# cat=if_yaml_navigations/language/ac2; type=string; label=Skiplink to content text (2nd)
+if_yaml.lang.2nd.nav.skip.toContentText = Jump to content (press enter)
+# cat=if_yaml_navigations/language/ac3; type=string; label=Skiplink to content text (3rd)
+if_yaml.lang.3rd.nav.skip.toContentTextT = Jump to content (press enter)
+# cat=if_yaml_navigations/language/ac4; type=string; label=Skiplink to content text (4th)
+if_yaml.lang.4th.nav.skip.toContentText = Jump to content (press enter)
+# cat=if_yaml_navigations/language/ac5; type=string; label=Skiplink to content text (5th)
+if_yaml.lang.5th.nav.skip.toContentText = Jump to content (press enter)
+# cat=if_yaml_navigations/language/ac6; type=string; label=Skiplink to content text (6th)
+if_yaml.lang.6th.nav.skip.toContentText = Jump to content (press enter)
+
+######################################
+###       topnav-navigation        ###
+######################################
+# cat=if_yaml_navigations/other/ba; type=boolean; label=Header-Navigation, switchOff:
+if_yaml.nav.top.switchOff = 0
+# cat=if_yaml_navigations/other/bb; type=wrap; label=Header-Navigation, wrap around:
+if_yaml.nav.top.wrap = <div id="topnav" role"navigation"> | </div>
+# cat=if_yaml_navigations/other/bc; type=string; label=Header-Navigation, Menu IDs:Which pages must appear in the Header-Navigation? Use a comma-separated list of UIDs (e.g. 1,2,3)
+if_yaml.nav.top.includeList = 23,6,4
+
+######################################
+###       language-navigation      ###
+######################################
+# cat=if_yaml_navigations/other/ca; type=boolean; label=Language-Navigation, switchOff:
+if_yaml.nav.language.switchOff = 0
+
+######################################
+###   rootline-navigation    ###
+######################################
+# cat=if_yaml_navigations/other/da; type=boolean; label=Rootline (click path), switchOff:If the rootline-menu is turned on (default), make sure the next 4 options are also correctly set.
+if_yaml.nav.rootline.switchOff = 0
+# cat=if_yaml_navigations/other/db; type=string; label=Rootline (click path), wrap:Wrap around each single rootline-element:
+if_yaml.nav.rootline.linkWrap = |&nbsp;/&nbsp; |*| |&nbsp;/&nbsp; |*| |
+# cat=if_yaml_navigations/language/dc0; type=string; label=Rootline (click path)(std):This Text prepends the clickpath-menu (standard language):
+if_yaml.lang.std.nav.rootline.clickPathPrefix = You are here:
+# cat=if_yaml_navigations/language/dc1; type=string; label=Rootline (click path)(1st):This Text prepends the clickpath-menu (first foreign language):
+if_yaml.lang.1st.nav.rootline.clickPathPrefix =
+# cat=if_yaml_navigations/language/dc2; type=string; label=Rootline (click path)(2nd):This Text prepends the clickpath-menu (second foreign language):
+if_yaml.lang.2nd.nav.rootline.clickPathPrefix =
+# cat=if_yaml_navigations/language/dc3; type=string; label=Rootline (click path)(3rd):This Text prepends the clickpath-menu (third foreign language):
+if_yaml.lang.3rd.nav.rootline.clickPathPrefix =
+# cat=if_yaml_navigations/language/dc4; type=string; label=Rootline (click path)(4th):This Text prepends the clickpath-menu (fourth foreign language):
+if_yaml.lang.4th.nav.rootline.clickPathPrefix =
+# cat=if_yaml_navigations/language/dc5; type=string; label=Rootline (click path)(5th):This Text prepends the clickpath-menu (fifth foreign language):
+if_yaml.lang.5th.nav.rootline.clickPathPrefix =
+# cat=if_yaml_navigations/language/dc6; type=string; label=Rootline (click path)(6th):This Text prepends the clickpath-menu (sixth foreign language):
+if_yaml.lang.6th.nav.rootline.clickPathPrefix =
+
+######################################
+###     selectorbox-navigation     ###
+######################################
+# cat=if_yaml_navigations/other/ea; type=boolean; label=Selectorbox-Nav, switchOff:
+if_yaml.nav.selectorBox.switchOff = 1
+# cat=if_yaml_navigations/other/eb; type=string; label=Selectorbox-Nav, showOnPage:If you need to add pages, DO NOT just enter page-IDs here, but use this syntax: TSFE:id=2,TSFE:id=5 to display the menu on pages with ID 2 and 5. Don't forget the comma to separate each one.
+if_yaml.nav.selectorBox.showOnPage = TSFE:id=23
+# cat=if_yaml_navigations/other/ec; type=wrap; label=Selectorbox-Nav, wrap around:The wrap around the Dropdown-Box of the JavaScript-Menu:
+if_yaml.nav.selectorBox.allWrap = |
+# cat=if_yaml_navigations/language/ed0; type=string; label=Selectorbox-Nav (std):Headline of the JavaScript-Menu (standard language):
+if_yaml.lang.std.nav.selectorBox.label = Last updated pages:
+# cat=if_yaml_navigations/language/ed1; type=string; label=Selectorbox-Nav (1st):Headline of the JavaScript-Menu (first foreign language):
+if_yaml.lang.1st.nav.selectorBox.label =
+# cat=if_yaml_navigations/language/ed2; type=string; label=Selectorbox-Nav (2nd):Headline of the JavaScript-Menu (second foreign language):
+if_yaml.lang.2nd.nav.selectorBox.label =
+# cat=if_yaml_navigations/language/ed3; type=string; label=Selectorbox-Nav (3rd):Headline of the JavaScript-Menu (third foreign language):
+if_yaml.lang.3rd.nav.selectorBox.label =
+# cat=if_yaml_navigations/language/ed4; type=string; label=Selectorbox-Nav (4th):Headline of the JavaScript-Menu (forth foreign language):
+if_yaml.lang.4th.nav.selectorBox.label =
+# cat=if_yaml_navigations/language/ed5; type=string; label=Selectorbox-Nav (5th):Headline of the JavaScript-Menu (fifth foreign language):
+if_yaml.lang.5th.nav.selectorBox.label =
+# cat=if_yaml_navigations/language/ed6; type=string; label=Selectorbox-Nav (6th):Headline of the JavaScript-Menu (sixth foreign language):
+if_yaml.lang.6th.nav.selectorBox.label =
+######################################
+
+######################################
+###          main-navigation       ###
+######################################
+# cat=if_yaml_navigations/other/fa; type=boolean; label=Main-Nav, switchOff:
+if_yaml.nav.main.switchOff = 0
+# cat=if_yaml_navigations/other/fb; type=wrap; label=Main-Nav, wrap around :
+if_yaml.nav.main.allWrap = <div id="nav" role="navigation"> | </div>
+# cat=if_yaml_navigations/other/fc; type=boolean; label=Main-Nav 1st tab-nav, switchOff:IMPORTANT: If you switch off the tab-navigation, you should set the subMenu EntryLevel to 0 - otherwise the FIRST level of your pagetree ist NOT shown, because the tab-naviation doesn't exist anymore.
+if_yaml.nav.main.1st.tabNav.switchOff = 0
+# cat=if_yaml_navigations/other/fd; type=wrap; label=Main-Nav 1st tab-nav, wrap around:
+if_yaml.nav.main.1st.tabNav.allWrap = <div id="nav_main" class="hlist">|</div>
+# cat=if_yaml_navigations/other/fe; type=int+; label=Main-Nav 1st tab-nav, entryLevel:By default it shows all pages of the FIRST level (0) in your pagetree.
+if_yaml.nav.main.1st.tabNav.entryLevel = 0
+# cat=if_yaml_navigations/other/ff; type=string; label=Main-Nav 1st tab-nav, excludeList :Enter a comma-separated list of page-IDs here, to be excluded from tab-navigation.
+if_yaml.nav.main.1st.tabNav.excludeList = 
+# cat=if_yaml_navigations/other/fg; type=wrap; label=Main-Nav 1st tab-nav, linkWrap:Wrap around each single link (if needed):
+if_yaml.nav.main.1st.tabNav.linkWrap = <span>|</span>
+# cat=if_yaml_navigations/other/fh; type=wrap; label=Main-Nav 1st tab-nav, ifsubLinkWrap:The wrap around a single Link in the mainmenu, if subpages are present (if needed):
+if_yaml.nav.main.1st.tabNav.ifsubLinkWrap = |
+# cat=if_yaml_navigations/other/fi; type=wrap; label=Main-Nav 1st tab-nav, headerWrap:The wrap around the headline of the mainmenu (if needed):
+#if_yaml.nav.main.1st.tabNav.headerWrap = |
+# cat=if_yaml_navigations/other/fj; type=boolean; label=Main-Nav use 2nd tab-nav:By default it is OFF.
+if_yaml.nav.main.useSecondTabNav = 0
+# cat=if_yaml_navigations/other/fk; type=wrap; label=Main-Nav 2st tab-nav, wrap around:
+if_yaml.nav.main.2nd.tabNav.allWrap = <div id="nav_main_2" class="hlist">|</div>
+# cat=if_yaml_navigations/other/fl; type=int+; label=Main-Nav 2nd tab-nav, entryLevel:By default it shows all pages of the SECOND level (1) in your pagetree.
+if_yaml.nav.main.2nd.tabNav.entryLevel = 1
+# cat=if_yaml_navigations/other/fm; type=string; label=Main-Nav 2nd tab-nav, excludeList:Enter a comma-separated list of page-IDs here, to be excluded from tab-navigation.
+if_yaml.nav.main.2nd.tabNav.excludeList =
+# cat=if_yaml_navigations/other/fn; type=wrap; label=Main-Nav 2nd tab-nav, linkWrap:Wrap around each single link (if needed):
+if_yaml.nav.main.2nd.tabNav.linkWrap = <span>|</span>
+# cat=if_yaml_navigations/other/fo; type=wrap; label=Main-Nav 2nd tab-nav, ifsubLinkWrap:The wrap around a single Link in the mainmenu, if subpages are present (if needed):
+if_yaml.nav.main.2nd.tabNav.ifsubLinkWrap = |
+# cat=if_yaml_navigations/other/fp; type=wrap; label=Main-Nav 2nd tab-nav, headerWrap:The wrap around the headline of the mainmenu (if needed):
+#if_yaml.nav.main.2nd.tabNav.headerWrap = |
+# cat=if_yaml_navigations/other/fq; type=boolean; label=Main-Nav 2nd tab-nav, using for JS menu:
+if_yaml.nav.main.2nd.useForJsMenu = 0
+
+######################################
+###         sub-navigation         ###
+######################################
+# cat=if_yaml_navigations/other/ga; type=boolean; label=Sub-Nav, switchOff:NOTICE: If you turn off the submenu, all other options concerning it are ignored, of course.
+if_yaml.nav.sub.switchOff = 0
+# cat=if_yaml_navigations/other/gb; type=wrap; label=Sub-Nav, wrap around:
+if_yaml.nav.sub.allWrap = <div id="submenu" class="vlist" role="navigation">|</div>
+# cat=if_yaml_navigations/other/gc; type=boolean; label=Sub-Nav, switchOff headline:Maybe your design requires this.
+if_yaml.nav.sub.headlineOff = 0
+# cat=if_yaml_navigations/other/gd; type=int+; label=Sub-Nav, entryLevel:The submenu is the menu in a column left side or right, by default it shows pages and subpages of the SECOND level in your pagetree.
+if_yaml.nav.sub.entryLevel = 1
+# cat=if_yaml_navigations/other/ge; type=boolean; label=Sub-Nav, expand levels:By default only subpages of the current page are shown. Expand ALL and you see all subpages
+if_yaml.nav.sub.expandToggle = 0
+# cat=if_yaml_navigations/other/gf; type=string; label=Sub-Nav, excludeList:Enter a comma-separated list of page-IDs here, to be excluded from sub navigation.
+if_yaml.nav.sub.excludeList =
+# cat=if_yaml_navigations/other/gg; type=wrap; label=Sub-Nav, headlineWrap:
+if_yaml.nav.sub.headlineWrap = <h6 class="vlist">|</h6>
+# cat=if_yaml_navigations/other/gh; type=wrap; label=Sub-Nav, linkWrap:
+if_yaml.nav.sub.linkWrap = |
+# cat=if_yaml_navigations/other/gi; type=wrap; label=Sub-Nav, ifsubLinkWrap:
+if_yaml.nav.sub.ifsubLinkWrap = |
+
+######################################
+###       footer-navigation        ###
+######################################
+# cat=if_yaml_navigations/other/ha; type=boolean; label=Footer-Nav, switchOff:
+if_yaml.nav.footer.switchOff = 1
+# cat=if_yaml_navigations/other/hb; type=wrap; label=Footer-Nav, wrap around:
+if_yaml.nav.footer.wrap = <div id="footernav" role"navigation"> | </div>
+# cat=if_yaml_navigations/other/hc; type=string; label=Footer-Nav, menu IDs:Which pages must appear in the Footer-Navigation? Use a comma-separated list of UIDs (e.g. 1,2,3)
+if_yaml.nav.footer.includeList =
+
+
+##################################################################################
+###                                  content                                   ###
+##################################################################################
+
+######################################
+###             header             ###
+######################################
+# cat=if_yaml_content/other/aa; type=boolean; label=Header, switchOff:If you turn off the header completely, everything in it (images, top-nav) is also turned off, no matter what the settings are in ALL following options.
+if_yaml.content.header.switchOff = 0
+# cat=if_yaml_content/other/ab; type=wrap; label=Header, wrap around:
+if_yaml.content.header.allWrap = <div id="header" role="banner"> | </div>
+
+######################################
+###        headerimage-1st         ###
+######################################
+# cat=if_yaml_content/other/ba; type=boolean; label=Header 1st-image, switchOff:NOTICE: The header images must be stored within the page you want to display them. They are inherited to all pages below. By default the two images are stored in "Rootpage" only, hence they are inherited to ALL pages.
+if_yaml.content.header.image.1st.switchOff = 0
+# cat=if_yaml_content/other/bb; type=wrap; label=Header 1st-image, wrap around:
+if_yaml.content.header.image.1st.allWrap = <div id="logo">|</div>
+# cat=if_yaml_content/other/bc; type=boolean; label=Header 1st-image, override page ressources:
+if_yaml.content.header.image.1st.override = 0
+# cat=if_yaml_content/other/bd; type=string; label=Header 1st-image, override: path and filename based on images/ in layout:
+if_yaml.content.header.image.1st.overrideFile = 
+# cat=if_yaml_content/other/be; type=boolean; label=Header 1st-image, make a link:
+if_yaml.content.header.image.1st.linkOn = 1
+# cat=if_yaml_content/other/bf; type=int+; label=Header 1st-image, link UID:
+if_yaml.content.header.image.1st.linkUID = 23
+
+######################################
+###         headerimage-2nd        ###
+######################################
+# cat=if_yaml_content/other/ca; type=boolean; label=Header 2nd-image, switchOff:NOTICE: The header images must be stored within the page you want to display them. They are inherited to all pages below. By default the two images are stored in "Rootpage" only, hence they are inherited to ALL pages.
+if_yaml.content.header.image.2nd.switchOff = 0
+# cat=if_yaml_content/other/cb; type=wrap; label=Header 2nd-image, wrap around:
+if_yaml.content.header.image.2nd.allWrap = <div id="banner">|</div>
+# cat=if_yaml_content/other/cc; type=boolean; label=Header 2nd-image, override page ressources:
+if_yaml.content.header.image.2nd.override = 0
+# cat=if_yaml_content/other/cd; type=string; label=Header 2nd-image, override: path and filename based on images/ in layout:
+if_yaml.content.header.image.2nd.overrideFile = 
+# cat=if_yaml_content/other/ce; type=boolean; label=Header 2nd-image, make a link:
+if_yaml.content.header.image.2nd.linkOn = 0
+# cat=if_yaml_content/other/cf; type=int+; label=Header 2nd-image, link UID:
+if_yaml.content.header.image.2nd.linkUID = 23
+
+######################################
+###           searchbox            ###
+######################################
+# cat=if_yaml_content/other/da; type=boolean; label=Searchbox, boxSwitchOff:If the searchbox should be displayed, make sure the next 1 to 8 options (depending on how much languages you use) are also correctly set.
+if_yaml.content.searchbox.switchOff = 0
+# cat=if_yaml_content/other/db; type=int+; label=Searchbox searchpage PID:UID of the page containing the Indexed-Search-Plugin - REQUIRED if searchbox is in use:
+if_yaml.content.searchbox.pagePID = 5
+# cat=if_yaml_content/other/db; type=wrap; label=Searchbox, wrap around:
+if_yaml.content.searchbox.allWrap = <div id="searchbox">|</div>
+# cat=if_yaml_content/language/dc0; type=string; label=Searchbox HTML-Template(std):(Standard Language) - based on html/ directory in layout ... REQUIRED if searchbox is in use:
+if_yaml.lang.std.content.searchbox.tmplFile = searchbox/template_en.htm
+# cat=if_yaml_content/language/dc1; type=string; label=Searchbox HTML-Template(1st):(First Foreign Language):
+if_yaml.lang.1st.content.searchbox.tmplFile =
+# cat=if_yaml_content/language/dc2; type=string; label=Searchbox HTML-Template(2nd):(Second Foreign Language):
+if_yaml.lang.2nd.content.searchbox.tmplFile =
+# cat=if_yaml_content/language/dc3; type=string; label=Searchbox HTML-Template(3rd):(Third Foreign Language):
+if_yaml.lang.3rd.content.searchbox.tmplFile =
+# cat=if_yaml_content/language/dc4; type=string; label=Searchbox HTML-Template(4th):(Fourth Foreign Language):
+if_yaml.lang.4th.content.searchbox.tmplFile =
+# cat=if_yaml_content/language/dc5; type=string; label=Searchbox HTML-Template(5th):(Fifth Foreign Language):
+if_yaml.lang.5th.content.searchbox.tmplFile =
+# cat=if_yaml_content/language/dc6; type=string; label=Searchbox HTML-Template(6th):(Sixth Foreign Language):
+if_yaml.lang.6th.content.searchbox.tmplFile =
+
+######################################
+###            felogin             ###
+######################################
+# cat=if_yaml_content/other/dd0; type=string; label=FElogin Template:path is based to the html directory in the layout
+if_yaml.content.felogin.template = felogin/template.html
+
+######################################
+###             Teaser             ###
+######################################
+# cat=if_yaml_content/other/ea; type=boolean; label=Teaser, switchOff:If you turn off the teaser completely, everything in it (rootline, date and time, magnifiying glasses and language selector) is also turned off, no matter what the settings are in ALL following options.
+if_yaml.content.teaser.switchOff = 0
+# cat=if_yaml_content/other/eb; type=wrap; label=Teaser, wrap around:
+if_yaml.content.teaser.allWrap = <div id="teaser" class="clearfix" role="navigation">|</div>
+
+######################################
+###            dateAndTime         ###
+######################################
+# cat=if_yaml_content/other/ga; type=boolean; label=Date/Time, switchOff:If turned on (default), the next options provide the language-specific settings.
+if_yaml.content.dateAndTime.switchOff = 0
+# cat=if_yaml_content/language/gb0; type=string; label=Date/Time(std):Formatting date and time for standard-language (see http://th2.php.net/strftime for possible strings formatting the date and time):
+if_yaml.lang.std.content.dateAndTime.format = %A, %Y-%m-%d
+# cat=if_yaml_content/language/gb1; type=string; label=Date/Time(1st):Formatting date and time for first foreign language:
+if_yaml.lang.1st.content.dateAndTime.format = %A, %Y-%m-%d
+# cat=if_yaml_content/language/gb2; type=string; label=Date/Time(2nd):Formatting date and time for second foreign language:
+if_yaml.lang.2nd.content.dateAndTime.format =
+# cat=if_yaml_content/language/gb3; type=string; label=Date/Time(3rd):Formatting date and time for third foreign language:
+if_yaml.lang.3rd.content.dateAndTime.format =
+# cat=if_yaml_content/language/gb4; type=string; label=Date/Time(4th):Formatting date and time for fourth foreign language:
+if_yaml.lang.4th.content.dateAndTime.format =
+# cat=if_yaml_content/language/gb5; type=string; label=Date/Time(5th):Formatting date and time for fifth foreign language:
+if_yaml.lang.5th.content.dateAndTime.format =
+# cat=if_yaml_content/language/gb6; type=string; label=Date/Time(6th):Formatting date and time for sixth foreign language:
+if_yaml.lang.6th.content.dateAndTime.format =
+
+######################################
+###    CSC stdHeader DateFormat    ###
+######################################
+# cat=if_yaml_content/language/ia0; type=string; label=CSCstdheader Date-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.cscDateFormat = y/m/d
+# cat=if_yaml_content/language/ia1; type=string; label=CSCstdheader Date-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.cscDateFormat = j.n.Y
+# cat=if_yaml_content/language/ia2; type=string; label=CSCstdheader Date-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.cscDateFormat =
+# cat=if_yaml_content/language/ia3; type=string; label=CSCstdheader Date-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.cscDateFormat =
+# cat=if_yaml_content/language/ia4; type=string; label=CSCstdheader Date-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.cscDateFormat =
+# cat=if_yaml_content/language/ia5; type=string; label=CSCstdheader Date-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.cscDateFormat =
+# cat=if_yaml_content/language/ia6; type=string; label=CSCstdheader Date-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.cscDateFormat =
+
+######################################
+###            linkToTop           ###
+######################################
+# cat=if_yaml_content/language/ja0; type=wrap; label=Link to top Text(std):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.std.content.linkTextToTop = To top
+# cat=if_yaml_content/language/ja1; type=wrap; label=Link to top Text(1st):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.1st.content.linkTextToTop = To top
+# cat=if_yaml_content/language/ja2; type=wrap; label=Link to top Text(2nd):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.2nd.content.linkTextToTop = To top
+# cat=if_yaml_content/language/ja3; type=wrap; label=Link to top Text(3rd):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.3rd.content.linkTextToTop = To top
+# cat=if_yaml_content/language/ja4; type=wrap; label=Link to top Text(4th):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.4th.content.linkTextToTop = To top
+# cat=if_yaml_content/language/ja5; type=wrap; label=Link to top Text(5th):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.5th.content.linkTextToTop = To top
+# cat=if_yaml_content/language/ja6; type=wrap; label=Link to top Text(6th):Text for "Link-To-Top" (small Icon):
+if_yaml.lang.6th.content.linkTextToTop = To top
+# cat=if_yaml_content/language/jb0; type=wrap; label=Link to top Image(std):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.std.content.linkImageToTop = images/icons/top.gif
+# cat=if_yaml_content/language/jb1; type=wrap; label=Link to top Image(1st):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.1st.content.linkImageToTop = images/icons/top.gif
+# cat=if_yaml_content/language/jb2; type=wrap; label=Link to top Image(2nd):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.2nd.content.linkImageToTop = images/icons/top.gif
+# cat=if_yaml_content/language/jb3; type=wrap; label=Link to top Image(3rd):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.3rd.content.linkImageToTop = images/icons/top.gif
+# cat=if_yaml_content/language/jb4; type=wrap; label=Link to top Image(4th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.4th.content.linkImageToTop = images/icons/top.gif
+# cat=if_yaml_content/language/jb5; type=wrap; label=Link to top Image(5th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.5th.content.linkImageToTop = images/icons/top.gif
+# cat=if_yaml_content/language/jb6; type=wrap; label=Link to top Image(6th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+if_yaml.lang.6th.content.linkImageToTop = images/icons/top.gif
+
+######################################
+###            extended            ###
+######################################
+# cat=if_yaml_content/other/ka; type=boolean; label=Extended, switchOff:If you turn off the extended completely, everything in it is also turned off, no matter what the settings are in ALL following options.
+if_yaml.content.extended.switchOff = 1
+# cat=if_yaml_content/other/kb; type=wrap; label=Extended, wrap around:
+if_yaml.content.extended.allWrap = <div id="extended" role="complementary"> | </div>
+
+######################################
+###              footer            ###
+######################################
+# cat=if_yaml_content/other/la; type=boolean; label=Footer, switchOff:If you turn off the footer completely, everything in it (footer-nav) is also turned off, no matter what the settings are in ALL following options.
+if_yaml.content.footer.switchOff = 0
+# cat=if_yaml_content/other/lb; type=wrap; label=Footer, wrap around:
+if_yaml.content.footer.allWrap = <div id="footer" role="contentinfo"> | </div>
+# cat=if_yaml_content/language/lc0; type=string; label=Footer Links(std):HTML-Code for the footer (standard language).
+if_yaml.lang.std.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+# cat=if_yaml_content/language/lc1; type=string; label=Footer Links(1st):HTML-Code for the footer (first foreign language).
+if_yaml.lang.1st.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+# cat=if_yaml_content/language/lc2; type=string; label=Footer Links(2nd):HTML-Code for the footer (second foreign language).
+if_yaml.lang.2nd.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+# cat=if_yaml_content/language/lc3; type=string; label=Footer Links(3rd):HTML-Code for the footer (third foreign language).
+if_yaml.lang.3rd.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+# cat=if_yaml_content/language/lc4; type=string; label=Footer Links(4th):HTML-Code for the footer (fourth foreign language).
+if_yaml.lang.4th.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+# cat=if_yaml_content/language/lc5; type=string; label=Footer Links(5th):HTML-Code for the footer (fifth foreign language).
+if_yaml.lang.5th.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+# cat=if_yaml_content/language/lc6; type=string; label=Footer Links(6th):HTML-Code for the footer (sixth foreign language).
+if_yaml.lang.6th.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
+
+#########################################################################################################
+###                                           headline-replace                                        ###
+#########################################################################################################
+# cat=if_yaml_headlines/other/a1; type=boolean; label=H1 - replace with image?:This is done with Phark-Method image-replacement technique. See http://meiert.com/de/publications/articles/20050513/#toc-phark for details. The text you entered in header-field is used for the image.
+if_yaml.content.replace.H1.switchOn = 0
+# cat=if_yaml_headlines/other/a2; type=color; label=H1 - fontcolor:If replaced with an image, choose font color here.
+if_yaml.content.replace.H1.imageColor = #776655
+# cat=if_yaml_headlines/other/a3; type=boolean; label=H1 - background transparency:Set color of top-left pixel to transparent.
+if_yaml.content.replace.H1.bagTransparency = 0
+# cat=if_yaml_headlines/other/a4; type=color; label=H1 - background color:If replaced with an image, choose background color here or set a transparent background.
+if_yaml.content.replace.H1.bgColor = #ffffff
+# cat=if_yaml_headlines/other/a5; type=boolean; label=H1 - use niceText option?:Depending on the font you use, this renders ugly sometimes. Just turn it off if the result is not good.
+if_yaml.content.replace.H1.niceText = 0
+# cat=if_yaml_headlines/other/a6; type=int+; label=H1 - fontsize:Fontsize in pixels. Also used for vertical offset. You need to adjust h1.G height-attribute also, in your content.css file, if you change this setting.
+if_yaml.content.replace.H1.fontSize = 24
+# cat=if_yaml_headlines/other/a7; type=string; label=H1 - fontfile:Make sure the path and filename is set correctly here.
+if_yaml.content.replace.H1.imageFont = Share-Regular.ttf
+######################################
+# cat=if_yaml_headlines/other/b1; type=boolean; label=H2 - replace with image?:This is done with Phark-Method image-replacement technique. See http://meiert.com/de/publications/articles/20050513/#toc-phark for details. The text you entered in header-field is used for the image.
+if_yaml.content.replace.H2.switchOn = 0
+# cat=if_yaml_headlines/other/b2; type=color; label=H2 - fontcolor:If replaced with an image, choose font color here or set a transparent background.
+if_yaml.content.replace.H2.imageColor = #4466CC
+# cat=if_yaml_headlines/other/b3; type=boolean; label=H2 - background transparency:Set color of top-left pixel to transparent.
+if_yaml.content.replace.H2.bgTransparency = 0
+# cat=if_yaml_headlines/other/b4; type=color; label=H2 - background color:If replaced with an image, choose background color here.
+if_yaml.content.replace.H2.bgColor = #ffffff
+# cat=if_yaml_headlines/other/b5; type=boolean; label=H2 - use niceText option?:Depending on the font you use, this renders ugly sometimes. Just turn it off if the result is not good.
+if_yaml.content.replace.H2.niceText = 0
+# cat=if_yaml_headlines/other/b6; type=int+; label=H2 - fontsize:Fontsize in pixels. Also used for vertical offset. You need to adjust h1.G height-attribute also, in your content.css file, if you change this setting.
+if_yaml.content.replace.H2.fontSize = 20
+# cat=if_yaml_headlines/other/b7; type=string; label=H2 - fontfile:Make sure the path and filename is set correctly here.
+if_yaml.content.replace.H2.imageFont = Share-Regular.ttf
+######################################
+# cat=if_yaml_headlines/other/c1; type=boolean; label=H3 - replace with image?:This is done with Phark-Method image-replacement technique. See http://meiert.com/de/publications/articles/20050513/#toc-phark for details. The text you entered in header-field is used for the image.
+if_yaml.content.replace.H3.switchOn = 0
+# cat=if_yaml_headlines/other/c2; type=color; label=H3 - fontcolor:If replaced with an image, choose font color here or set a transparent background.
+if_yaml.content.replace.H3.imageColor = #958830
+# cat=if_yaml_headlines/other/c3; type=boolean; label=H3 - background transparency:Set color of top-left pixel to transparent.
+if_yaml.content.replace.H3.bgTransparency = 0
+# cat=if_yaml_headlines/other/c4; type=color; label=H3 - background color:If replaced with an image, choose background color here or set a transparent background.
+if_yaml.content.replace.H3.bgColor = #ffffff
+# cat=if_yaml_headlines/other/c5; type=boolean; label=H3 - use niceText option?:Depending on the font you use, this renders ugly sometimes. Just turn it off if the result is not good.
+if_yaml.content.replace.H3.niceText = 0
+# cat=if_yaml_headlines/other/c6; type=int+; label=H3 - fontsize:Fontsize in pixels. Also used for vertical offset. You need to adjust h1.G height-attribute also, in your content.css file, if you change this setting.
+if_yaml.content.replace.H3.fontSize = 20
+# cat=if_yaml_headlines/other/c7; type=string; label=H3 - fontfile:Make sure the path and filename is set correctly here.
+if_yaml.content.replace.H3.imageFont = Share-Regular.ttf
+######################################
+# cat=if_yaml_headlines/other/d1; type=boolean; label=H4 - replace with image?:This is done with Phark-Method image-replacement technique. See http://meiert.com/de/publications/articles/20050513/#toc-phark for details. The text you entered in header-field is used for the image.
+if_yaml.content.replace.H4.switchOn = 0
+# cat=if_yaml_headlines/other/d2; type=color; label=H4 - fontcolor:If replaced with an image, choose font color here.
+if_yaml.content.replace.H4.imageColor = #ff4444
+# cat=if_yaml_headlines/other/d3; type=boolean; label=H4 - background transparency:Set color of top-left pixel to transparent.
+if_yaml.content.replace.H4.bgTransparency = 0
+# cat=if_yaml_headlines/other/d4; type=color; label=H4 - background color:If replaced with an image, choose background color here or set a transparent background.
+if_yaml.content.replace.H4.bgColor = #ffffff
+# cat=if_yaml_headlines/other/d5; type=boolean; label=H4 - use niceText option?:Depending on the font you use, this renders ugly sometimes. Just turn it off if the result is not good.
+if_yaml.content.replace.H4.niceText = 0
+# cat=if_yaml_headlines/other/d6; type=int+; label=H4 - fontsize:Fontsize in pixels. Also used for vertical offset. You need to adjust h1.G height-attribute also, in your content.css file, if you change this setting.
+if_yaml.content.replace.H4.fontSize = 18
+# cat=if_yaml_headlines/other/d7; type=string; label=H4 - fontfile:Make sure the path and filename is set correctly here.
+if_yaml.content.replace.H4.imageFont = Share-Regular.ttf
+######################################
+# cat=if_yaml_headlines/other/e1; type=boolean; label=H5 - replace with image?:This is done with Phark-Method image-replacement technique. See http://meiert.com/de/publications/articles/20050513/#toc-phark for details. The text you entered in header-field is used for the image.
+if_yaml.content.replace.H5.switchOn = 0
+# cat=if_yaml_headlines/other/e2; type=color; label=H5 - fontcolor:If replaced with an image, choose font color here.
+if_yaml.content.replace.H5.imageColor = #888888
+# cat=if_yaml_headlines/other/e3; type=boolean; label=H5 - background transparency:Set color of top-left pixel to transparent.
+if_yaml.content.replace.H5.bgTransparency = 0
+# cat=if_yaml_headlines/other/e4; type=color; label=H5 - background color:If replaced with an image, choose background color here or set a transparent background.
+if_yaml.content.replace.H5.bgColor = #ffffff
+# cat=if_yaml_headlines/other/e5; type=boolean; label=H5 - use niceText option?:Depending on the font you use, this renders ugly sometimes. Just turn it off if the result is not good.
+if_yaml.content.replace.H5.niceText = 0
+# cat=if_yaml_headlines/other/e6; type=int+; label=H5 - fontsize:Fontsize in pixels. Also used for vertical offset. You need to adjust h1.G height-attribute also, in your content.css file, if you change this setting.
+if_yaml.content.replace.H5.fontSize = 18
+# cat=if_yaml_headlines/other/e7; type=string; label=H5 - fontfile:Make sure the path and filename is set correctly here.
+if_yaml.content.replace.H5.imageFont = Share-Regular.ttf
+
+##################################################################################
+###                                      language                              ###
+##################################################################################
+# cat=if_yaml_language/language/a; type=string; label=Languages to use:If set to empty, ''ALL'' languages found in table sys_language will be used. Provide a comma separated list (e.g. 2,5,8) to use languages with corresponding UIDs only.:
+if_yaml.lang.templateUsesLanguages = 1
+# cat=if_yaml_language/language/b0; type=string; label=Default language(std):UID of your default language (usually ALWAYS 0):
+if_yaml.lang.std.UID = 0
+# cat=if_yaml_language/language/b1; type=string; label=First foreign language(1st):UID of your first foreign language (if any):
+if_yaml.lang.1st.UID = 1
+# cat=if_yaml_language/language/b2; type=string; label=Second foreign language(2nd):UID of your second foreign language (if any):
+if_yaml.lang.2nd.UID = 2
+# cat=if_yaml_language/language/b3; type=string; label=Third foreign language(3rd):UID of your third foreign language (if any):
+if_yaml.lang.3rd.UID = 3
+# cat=if_yaml_language/language/b4; type=string; label=Fourth foreign language(4th):UID of your fourth foreign language (if any):
+if_yaml.lang.4th.UID = 4
+# cat=if_yaml_language/language/b5; type=string; label=Fifth foreign language(5th):UID of your fifth foreign language (if any):
+if_yaml.lang.5th.UID = 5
+# cat=if_yaml_language/language/b6; type=string; label=Sixth foreign language(6th):UID of your sixth foreign language (if any):
+if_yaml.lang.6th.UID = 6
+# cat=if_yaml_language/language/c0; type=string; label=ISO-Code(std):of the standard language. ISO code like en, dk, de, no, it, and so on.
+if_yaml.lang.std.isoCode = en
+# cat=if_yaml_language/language/c1; type=string; label=ISO-Code(1st):of the first foreign language.
+if_yaml.lang.1st.isoCode =
+# cat=if_yaml_language/language/c2; type=string; label=ISO-Code(2nd):of the second foreign language.
+if_yaml.lang.2nd.isoCode =
+# cat=if_yaml_language/language/c3; type=string; label=ISO-Code(3rd):of the third foreign language.
+if_yaml.lang.3rd.isoCode =
+# cat=if_yaml_language/language/c4; type=string; label=ISO-Code(4th):of the fourth foreign language.
+if_yaml.lang.4th.isoCode =
+# cat=if_yaml_language/language/c5; type=string; label=ISO-Code(5th):of the fifth foreign language.
+if_yaml.lang.5th.isoCode =
+# cat=if_yaml_language/language/c6; type=string; label=ISO-Code(6th):of the sixth foreign language.
+if_yaml.lang.6th.isoCode =
+# cat=if_yaml_language/language/d0; type=string; label=Locale-Setting(std):of the standard language. This is a bit tricky, because it depends on your webserver. Try different settings if dates and times are not shown correctly. On Windows-servers use the literals e.g. "german", on Linux-servers try to use the codes (e.g. de_DE*) according to the language you use. To find out which locales are installed on your Linux-Server, type 'locale -a' in a shell. Possible values are e.g. german, english (for Windows) or de_DE, de_DE@euro, de_DE.iso88591, de_DE.iso885915@euro, de_DE.utf8, en_US, en_US.iso88591, en_US.iso885915, en_US.utf8 (for Linux).
+if_yaml.lang.std.locale = en_EN
+# cat=if_yaml_language/language/d1; type=string; label=Locale-Setting(1st):of the first foreign language.
+if_yaml.lang.1st.locale =
+# cat=if_yaml_language/language/d2; type=string; label=Locale-Setting(2nd):of the second foreign language.
+if_yaml.lang.2nd.locale =
+# cat=if_yaml_language/language/d3; type=string; label=Locale-Setting(3rd):of the third foreign language.
+if_yaml.lang.3rd.locale =
+# cat=if_yaml_language/language/d4; type=string; label=Locale-Setting(4th):of the fourth foreign language.
+if_yaml.lang.4th.locale =
+# cat=if_yaml_language/language/d5; type=string; label=Locale-Setting(5th):of the fifth foreign language.
+if_yaml.lang.5th.locale =
+# cat=if_yaml_language/language/d6; type=string; label=Locale-Setting(6th):of the sixth foreign language.
+if_yaml.lang.6th.locale =
+
+
+######################################
+###         ttnewsDateFormat       ###
+######################################
+# cat=plugin_tt_news_advanced/language/ha0; type=string; label=ttnews list-Date-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.listDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/ha1; type=string; label=ttnews list-Date-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.listDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/ha2; type=string; label=ttnews list-Date-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.listDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/ha3; type=string; label=ttnews list-Date-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.listDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/ha4; type=string; label=ttnews list-Date-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.listDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/ha5; type=string; label=ttnews list-Date-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.listDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/ha6; type=string; label=ttnews list-Date-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.listDateFormat = %A, %Y-%m-%d
+
+# cat=plugin_tt_news_advanced/language/hb0; type=string; label=ttnews latest-Date-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.latestDateFormat = %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hb1; type=string; label=ttnews latest-Date-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.latestDateFormat = %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hb2; type=string; label=ttnews latest-Date-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.latestDateFormat = %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hb3; type=string; label=ttnews latest-Date-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.latestDateFormat = %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hb4; type=string; label=ttnews latest-Date-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.latestDateFormat = %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hb5; type=string; label=ttnews latest-Date-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.latestDateFormat = %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hb6; type=string; label=ttnews latest-Date-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.latestDateFormat = %Y-%m-%d
+
+# cat=plugin_tt_news_advanced/language/hc0; type=string; label=ttnews single-Date-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hc1; type=string; label=ttnews single-Date-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hc2; type=string; label=ttnews single-Date-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hc3; type=string; label=ttnews single-Date-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hc4; type=string; label=ttnews single-Date-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hc5; type=string; label=ttnews single-Date-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+# cat=plugin_tt_news_advanced/language/hc6; type=string; label=ttnews single-Date-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+
+# cat=plugin_tt_news_advanced/language/he0; type=string; label=ttnews single-Age-Wrap(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years 
+# cat=plugin_tt_news_advanced/language/he1; type=string; label=ttnews single-Age-Wrap(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years 
+# cat=plugin_tt_news_advanced/language/he2; type=string; label=ttnews single-Age-Wrap(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years
+# cat=plugin_tt_news_advanced/language/he3; type=string; label=ttnews single-Age-Wrap(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years
+# cat=plugin_tt_news_advanced/language/he4; type=string; label=ttnews single-Age-Wrap(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years
+# cat=plugin_tt_news_advanced/language/he5; type=string; label=ttnews single-Age-Wrap(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years
+# cat=plugin_tt_news_advanced/language/he6; type=string; label=ttnews single-Age-Wrap(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years
+
+# cat=plugin_tt_news_advanced/language/he0; type=string; label=ttnews Time-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.timeFormat = %H:%M
+# cat=plugin_tt_news_advanced/language/he1; type=string; label=ttnews Time-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.timeFormat = %H:%M
+# cat=plugin_tt_news_advanced/language/he2; type=string; label=ttnews Time-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.timeFormat = %H:%M
+# cat=plugin_tt_news_advanced/language/he3; type=string; label=ttnews Time-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.timeFormat = %H:%M
+# cat=plugin_tt_news_advanced/language/he4; type=string; label=ttnews Time-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.timeFormat = %H:%M
+# cat=plugin_tt_news_advanced/language/he5; type=string; label=ttnews Time-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.timeFormat = %H:%M
+# cat=plugin_tt_news_advanced/language/he6; type=string; label=ttnews Time-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.timeFormat = %H:%M
+
+# cat=plugin_tt_news_advanced/language/hf0; type=string; label=ttnews full-Date-Time-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+# cat=plugin_tt_news_advanced/language/hf1; type=string; label=ttnews full-Date-Time-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+# cat=plugin_tt_news_advanced/language/hf2; type=string; label=ttnews full-Date-Time-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+# cat=plugin_tt_news_advanced/language/hf3; type=string; label=ttnews full-Date-Time-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+# cat=plugin_tt_news_advanced/language/hf4; type=string; label=ttnews full-Date-Time-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+# cat=plugin_tt_news_advanced/language/hf5; type=string; label=ttnews full-Date-Time-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+# cat=plugin_tt_news_advanced/language/hf6; type=string; label=ttnews full-Date-Time-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+
+# cat=plugin_tt_news_archivemenu/language/hg0; type=string; label=ttnews Archiv-Title-Format(std):Formatting date for standard-language
+if_yaml.lang.std.content.ttnews.archivTitleFormat = %B - %Y
+# cat=plugin_tt_news_archivemenu/language/hg1; type=string; label=ttnews Archiv-Title-Format(1st):Formatting date for first foreign language
+if_yaml.lang.1st.content.ttnews.archivTitleFormat = %B - %Y
+# cat=plugin_tt_news_archivemenu/language/hg2; type=string; label=ttnews Archiv-Title-Format(2nd):Formatting date for second foreign language
+if_yaml.lang.2nd.content.ttnews.archivTitleFormat = %B - %Y
+# cat=plugin_tt_news_archivemenu/language/hg3; type=string; label=ttnews Archiv-Title-Format(3rd):Formatting date for third foreign language
+if_yaml.lang.3rd.content.ttnews.archivTitleFormat = %B - %Y
+# cat=plugin_tt_news_archivemenu/language/hg4; type=string; label=ttnews Archiv-Title-Format(4th):Formatting date for fourth foreign language
+if_yaml.lang.4th.content.ttnews.archivTitleFormat = %B - %Y
+# cat=plugin_tt_news_archivemenu/language/hg5; type=string; label=ttnews Archiv-Title-Format(5th):Formatting date for fifth foreign language
+if_yaml.lang.5th.content.ttnews.archivTitleFormat = %B - %Y
+# cat=plugin_tt_news_archivemenu/language/hg6; type=string; label=ttnews Archiv-Title-Format(6th):Formatting date for sixth foreign language
+if_yaml.lang.6th.content.ttnews.archivTitleFormat = %B - %Y
+
+
+# cat=plugin.tq_seo.metaTags/language/01a; type=string; label= Meta Description std lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description =
+# cat=plugin.tq_seo.metaTags/language/02a; type=string; label= Meta Keywords std lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords =
+# cat=plugin.tq_seo.metaTags/language/01b; type=string; label= Meta Description 1st lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description.1st =
+# cat=plugin.tq_seo.metaTags/language/02b; type=string; label= Meta Keywords 1st lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords.1st =
+# cat=plugin.tq_seo.metaTags/language/01c; type=string; label= Meta Description 2nd lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description.2nd =
+# cat=plugin.tq_seo.metaTags/language/02c; type=string; label= Meta Keywords 2nd lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords.2nd =
+# cat=plugin.tq_seo.metaTags/language/01d; type=string; label= Meta Description 3rd lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description.3rd =
+# cat=plugin.tq_seo.metaTags/language/02d; type=string; label= Meta Keywords 3rd lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords.3rd =
+# cat=plugin.tq_seo.metaTags/language/01e; type=string; label= Meta Description 4th lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description.4th =
+# cat=plugin.tq_seo.metaTags/language/02e; type=string; label= Meta Keywords 4th lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords.4th =
+# cat=plugin.tq_seo.metaTags/language/01f; type=string; label= Meta Description 5th lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description.5th =
+# cat=plugin.tq_seo.metaTags/language/02f; type=string; label= Meta Keywords 5th lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords.5th =
+# cat=plugin.tq_seo.metaTags/language/01g; type=string; label= Meta Description 6th lang: Short description of your webpage.
+plugin.tq_seo.metaTags.description.6th =
+# cat=plugin.tq_seo.metaTags/language/02g; type=string; label= Meta Keywords 6th lang: Comma separated list of keywords.
+plugin.tq_seo.metaTags.keywords.6th =

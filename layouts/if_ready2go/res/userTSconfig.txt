@@ -1,0 +1,13 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.1.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+options {
+  RTESmallWidth = 700
+  RTESmallHeight = 500
+}

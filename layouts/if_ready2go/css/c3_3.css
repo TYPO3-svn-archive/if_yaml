@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml c3_3   
+ */
+
+/* import core styles | Basis-Stylesheets einbinden */
+@import url(../../../yaml/core/base.css);
+
+/* import screen layout | Screen-Layout einbinden */
+@import url(navigation/if_yaml_nav_slidingdoor.css);
+/* @import url(navigation/if_yaml_nav_shinybuttons.css); */
+@import url(navigation/if_yaml_nav_vlist.css);
+@import url(navigation/if_yaml_nav_rgtabs.css);
+
+@import url(screen/basemod.css);
+@import url(screen/basemod_c3_3.css);
+
+/* @import url(screen/basemod_colored-columns.css); */
+/* @import url(screen/basemod_gfx-border.css); */
+@import url(screen/basemod_equal-heights.css);
+
+@import url(screen/content.css);
+@import url(screen/typo3-RTE.css);
+
+/* import print layout | Druck-Layout einbinden */
+@import url(../../../yaml/print/print_100_draft.css);

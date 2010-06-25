@@ -1,0 +1,116 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.1.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+#########################
+###  800 autoparser  ####
+#########################
+
+
+####################################
+### Template-Selector konfigurieren
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}
+  templatePathSub = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}PAGE-subtemplates/
+  defaultTemplateFileNameMain = {$if_yaml.layoutHtmlName}
+}
+### c1_Layout
+[globalVar = LIT:c1 = {$if_yaml.conf.layoutStyle}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC1Dir}
+}
+[global]
+### c2_Layout
+[globalVar = LIT:c2 = {$if_yaml.conf.layoutStyle}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC2Dir}
+}
+[global]
+### c3_Layout
+[globalVar = LIT:c3 = {$if_yaml.conf.layoutStyle}]
+plugin.tx_rlmptmplselector_pi1 {
+  templatePathMain = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC3Dir}
+}
+[global]
+
+
+[globalVar = LIT:autoparser = {$if_yaml.conf.templatingEngine}]
+###################################
+### Auto-Parser konfigurieren
+### Template-File lesen:
+plugin.tx_automaketemplate_pi1 {
+  content =< plugin.tx_rlmptmplselector_pi1
+  elements {
+    BODY.all = 1
+    BODY.all.subpartMarker = DOCUMENT_BODY
+    HEAD.all = 1
+    HEAD.all.subpartMarker = DOCUMENT_HEADER
+    HEAD.rmTagSections = title
+    UL.id.skiplinks = 1
+    UL.id.skiplinks.includeWrappingTag = 1
+    DIV.id.header = 1
+    DIV.id.header.includeWrappingTag = 1
+    DIV.id.nav = 1
+    DIV.id.nav.includeWrappingTag = 1
+    DIV.id.teaser = 1
+    DIV.id.teaser.includeWrappingTag = 1
+    DIV.id.col1_content = 1
+    DIV.id.col2_content = 1
+    DIV.id.col3_content = 1
+    DIV.id.extended = 1
+    DIV.id.extended.includeWrappingTag = 1
+    DIV.id.footer = 1
+    DIV.id.footer.includeWrappingTag = 1
+  }
+  relPathPrefix = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}
+}
+[global]
+
+###################################
+### auto-Parser und page konfigurieren
+### c1_Layout
+[globalVar = LIT:c1 = {$if_yaml.conf.layoutStyle}] && [globalVar = LIT:autoparser = {$if_yaml.conf.templatingEngine}]
+plugin.tx_automaketemplate_pi1.relPathPrefix = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC1Dir}
+page.20.subparts {
+      col1_content =< lib.area.main_content
+      col2_content =< lib.area.side_content
+      col3_content =< lib.area.menu_content
+}
+[global]
+### c2_Layout
+[globalVar = LIT:c2 = {$if_yaml.conf.layoutStyle}] && [globalVar = LIT:autoparser = {$if_yaml.conf.templatingEngine}]
+plugin.tx_automaketemplate_pi1.relPathPrefix = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC2Dir}
+page.20.subparts {
+      col1_content =< lib.area.side_content
+      col2_content =< lib.area.main_content
+      col3_content =< lib.area.menu_content
+}
+[global]
+### c3_Layout
+[globalVar = LIT:c3 = {$if_yaml.conf.layoutStyle}] && [globalVar = LIT:autoparser = {$if_yaml.conf.templatingEngine}]
+plugin.tx_automaketemplate_pi1.relPathPrefix = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}{$if_yaml.layoutHtmlC3Dir}
+page.20.subparts {
+      col1_content =< lib.area.menu_content
+      col2_content =< lib.area.side_content
+      col3_content =< lib.area.main_content
+}
+[global]
+
+################################################################################
+### main Template for autoparser
+[globalVar = LIT:autoparser = {$if_yaml.conf.templatingEngine}]
+page.headerData.10.template =< plugin.tx_automaketemplate_pi1
+page.20.template =< plugin.tx_automaketemplate_pi1
+page.20.template.content.templateType = main
+[global]
+
+################################################################################
+###  loeschen der css links aus dem Template-Head (funktioniert noch nicht bei templavoila - also >>> manuell in den headerparts)
+[globalVar = LIT:1 = {$if_yaml.conf.overrideCssFromTemplateHead}
+page.headerData.10 >
+[global]

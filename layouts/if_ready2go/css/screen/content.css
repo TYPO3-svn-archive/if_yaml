@@ -1,0 +1,646 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+   
+   
+@media all
+{
+  /**
+   * Fonts
+   * (en) font-family and font-size selection for headings and standard text elements
+   * (de) Zeichensatz und Schriftgrößen für Überschriften und übliche Text-Elemente
+   *
+   * @section content-fonts
+   */
+
+  /* (en) reset font size for all elements to standard (16 Pixel) */
+  /* (de) Alle Schriftgrößen auf Standardgröße (16 Pixel) zurücksetzen */
+  html * {font-size:100.01%}
+
+ /**
+  * (en) reset monospaced elements to font size 16px in all browsers
+  * (de) Schriftgröße von monospaced Elemente in allen Browsern auf 16 Pixel setzen
+  *
+  * @see: http://webkit.org/blog/67/strange-medium/
+  */
+
+  textarea, pre, code, kbd, samp, var, tt {
+    font-family:Consolas, "Lucida Console", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier;
+  }
+
+  /* (en) base layout gets standard font size 12px */
+  /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
+  body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:75.00%;
+    color:#444;
+  }
+
+  a.mail span.mailprotect {
+	left:-1000em;
+	position:absolute;
+	width:100em;
+  }
+
+  /*--- Headings | Überschriften ------------------------------------------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family:"Times New Roman", Times, serif;
+    font-weight:normal;
+    color:#222;
+    margin:0 0 0.25em 0;
+  }
+
+  h1 { font-size:250%; }                       /* 30px */
+  h2 { font-size:200%; }                       /* 24px */
+  h3 { font-size:150%; }                       /* 18px */
+  h4 { font-size:133.33%; }                    /* 16px */
+  h5 { font-size:116.67%; }                    /* 14px */
+  h6 { font-size:116.67%; }                    /* 14px */
+  
+  h1.G {border:0; height:30px; text-indent: -999em;}
+  h2.G {border:0; height:30px; text-indent: -999em;}
+  h3.G {border:0; height:30px; text-indent: -999em;}
+  h4.G {border:0; height:30px; text-indent: -999em;}
+  h5.G {border:0; height:30px; text-indent: -999em;}
+  h6.G {border:0; height:30px; text-indent: -999em;}
+  
+  /* --- Lists | Listen  -------------------------------------------------------------------------------- */
+
+  ul, ol, dl { line-height:1.5em; margin:0 0 1em 1em; }
+  ul { list-style-type:disc; }
+  ul ul { list-style-type:circle; margin-bottom:0; }
+
+  ol { list-style-type:decimal; }
+  ol ol { list-style-type:lower-latin; margin-bottom:0; }
+
+  li { margin-left:0.8em; line-height:1.5em; }
+
+  dt { font-weight:bold; }
+  dd { margin:0 0 1em 0.8em; }
+
+  /* --- general text formatting | Allgemeine Textauszeichnung ------------------------------------------ */
+
+  p { line-height:1.5em; margin:0 0 1em 0; }
+
+  blockquote, cite, q {
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+  }
+  blockquote { margin:0 0 1em 1.6em; color:#666; }
+
+  strong,b { font-weight:bold; }
+  em,i { font-style:italic; }
+
+  big { font-size:116.667%; }
+  small { font-size:91.667%; }
+ 
+  pre { line-height:1.5em; margin:0 0 1em 0; }
+  pre, code, kbd, tt, samp, var { font-size:100%; }
+  pre, code { color:#800; }
+  kbd, samp, var, tt { color:#666; font-weight:bold; }
+  var, dfn { font-style:italic; }
+
+  acronym, abbr {
+    border-bottom:1px #aaa dotted;
+    font-variant:small-caps;
+    letter-spacing:.07em;
+    cursor:help;
+  }
+
+  sub, sup { font-size:91.6667%; line-height:0; }
+
+  hr {
+    color:#fff;
+    background:transparent;
+    margin:0 0 0.5em 0;
+    padding:0 0 0.5em 0;
+    border:0;
+    border-bottom:1px #eee solid;
+  }
+
+  /*--- Links ----------------------------------------------------------------------------------------- */
+
+  a { color:#4D87C7; background:transparent; text-decoration:none; }
+  a:visited  { color:#036; }
+
+  /* (en) maximum constrast for tab focus - change with great care */
+  /* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
+  a:focus { text-decoration:underline; color:#000; background: #fff; outline: 3px #f93 solid; }
+  a:hover,
+  a:active { color:#182E7A; text-decoration:underline; outline: 0 none; }
+  
+  #topnav a {color:#ccc; font-weight:normal; background:transparent; text-decoration:none;}
+  #topnav a:focus, 
+  #topnav a:hover,
+  #topnav a:active {color:#fff; text-decoration:underline; background-color:transparent;}
+  
+  #footer a {color:#999; background:transparent; font-weight:bold;}
+  #footer a:focus, 
+  #footer a:hover,
+  #footer a:active {color:#4D87C7; background-color:transparent; text-decoration:underline;}
+  
+    /**
+   * (en) Emphasizing external Hyperlinks via CSS
+   * (de) Hervorhebung externer Hyperlinks mit CSS
+   *
+   * @section             content-external-links
+   * @app-yaml-default    disabled
+   */
+
+  /*
+  #main a[href^="http://www.my-domain.com"],
+  #main a[href^="https://www.my-domain.com"]
+  {
+    padding-left: 12px;
+    background-image: url('your_image.gif');
+    background-repeat: no-repeat;
+    background-position: 0 0.45em;
+  }
+  */
+
+  /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
+
+  p.icaption_left { float:left; display:inline; margin:0 1em 0.15em 0; }
+  p.icaption_right { float:right; display:inline; margin:0 0 0.15em 1em; }
+
+  p.icaption_left img,
+  p.icaption_right img { padding:0; border:1px #888 solid; }
+
+  p.icaption_left strong,
+  p.icaption_right strong { display:block; overflow:hidden; margin-top:2px; padding:0.3em 0.5em; background:#eee; font-weight:normal; font-size:91.667%; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Generic Content Classes
+  *
+  * (en) standard classes for positioning and highlighting
+  * (de) Standardklassen zur Positionierung und Hervorhebung
+  *
+  * @section content-generic-classes
+  */
+
+  .highlight { color:#c30; }
+  .dimmed { color:#888; }
+
+  .info { background:#f8f8f8; color:#666; padding:1em; margin-bottom:0.5em; font-size:91.7%; }
+
+  .note { background:#bbe; color:#440; border:2px #bbe groove; padding:1em; margin-bottom:1em; }
+  .important { background:#ffe; color:#440; border:2px #884 groove; padding:1em; margin-bottom:1em; }
+  .warning { background:#fee; color:#400; border:2px #844 groove; padding:1em; margin-bottom:1em; }
+
+  .float_left { float:left; display:inline; margin-right:1em; margin-bottom:0.15em; }
+  .float_right { float:right; display:inline; margin-left:1em; margin-bottom:0.15em; }
+  .center { display:block; text-align:center; margin:0.5em auto; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Tables | Tabellen
+  *
+  * (en) Generic classes for table-width and design definition
+  * (de) Generische Klassen für die Tabellenbreite und Gestaltungsvorschriften für Tabellen
+  *
+  * @section content-tables
+  */
+
+  table { width:auto; border-collapse:collapse; margin-bottom:0.5em; border-top:2px #888 solid; border-bottom:2px #888 solid; }
+  table caption { font-variant:small-caps; }
+  table.full { width:100%; }
+  table.fixed { table-layout:fixed; }
+
+  th,td { padding:0.5em; }
+  thead th { color:#000; border-bottom:2px #800 solid; }
+  tbody th { background:#e0e0e0; color:#333; }
+  tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+
+  tbody th { border-bottom:1px solid #fff; text-align:left; }
+  tbody td { border-bottom:1px solid #eee; }
+
+  tbody tr:hover th[scope="row"],
+  tbody tr:hover tbody th.sub { background:#f0e8e8; }
+  tbody tr:hover td { background:#fff8f8; }
+  
+  /**
+   * Miscellaneous | Sonstiges
+   *
+   * @section content-misc
+   */
+
+
+  
+/* #####################################################################
+** ### Spezielle Formatanweisungen des TYPO3 Templates #################
+** #####################################################################
+*/
+
+#col1_content form select {margin-bottom:1em; width:100%;}
+
+/* Content element "table" */
+table.contenttable {font-size:0.8em; width:100%; margin:0 0 1em 0; border-collapse:collapse; empty-cells:show;}
+table.contenttable caption {text-align:left; font-weight:bold; color:#888; margin-bottom:0.2em;}
+table.contenttable th {height:2.0em; background:#4E5155; color:white; padding:2px 7px 2px 7px; border-left:solid 2px #fff; border-right:solid 2px #fff; border-top:solid 2px #fff; border-bottom:solid 2px #fff;}
+table.contenttable tr.tr-odd {background: #eee;}
+table.contenttable tr.tr-even {background: #e3e3e3;}
+table.contenttable td {height:3.0em; padding:2px 7px 2px 7px; border-left:solid 2px #fff; border-right:solid 2px #fff; border-top:solid 2px #fff; border-bottom:solid 2px #fff; text-align:left; font-weight:normal}
+.tx-newloginbox-pi1 thead th, .tx-newloginbox-pi1 th {background:none; padding:0; color:#222;}
+.tx-newloginbox-pi1 input {margin:0;}
+
+.csc-textpicHeader h3 {margin:0em 0 0.3em 0; padding-top:0;}
+
+input, textarea {margin-left:1em; padding:2px; width:auto; font:1em Verdana, Arial, Helvetica, Sans-Serif; border:1px #ccc solid; background:#fafafa; color:#777;}
+input[type=text]:focus, textarea:focus {background:#f0f0f0; color:#333; border-color:#666;}
+img {border:0;}
+p.csc-linkToTop {text-align:right; margin:0;}
+p.csc-form-label-req {font-weight:bold;}
+.csc-caption {font-size:0.9em; background-color:#E0E7F5; padding:2px;}
+dd.csc-textpic-caption {font-style:italic; font-size:0.9em; background-color:#E0E7F5; padding:0;}
+
+/* #############################
+** ### felogin #################
+** #############################
+*/
+.tx-felogin-pi1 {}
+.tx-felogin-pi1 form {margin-bottom:1em;}
+.tx-felogin-pi1 fieldset {margin:1em 0 0 0; background:#eee; padding:1em; background:#EDF6FF; border:1px solid #477DBE;}
+/* you must display the legend, because off a IE8 bug */
+.tx-felogin-pi1 fieldset legend {}
+.tx-felogin-pi1 fieldset legend span {display:none;}
+.tx-felogin-pi1 fieldset div {clear:both; margin:0 0 0.5em 0;}
+.tx-felogin-pi1 fieldset div label {display:block;}
+.tx-felogin-pi1 fieldset div input {margin:0;}
+
+/* #############################
+** ### tt_news #################
+** #############################
+*/
+.tx-ttnews-browsebox {text-align:center; padding:0; margin:1.2em 0 1em 0; padding:1px; border:1px solid #ccd; background:#f0f0f4;}
+.tx-ttnews-browsebox a, .tx-ttnews-browsebox strong {padding:0 0.4em 0.4em 0; margin:0; background:transparent;}
+
+/* LATEST Ansicht */
+.news-latest-item {margin-bottom:1em;}
+.news-latest-item p {margin:0; background:#f7f7ef url(../../images/icons/ausrufez-blau.gif) 10px 10px no-repeat; padding:1.5em 1.5em 0 4em;}
+.news-latest-item h3 {padding-top:0; margin-top:0;}
+.news-latest-item h3 a {text-decoration:underline;}
+.news-latest-item h3 a:hover {background:transparent;}
+.news-latest-item img {padding-right:1em; padding-top:0.5em; float:left;}
+.news-latest-morelink {padding:1px; background:#f7f7ef; text-align:right;}
+
+/* LIST Ansicht */
+.news-list-item {margin-bottom:1em;}
+.news-list-item p {margin:0; background:#f7f7ef; padding:1em 1em 0 1em;}
+.news-list-item h3 {padding-top:0; margin-top:0;}
+.news-list-item h3 a {text-decoration:underline;}
+.news-list-item h3 a:hover {background:transparent;}
+.news-list-item h3 span.news-list-date {color:#aaa; font-weight:normal; font-size:0.6em;}
+.news-list-morelink {padding:1px; background:#f7f7ef; text-align:right;}
+.news-list-category {color:#aaa;}
+/* only for extended-example */
+.layout_01 .news-list-date {display:block; float: right;}
+
+/* SINGLE Ansicht */
+.news-single-item h3 {margin-bottom:1em; margin-top:1em; color:#000; padding:0.5em; background:#f0f0f4; border-left:8px #E0E7F5 solid;}
+.news-single-img {padding-right:15px;	float:left;}
+.news-single-img p {padding:0; margin:0;}
+.news-single-timedata {color:#aaa; margin-bottom:1em;}
+.news-single-additional-info {}
+.news-single-additional-info dd {margin-top:-1em;}
+.news-single-additional-info dt {margin-bottom:1.4em; color:#aaa;}
+
+/* CATEGORY Menu */
+.news-catmenu {font-size:0.8em; margin-top:2em; padding:1em; background:#eee; border:1px dotted black;}
+.news-catmenu a {display:inline; padding-left:2px;}
+.news-catmenu a:hover {background:transparent; font-style:italic; font-weight:bold;}
+.news-catmenu .news-catmenu-NO {height:16px;}
+p.news-catmenu-header {line-height:1em; margin:0;}
+
+/* ##############################
+** ### tx_indexedsearch #########
+** ##############################
+*/
+.tx-indexedsearch .tx-indexedsearch-searchbox INPUT.tx-indexedsearch-searchbox-button {width:100px;}
+.tx-indexedsearch .tx-indexedsearch-searchbox INPUT.tx-indexedsearch-searchbox-sword {width:150px;}
+.tx-indexedsearch .tx-indexedsearch-whatis P .tx-indexedsearch-sw {font-weight:bold; font-style:italic;}
+.tx-indexedsearch .tx-indexedsearch-whatis {margin-top:10px; margin-bottom:5px;}
+.tx-indexedsearch P.tx-indexedsearch-noresults {text-align:center; font-weight:bold;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-title {background:#eeeeee;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-title P {font-weight:bold;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-title P.tx-indexedsearch-percent {font-weight:normal;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-descr P {font-style:italic;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-descr P .tx-indexedsearch-redMarkup {}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-info {background:#E0E7F5;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-secHead {margin-top:20px; margin-bottom:5px;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-secHead H2 {color:#006699; margin-top:0px; margin-bottom:0px; background:transparent;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-secHead TABLE {background:#cccccc;}
+.tx-indexedsearch .tx-indexedsearch-res .tx-indexedsearch-secHead TD {vertical-align:middle;}
+.tx-indexedsearch .tx-indexedsearch-res .noResume {color :#666666;}
+.tx-indexedsearch-sw, .csc-sword, .tx-indexedsearch-redMarkup {background:#FEC216;}
+
+/* ########################################################
+** ### tx_indexedsearch with tablee-free template #########
+** ########################################################
+*/
+.tx-indexedsearch {}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset legend {display:none;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-form {margin:0 0 0.5em 0; clear:both;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-form label {display:block; float:left; width:25%;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-form input {margin:0;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-for {margin:0 0 0.5em 0; clear:both;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-for label {display:block; float:left; width:25%;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-for select {margin:0;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-select-section {margin:0 0 0.5em 0; clear:both;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-select-section label {display:block; float:left; width:25%;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-select-section select {margin:0;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-select-results {margin:0 0 0.5em 0; clear:both;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-select-results label {display:block; float:left; width:25%;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-select-results select {margin:0;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-submit {clear:both;}
+.tx-indexedsearch .searchbox-tmpl-css form fieldset .tx-indexedsearch-search-submit input {margin:0 0 0 25%;}
+.tx-indexedsearch .tx-indexedsearch-browsebox {background:#eee;}
+.tx-indexedsearch .res-tmpl-css h3 {font-size:105%; clear:both;}
+.tx-indexedsearch .res-tmpl-css .tx-indexedsearch-result-number {display:none;}
+.tx-indexedsearch .res-tmpl-css.tx-indexedsearch-res .tx-indexedsearch-title {background:transparent;}
+.tx-indexedsearch .res-tmpl-css.tx-indexedsearch-res .percent-tmpl-css {color:#aaa;}
+.tx-indexedsearch .res-tmpl-css p.tx-indexedsearch-descr {font-size:0.8em; background:#fff url(../../images/icons/sprechblase.gif) 10px 10px no-repeat; color:#187ba2; padding:1.5em 1.5em 1.5em 5em; border:1px solid #187ba2; font-style:italic;}
+.tx-indexedsearch .res-tmpl-css dl.info-tmpl-css {font-size:0.8em; background:transparent; font-weight:normal; margin:0 0 4em 0;}
+.tx-indexedsearch .res-tmpl-css dt {float:left;}
+.tx-indexedsearch .res-tmpl-css dd {float:left; margin:0;}
+.tx-indexedsearch .tx-indexedsearch-browsebox ul.browsebox {list-style:none; background:#fff; margin:0 0 3em 0;}
+.tx-indexedsearch .tx-indexedsearch-browsebox ul.browsebox li {font-size:0.8em; float:left; margin:0 1em 0 0;}
+
+/* ##########################
+** ### tx_dropdownsitemap ###
+** ##########################
+*/
+.tx-dropdownsitemap-pi1 A {font-weight:bold;}
+.tx-dropdownsitemap-pi1 li.open ol {display:block;}
+.tx-dropdownsitemap-pi1 li.closed ol {display:none;}
+.tx-dropdownsitemap-pi1 li.open ul {display:block;}
+.tx-dropdownsitemap-pi1 li.closed ul {display:none;}
+.tx-dropdownsitemap-pi1 div {border:solid 1px #ccd; background:#F0F0F4; padding:2px; margin-bottom:5px;}
+.tx-dropdownsitemap-pi1 div.level_2 {background:#FFFFFF;}
+.tx-dropdownsitemap-pi1 div.level_2 a {font-weight:normal;}
+.tx-dropdownsitemap-pi1 div.level_3 {background:#F0F0F4;}
+.tx-dropdownsitemap-pi1 div.level_4 {background:#FFFFFF;}
+.tx-dropdownsitemap-pi1 div.level_5 {background:#F0F0F4;}
+.tx-dropdownsitemap-pi1 div.expAll {text-align:center; border:solid 1px #ccd; background:#F0F0F4;}
+.tx-dropdownsitemap-pi1 img {margin-right:0.5em;}
+.tx-dropdownsitemap-pi1 a:hover {background:transparent;}
+
+/* ##########################
+** ### csc-sitemap        ###
+** ##########################
+*/
+.csc-sitemap {}
+.csc-sitemap ul {list-style:none; margin:0;}
+.csc-sitemap li {margin:0; background:transparent url(../../images/sitemap-first-level.gif) no-repeat left top; padding:0 0 0 20px;}
+.csc-sitemap li ul li {background:transparent url(../../images/sitemap.gif) no-repeat left top;}
+.csc-sitemap li a {border:1px solid #4D87C7; margin:0 0 5px 0; padding:0 0 0 7px; display:block; background:#4D87C7; text-decoration:none; color:#222;}
+.csc-sitemap li ul li a {border:none; border-bottom:1px solid #4D87C7; margin:0 0 5px 0; padding:0 0 0 7px; display:block; background:transparent; text-decoration:none; color:#222;}
+.csc-sitemap li a:hover {background:#eee; border:1px solid #eee;}
+.csc-sitemap li ul li a:hover {border:none; border-bottom:1px solid #eee;}
+
+/* #############################
+** ### Mail-Formular ###########
+** #############################
+*/
+form#mailform fieldset {border:1px solid #ccc; padding:1em; background:#fafafa;}
+form#mailform fieldset span.csc-mailform-radio fieldset {margin:1em 2em 1em 1em;}
+form#mailform fieldset span.csc-mailform-radio fieldset input {width:auto; margin:0 0.3em 0 0; border:0;}
+form#mailform fieldset span.csc-mailform-radio fieldset label {float:none;}
+.csc-mailform-field {clear:both; margin-bottom:0.8em;}
+fieldset.csc-mailform .csc-mailform-field label {width:10em; float:left; text-align:right; background:#fafafa; padding:2px;}
+fieldset.csc-mailform .csc-mailform-field input, fieldset.csc-mailform .csc-mailform-field select, fieldset.csc-mailform .csc-mailform-field textarea {width:20em;}
+fieldset.csc-mailform .csc-mailform-field input.csc-mailform-check {width:auto; border:0; margin-top:0.2em;}
+fieldset.csc-mailform .csc-mailform-field textarea {font-size:1em;}
+fieldset.csc-mailform label span {color:red;}
+input#mailformformtype_mail {margin-left:0em; background:#fafafa; cursor:pointer;}
+input#mailformformtype_mail:hover {background:#f0f0f0;}
+.csc-mailform-field select {margin-left:1em; border:1px #ccc solid; background:#fafafa; color:#777;}
+
+/* #############################
+** ### Datei-Links #############
+** #############################
+*/
+table.csc-uploads {}
+table.csc-uploads td {padding-right:0.5em; padding-top:0.25em; padding-bottom:0.25em; vertical-align:top; border-bottom:1px solid #ccc;}
+td.csc-uploads-fileSize {width:5em; text-align:right; padding:0; font-style:italic;}
+td.csc-uploads-icon {}
+td.csc-uploads-fileName p {margin:0;}
+td.csc-uploads-fileName p.csc-uploads-description {margin:0; font-size:90%; background-color:#dfd; padding:0.3em; font-style:italic;}
+
+/* ####################################
+** ### FCE 3 Boxes with rounded edges #
+** ####################################
+*/
+/* basic and transparent-grey*/
+* html .REboxContent {height:1%}
+.REboxContent {overflow:hidden}
+.REbox {display:block; background:transparent; font-weight:normal; margin-bottom:1em;}
+.REbox p {margin:0 2px; padding:2px 0; line-height:1.2em;}
+.REboxContent {display:block; background:transparent; border-left:1px solid #dddddd; border-right:1px solid #dddddd; padding:0.5em 1em 0.5em 1em;}
+.REboxContent h1, .REboxGreenContent h2, .REboxGreenContent h3, .REboxGreenContent h4, .REboxGreenContent h5 {margin-top:0;}
+.REline1, .REline2, .REline3, .REline4 {display:block; overflow:hidden; font-size:1px;}
+.REline1, .REline2, .REline3 {height:1px;}
+.REline2, .REline3, .REline4 {background:transparent; border-left:1px solid #cccccc; border-right:1px solid #dddddd;}
+.REline1 {margin:0 5px; background-color:#dddddd;}
+.REline2 {margin:0 3px; border-width:0 2px 0 2px;}
+.REline3 {margin:0 2px;}
+.REline4 {height:2px; margin:0 1px 0 1px;}
+
+/* green */
+.REboxGreen .REline2,
+.REboxGreen .REline3,
+.REboxGreen .REline4,
+.REboxGreen .REboxContent { background-color: #DDFFDD; border-color: #BBDDBB; }
+.REboxGreen .REline1 { background-color: #BBDDBB; }
+/* blue */
+.REboxBlue .REline2,
+.REboxBlue .REline3,
+.REboxBlue .REline4,
+.REboxBlue .REboxContent { background-color: #C8DDF3; border-color: #AABCCE; }
+.REboxBlue .REline1 { background-color: #AABCCE; }
+/* red */
+.REboxRed .REline2,
+.REboxRed .REline3,
+.REboxRed .REline4,
+.REboxRed .REboxContent { background-color: #FFDDDD; border-color: #DDBBBB; }
+.REboxRed .REline1 { background-color: #DDBBBB; }
+/* grey */
+.REboxGrey .REline2,
+.REboxGrey .REline3,
+.REboxGrey .REline4,
+.REboxGrey .REboxContent { background-color: #dddddd; border-color: #aaaaaa; }
+.REboxGrey .REline1 { background-color: #aaaaaa; }
+
+/* ################################
+** ### FCE adjustable columns     #
+** ################################
+*/
+div.flexi {overflow:hidden; display:block; clear:both; width:100%; height:1%;}
+/*div.flexi div {display:block; overflow:hidden; float:left;}*/
+div.flexi div.left,
+div.flexi div.center,
+div.flexi div.right {margin-top:0; margin-bottom:0; display:block; overflow:hidden; float:left;}
+div.flexi div.left {margin-right:5px;}
+div.flexi div.center {margin-right:5px; margin-left:5px;}
+div.flexi div.right {margin-left:5px;}
+
+/* Shared styles for lightbox & slimbox*/
+#overlay {position:absolute;top:0;left:0;width:100%;height:100%;background:#000000 url("../../images/blank.gif") no-repeat;z-index:90;}
+#prevLink, #nextLink {display:block;position:absolute;top:0;width:33%;height:100%;background:transparent url("../../images/blank.gif") no-repeat;}
+#prevLink {left:0;float:left;}
+#nextLink {right:0;float:right;}
+#prevLink:hover {background:transparent url("../../images/prev.gif") no-repeat 0% 15%;}
+#nextLink:hover {background:transparent url("../../images/next.gif") no-repeat 100% 15%;}
+#playLink,#pauseLink,#saveLink,#closeLink {display:block;float:right;width:26px;height:26px;margin-left:1.0em;}
+#playLink {background:transparent url("../../images/play.gif") no-repeat center;}
+#pauseLink {background:transparent url("../../images/pause.gif") no-repeat center;}
+#saveLink {background:transparent url("../../images/save.gif") no-repeat center;}
+#closeLink {background:transparent url("../../images/close.gif") no-repeat center;}
+#sbCenter, #sbBottomContainer {position:absolute;left:50%;overflow:hidden;background-color:#fff;z-index:100;}
+#sbCenter a, #sbBottomContainer a {text-decoration:none;border:none;outline:none;}
+.sbLoading {background:#fff url("../../images/loading.gif") no-repeat center;}
+#sbImage {position:absolute;left:0;top:0;border:10px solid #fff;background-repeat:no-repeat;}
+#sbBottom {font-size:11px;color:#666;line-height:1.4em;text-align:left;padding:0 10px 10px 10px;}
+#sbCaption {width:66%;font-weight:bold;margin-bottom:0.1em;}
+#sbNumber {width:66%;margin-bottom:0.1em;}
+#sbPresent {width:66%;margin-bottom:0.1em;}
+#sbPresent a {color:#666;margin-right:1.0em;}
+#sbPresent a.act {font-weight:bold;color:#fff;background:#777;border-right:0.2em solid #777;border-bottom:0.1em solid #777;border-left:0.4em solid #777;}
+#lbLightbox {position:absolute;left:0;width:100%;z-index:100;text-align:center;line-height:0;}
+#lbLightbox #closeLink {margin-bottom:10px;}
+#lbLightbox a {text-decoration:none;border:none;outline:none;}
+#lbLightbox img {border:none;}
+#lbOuterImageContainer {position:relative;background-color:#fff;width:250px;height:250px;margin:0 auto;}
+#lbImageContainer {padding:10px;}
+#lbLoading {position:absolute;z-index:110;top:40%;left:0%;height:25%;width:100%;text-align:center;line-height:0;background:#fff url("../../images/loading.gif") no-repeat center;}
+#lbHoverNav {position:absolute;top:0;left:0;height:100%;width:100%;z-index:10;}
+#lbImageContainer>#lbHoverNav {left:0;}
+#lbImageDataContainer {font-size:11px;background-color:#fff;margin:0 auto;line-height:1.4em;overflow:auto;width:100%;}
+#lbImageData {padding:0 10px;color:#666;}
+#lbImageDetails {width:66%;float:left;text-align:left;padding-bottom:10px;}
+#lbCaption {display:block;font-weight:bold;margin-bottom:0.1em;}
+#lbNumber {display:block;margin-bottom:0.1em;}
+#lbPresent {display:block;margin-bottom:0.1em;}
+#lbPresent a {color:#666;margin-right:1.0em;}
+#lbPresent a.act {font-weight:bold;color:#fff;background:#777;border-right:0.2em solid #777;border-bottom:0.1em solid #777;border-left:0.4em solid #777;}
+
+/* ###########################
+** ### cssstyledcontent ######
+** ###########################
+*/
+/* deleted in setup and copied to here, to make it easier to edit */
+/* default styles for extension "tx_cssstyledcontent" */
+/* Captions */
+DIV.csc-textpic-caption-c .csc-textpic-caption {text-align:center;}
+DIV.csc-textpic-caption-r .csc-textpic-caption {text-align:right;}
+DIV.csc-textpic-caption-l .csc-textpic-caption {text-align:left;}
+/* Needed for noRows setting */
+DIV.csc-textpic DIV.csc-textpic-imagecolumn {float:left; display:inline;}
+/* Border just around the image */
+DIV.csc-textpic-border DIV.csc-textpic-imagewrap .csc-textpic-image IMG {border:2px solid black; padding:0px 0px;}
+DIV.csc-textpic-imagewrap {padding:0;}
+DIV.csc-textpic IMG {border:none;}
+/* DIV: This will place the images side by side */
+DIV.csc-textpic DIV.csc-textpic-imagewrap DIV.csc-textpic-image {float:left;}
+/* UL: This will place the images side by side */
+DIV.csc-textpic DIV.csc-textpic-imagewrap UL {list-style:none; margin:0; padding:0;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap UL LI {float:left; margin:0; padding:0;}
+/* DL: This will place the images side by side */
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image {float:left;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DT {float:none;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD {float:none;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD IMG {border:none;} /* FE-Editing Icons */
+DL.csc-textpic-image {margin:0;}
+DL.csc-textpic-image DT {margin:0; display:inline;}
+DL.csc-textpic-image DD {margin: 0;}
+/* Clearer */
+DIV.csc-textpic-clear {clear:both;}
+/* Margins around images: */
+/* Pictures on left, add margin on right */
+DIV.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-image {
+	display:inline; /* IE fix for double-margin bug */
+	margin-right:10px;
+}
+/* Pictures on right, add margin on left */
+DIV.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-image {
+	display:inline; /* IE fix for double-margin bug */
+	margin-left:10px;
+}
+/* Pictures centered, add margin on left */
+DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image {
+	display:inline; /* IE fix for double-margin bug */
+	margin-left:10px;
+}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption {margin:0;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image IMG {margin:0;}
+/* Space below each image (also in-between rows) */
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image {margin-bottom:5px;}
+DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow {margin-bottom:5px; display:block;}
+DIV.csc-textpic DIV.csc-textpic-imagerow {clear: both;}
+/* No margins around the whole image-block */
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-firstcol {margin-left:0px !important;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-lastcol {margin-right:0px !important;}
+/* Add margin from image-block to text (in case of "Text w/ images") */
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap,
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {
+	margin-right:10px !important;
+}
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap,
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {
+	margin-left:10px !important;
+}
+/* Positioning of images: */
+/* Above */
+DIV.csc-textpic-above DIV.csc-textpic-text {clear:both;}
+/* Center (above or below) */
+DIV.csc-textpic-center {text-align:center; /* IE-hack */}
+DIV.csc-textpic-center DIV.csc-textpic-imagewrap {margin:0 auto;}
+DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image {text-align:left; /* Remove IE-hack */}
+DIV.csc-textpic-center DIV.csc-textpic-text {text-align:left; /* Remove IE-hack */}
+/* Right (above or below) */
+DIV.csc-textpic-right DIV.csc-textpic-imagewrap {float:right;}
+DIV.csc-textpic-right DIV.csc-textpic-text {clear:right;}
+/* Left (above or below) */
+DIV.csc-textpic-left DIV.csc-textpic-imagewrap {float:left;}
+DIV.csc-textpic-left DIV.csc-textpic-text {clear:left;}
+/* Left (in text) */
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap {float:left;}
+/* Right (in text) */
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap {float:right;}
+/* Right (in text, no wrap around) */
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {float:right; clear:both;}
+/* Hide from IE5-mac. Only IE-win sees this. \*/
+* html DIV.csc-textpic-intext-right-nowrap .csc-textpic-text {height:1%;}
+/* End hide from IE5/mac */
+/* Left (in text, no wrap around) */
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {float:left; clear:both;}
+/* Hide from IE5-mac. Only IE-win sees this. \*/
+* html DIV.csc-textpic-intext-left-nowrap .csc-textpic-text {height:1%;}
+/* End hide from IE5/mac */
+
+}

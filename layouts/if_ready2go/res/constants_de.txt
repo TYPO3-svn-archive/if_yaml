@@ -1,0 +1,111 @@
+/*
+ * if20 project ... http://if-20.com
+ * if20 YAML Templates for TYPO3
+ * Version: 1.0.0
+ * copyright by Ralf-René Schröder - image[FORMAT]
+ * if_yaml@image-format.eu 
+ *   
+ */
+
+########################################################################################
+### Begin of constants override for current page layout -  Sprache DEUTSCH /english  ###
+########################################################################################
+
+### Change message, if user did not fill out mandatory fields (this is to do without constants):
+styles.content.mailform.badMess = Leere Pflichtfelder:
+[globalVar = GP:L = 1]
+styles.content.mailform.badMess = You must fill in these fields:
+[global]
+
+######################################
+###            language 
+if_yaml.lang.templateUsesLanguages = 1
+
+# (on worldrecord the following languages are defined: en=1 and de=2)
+# it is good practise to set the standardlanguage to "0" - but it will also work (not realy tested) if you use the language ID (in this case "2")
+if_yaml.lang.std.UID = 0
+if_yaml.lang.std.isoCode = de
+if_yaml.lang.std.locale = german
+#if_yaml.lang.std.locale = de_DE.utf8
+# you have to set the right locale !!!
+
+if_yaml.lang.1st.UID = 1
+if_yaml.lang.1st.isoCode = en
+if_yaml.lang.1st.locale = english
+#if_yaml.lang.std.locale = en_EN.utf8
+# you have to set the right locale !!!
+
+######################################
+###      skiplink-navigation      
+if_yaml.lang.std.nav.skip.toNavText = Direkt zur Navigation springen (Eingabe drücken)
+if_yaml.lang.std.nav.skip.toContentText = Direkt zum Content springen (Eingabe drücken)
+if_yaml.lang.1st.nav.skip.toNavText = Jump to navigation (press enter)
+if_yaml.lang.1st.nav.skip.toContentText = Jump to content (press enter)
+
+######################################
+###      rootline-navigation      
+if_yaml.lang.std.nav.rootline.clickPathPrefix = Sie sind hier:
+if_yaml.lang.1st.nav.rootline.clickPathPrefix = You are here:
+
+######################################
+###     selectorbox-navigation   
+if_yaml.lang.std.nav.selectorBox.label = Zuletzt aktualisiert:
+if_yaml.lang.1st.nav.selectorBox.label = Last updated pages:
+
+######################################
+###           searchbox           
+if_yaml.lang.std.content.searchbox.tmplFile = searchbox/template_de.htm
+if_yaml.lang.1st.content.searchbox.tmplFile = searchbox/template_en.htm
+
+######################################
+###           linkToTop           
+if_yaml.lang.std.content.linkTextToTop = Nach oben
+if_yaml.lang.std.content.linkImageToTop = images/icons/top.gif
+if_yaml.lang.1st.content.linkTextToTop = To top
+if_yaml.lang.1st.content.linkImageToTop = images/icons/top.gif
+
+######################################
+###              footer   
+if_yaml.lang.std.content.footer.htmlCode = Dies Layout basiert auf &copy;&nbsp; <a href="http://www.yaml.de/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> für das <a href="http://if-20.com/" target="_blank">iF20 Projekt</a>
+if_yaml.lang.1st.content.footer.htmlCode = This layout is based on &copy;&nbsp; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>
+
+######################################
+###           dateAndTime        
+if_yaml.lang.std.content.dateAndTime.format = %A, %d. %B %Y
+if_yaml.lang.1st.content.dateAndTime.format = %A, %Y-%m-%d
+
+######################################
+###    CSC stdHeader DateFormat   
+if_yaml.lang.std.content.CSCstdheaderDateFormat = d.m.y
+if_yaml.lang.1st.content.CSCstdheaderDateFormat = y/m/d
+
+######################################
+###         ttnewsDateFormat   
+if_yaml.lang.std.content.ttnews.listDateFormat = %A, %d.%m.%Y
+if_yaml.lang.1st.content.ttnews.listDateFormat = %A, %Y-%m-%d
+
+if_yaml.lang.std.content.ttnews.latestDateFormat = %d.%m.%Y
+if_yaml.lang.1st.content.ttnews.latestDateFormat = %Y-%m-%d
+
+if_yaml.lang.std.content.ttnews.singleDateFormat = %A, %d.%m.%Y
+if_yaml.lang.1st.content.ttnews.singleDateFormat = %A, %Y-%m-%d
+
+if_yaml.lang.std.content.ttnews.singleAgeWrap = &nbsp;Minuten | Stunden | Tage | Jahre
+if_yaml.lang.1st.content.ttnews.singleAgeWrap = &nbsp;Minutes | Hours | Days | Years  
+
+if_yaml.lang.std.content.ttnews.timeFormat = %H:%M
+if_yaml.lang.1st.content.ttnews.timeFormat = %H:%M
+
+if_yaml.lang.std.content.ttnews.fullDateTimeFormat = %d.%m.%Y %H:%M
+if_yaml.lang.1st.content.ttnews.fullDateTimeFormat = %Y-%m-%d %H:%M
+
+if_yaml.lang.std.content.ttnews.archivTitleFormat = %B - %Y
+if_yaml.lang.1st.content.ttnews.archivTitleFormat = %B - %Y
+
+######################################
+###         tq_seo.metaTags 
+plugin.tq_seo.metaTags.description =
+plugin.tq_seo.metaTags.keywords =
+plugin.tq_seo.metaTags.description.1st =
+plugin.tq_seo.metaTags.keywords.1st =
+

@@ -1,0 +1,7 @@
+This extension and further extensions like:
+    * if_yaml_autoparser
+    * if_yaml_jetts (not available until now)
+    * if_yaml_templavoila
+are only "Loader" Extensions, they have the task to build up the specific necessary environment. 
+This is done by „extension dependencies and –conflicts“.
+They have no own code and can be uninstalled immediately after loading. 

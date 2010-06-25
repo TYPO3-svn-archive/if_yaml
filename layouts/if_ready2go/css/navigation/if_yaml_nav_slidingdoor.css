@@ -1,0 +1,118 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+
+@media all
+{
+
+  .hlist {
+    background:#dadada url("../../images/navigation/sliding_door/if_yaml/nav_bg.gif") repeat-x top left;
+    overflow: auto;
+    display: block;
+    width: 100%;
+    padding: 0;
+	}
+
+  .hlist * {
+		padding:0;
+		margin:0;
+		font-family: Georgia, "Times New Roman", Times, serif;
+		font-size: 1em;
+	}
+
+  .hlist ul {
+		padding: 4px 10px 0 10px;
+	}
+
+  .hlist ul li {
+		list-style: none;
+		float: left;
+		margin: 0 0 0 5px;
+	}
+	
+	.hlist ul li strong,	
+	.hlist ul li a {
+    background:transparent url("../../images/navigation/sliding_door/if_yaml/blue_r.gif") no-repeat top right;
+		display: block;
+		padding: 0 20px 0 0;
+		color: #666;
+		text-decoration: none;
+    font-weight:bold;
+	}
+
+	.hlist ul li strong span,
+	.hlist ul li a span {
+    background:transparent url("../../images/navigation/sliding_door/if_yaml/blue_l.gif") no-repeat top left;
+		display: block;
+		padding: 10px 0 5px 22px;
+	}
+	
+	.hlist ul li a:hover,
+	.hlist ul li a:focus,
+  .hlist ul li a:active {
+		background-position: 100% -200px;
+		color: #FFF;
+	}
+	
+	.hlist ul li a:hover span,
+	.hlist ul li a:focus span,
+  .hlist ul li a:active span {
+		background-position: 0% -200px;
+	}
+	
+  .hlist ul li#current strong,
+	.hlist ul li.active a {
+		background-position: 100% -100px;
+		color: #333;
+		font-weight:bold;
+	}
+
+  .hlist ul li#current strong	span,
+	.hlist ul li.active a span {
+		background-position: 0% -100px;
+	}
+
+	.hlist ul li.active a:hover,
+  .hlist ul li.active a:focus,	
+  .hlist ul li.active a:active {
+		background-position: 100% -300px;
+		color: #333;
+		font-weight:bold;
+	}
+
+	.hlist ul li.active a:hover span,
+  .hlist ul li.active a:focus span,	
+  .hlist ul li.active a:active span {
+		background-position: 0% -300px;
+	}
+
+  .hlist ul li span.accessKey,
+  .hlist ul li span.showAccessKey {background-image:none !important;display:inline !important; padding:0;}
+  .hlist ul span.accessKey {text-decoration:underline;}
+  .hlist ul span.showAccessKey {font-size:85%; font-style:italic; margin-left:0.3em; color:red; }
+  
+/**
+ *  modifications first and second tab nav
+ */
+  #nav_main {} 
+  #nav_main_2 {} 
+  		
+}

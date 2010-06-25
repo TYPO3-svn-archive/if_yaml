@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+ 
+/* Avoid borders around images in the RTE */
+img {border:0;}
+/* #############################
+** ### classesParagraph ########
+** #############################
+*/
+p.csc-frame-frame1 {background:#EDEBF1; border:1px solid #000; padding:5px;}
+p.csc-frame-frame2 {background:#F5FFAA; border:1px solid #000; padding:5px;}
+p.align-center {text-align:center;}
+p.align-left {text-align:left;}
+p.align-right {text-align:right;}
+p.align-justify {text-align:justify;}
+p.indent {margin-left:1.5em;}
+table.contenttable {font-size:0.8em;}
+p sup, p sub {font-size:0.7em;}
+p.code {font-family:"Courier New", Courier, monospace; font-size:0.8em; padding:1em; background:#f0f0f4; border:1px #ccd solid;}
+p.note {}
+p.important { background:#ffe; color:#440; border:2px #884 solid; padding:10px; margin-bottom:1em; }
+p.warning {background:#fdd; padding:1em; border-bottom:1px #dbb dotted;}
+p.info {background:#f7f7ef url(../../images/icons/ausrufez-blau.gif) 10px 10px no-repeat; padding:1.5em 1.5em 1.5em 4em;}
+p.question {background:#A43F15 url(../../images/icons/fragez-blau.gif) 10px 10px no-repeat; color:#fff; padding:1.5em 1.5em 1.5em 4em;}
+p.stop {background:#fff url(../../images/icons/stop.gif) 10px 10px no-repeat; padding:1.5em 1.5em 1.5em 4em; border:1px solid #a43f15;}
+p.citation {background:#fff url(../../images/icons/sprechblase.gif) 10px 10px no-repeat; color:#187ba2; padding:1.5em 1.5em 1.5em 4em; border:1px solid #187ba2; font-style:italic;}
+/* #############################
+** ### classesCharacter ########
+** #############################
+*/
+span.underline {text-decoration:underline;}
+span.strikethrough {text-decoration:line-through;}
+span.mono {font-family:"Courier New", Courier, monospace; padding:0 0.3em 0 0.3em; background:#f0f0f4; border:1px #ccd solid;}
+span.file {font-family:"Courier New", Courier, monospace;	padding:0 0 0 14px; color:#000088; background:transparent url('../../img/icons/file.gif') no-repeat left;}
+span.directory {font-family:"Courier New", Courier, monospace; padding:0 0 0 15px; color:#000088; background:transparent url('../../img/icons/dir.gif') no-repeat left;}
+span.infoHeadline {display:block; color:#187ba2; text-transform:uppercase; font-weight:bold; border-bottom:2px solid white; padding-bottom:0.5em; margin-bottom:-1em; margin-left:-4em; padding-left:4em; margin-right:-1.5em;}
+span.questionHeadline {display:block; color:#fff; text-transform:uppercase; font-weight:bold; border-bottom:2px solid white; padding-bottom:0.5em; margin-bottom:-1em; margin-left:-4em; padding-left:4em; margin-right:-1.5em;}
+span.stopHeadline {display:block; color:#A43F15; text-transform:uppercase; font-weight:bold; padding-bottom:0.5em; margin-bottom:-1em;}
+/* #############################
+** ### TagFreeClasses ##########
+** #############################
+*/

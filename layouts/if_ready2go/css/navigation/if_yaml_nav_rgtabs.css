@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+
+@media all
+{
+
+.tx-rgtabs-pi1 {background:transparent;}
+/* wraps the hole tab */
+.rgtabs-wrapper {
+  padding:1em 1.5em;
+  border: 1px solid #ccc;
+  background:#fff url(../../images/navigation/sliding_door/round/topbg.gif) repeat-x;
+  overflow:hidden;
+  clear:both;
+}
+/* add a loading icon */
+.rgtabs-wrapper .rgtabs-ajax-loading {
+  padding: 100px 0;
+  background:	url(../../images/navigation/sliding_door/round/spinner2.gif) no-repeat center;
+}
+/* Tab-Menu ul */
+.rgtabs-menu  {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+  background: transparent;
+  list-style:none;
+  height:1%;
+}
+/* Tab-Menu li */
+.rgtabs-menu  li, #left .rgtabs-menu  li {
+  list-style-type: none;
+  list-style:none;
+  background: url(../../images/navigation/sliding_door/round/rgtabs-left.gif) left 0px no-repeat;
+  float: left;
+  margin: 0 -1px 0 0;
+  padding: 0;
+  cursor: pointer;
+}	
+.rgtabs-menu  li:hover, #left .rgtabs-menu  li:hover {background: url(../../images/navigation/sliding_door/round/rgtabs-left_on.gif) left 0 no-repeat;}
+/* Tab-Menu li.a */
+.rgtabs-menu  li a, #left .rgtabs-menu  li a {
+  background: url(../../images/navigation/sliding_door/round/rgtabs-right.gif) right 0px no-repeat;
+  display: block;
+  float: left;
+  height: auto;
+  line-height: 24px;
+  color: #545454;
+  padding: 2px 12px 0 14px;
+  text-decoration: none;
+  outline:0;
+}
+.rgtabs-menu  li a:hover, #left .rgtabs-menu  li a:hover {background: url(../../images/navigation/sliding_door/round/rgtabs-right_on.gif) right 0px no-repeat;}
+/* Selected Tab */
+#left .rgtabs-menu  li.rgtabs-selected, .rgtabs-menu  li.rgtabs-selected {
+    background: url(../../images/navigation/sliding_door/round/rgtabs-left_on.gif) top left no-repeat;
+}
+#left .rgtabs-menu  li.rgtabs-selected a, .rgtabs-menu  li.rgtabs-selected a {
+  background: url(../../images/navigation/sliding_door/round/rgtabs-right_on.gif) top right no-repeat;
+  color: #333;
+}
+
+/* closing media all tag ... do not delete */
+}

@@ -1,0 +1,171 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.2.1
+ * @revision        $Revision: 443 $
+ * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * 
+ * "Framework Templates for TYPO3"
+ * @package         if_yaml
+ * @version         1.0.0   
+ * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
+ * @license          
+ * @link            http://if-20.com  ...  http://www.image-format.eu
+ * 
+ * Layoutexample    if_yaml 
+ */
+
+@media all
+{
+  /* title */
+  h6.vlist {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:100%;
+    width:90%;
+    padding:3px 0px 3px 10%; /* LTR */
+    margin:0;
+    color:#444;
+    background-color:#fff;
+    border-top:2px #ddd solid;
+    border-bottom:4px #888 solid;
+  }
+  h6.vlist a {color:inherit; }
+  h6.vlist a:hover {text-decoration:none; }
+
+  .vlist ul {
+    width:100%;
+    overflow:hidden;
+    margin:0 0 1.5em 0;
+    list-style-type:none;
+    border-bottom:2px #ddd solid;
+  }
+
+  .vlist ul ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+  }
+
+  .vlist ul li {
+    float:left; /* LTR */
+    width:100%;
+    margin:0;
+    padding:0;
+  }
+
+  .vlist ul a,
+  .vlist ul strong,
+  .vlist ul span {
+    display:block;
+    padding:3px 0px 3px 10%;
+    text-decoration:none;
+    border-bottom:1px #ddd solid;
+  }
+
+  .vlist ul a,
+  .vlist ul a:visited {
+    color:#444;
+  }
+
+  .vlist ul a:hover {
+    text-decoration:none;
+  }
+  .vlist ul li span {
+    display:block;
+    font-weight:bold;
+    border-bottom:1px #ddd solid;
+  }
+
+  /* active list element */
+  .vlist ul li.active {
+    background-color:#aaa;
+  }
+  .vlist ul li.active a {
+    color:#fff;
+    font-weight:bold;
+  }
+  
+    /* current list element */
+  .vlist ul li#current {
+    color:#fff;
+    background-color:#800;
+    font-weight:bold;
+  }
+  .vlist ul li.active li a,
+  .vlist ul li#current li a { color:#333; }
+  
+
+  /* Level 1 */
+  .vlist ul li a,
+  .vlist ul li strong,
+  .vlist ul li span { width:90%; padding-left:10%; } /* LTR */
+
+  .vlist ul li a:focus,
+  .vlist ul li a:hover,
+  .vlist ul li a:active { background-color:#a88; color:#fff; outline: 0 none; }
+
+  /* Level 2 */
+  .vlist ul li ul li a,
+  .vlist ul li ul li strong,
+  .vlist ul li ul li span { width:80%; padding-left:20%; } /* LTR */
+
+  .vlist ul li ul li a, 
+  .vlist ul li ul li a:visited { background-color:#f8f8f8; color:#333; }
+  .vlist ul li ul li a:focus,
+  .vlist ul li ul li a:hover,
+  .vlist ul li ul li a:active { background-color:#a88; color:#fff; }
+
+  /* Level 3 */
+  .vlist ul li ul li ul li a,
+  .vlist ul li ul li ul li strong,
+  .vlist ul li ul li ul li span { width:70%; padding-left:30%; } /* LTR */
+
+  .vlist ul li ul li ul li a,
+  .vlist ul li ul li ul li a:visited{ background-color:#f0f0f0; color:#222; }
+  .vlist ul li ul li ul li a:focus,
+  .vlist ul li ul li ul li a:hover,
+  .vlist ul li ul li ul li a:active { background-color:#a88; color:#fff; }
+
+  /* Level 4 */
+  .vlist ul li ul li ul li ul li a,
+  .vlist ul li ul li ul li ul li strong,
+  .vlist ul li ul li ul li ul li span { width:60%; padding-left:40%; } /* LTR */
+
+  .vlist ul li ul li ul li ul li a,
+  .vlist ul li ul li ul li ul li a:visited { background-color:#e8e8e8; color:#111; }
+  .vlist ul li ul li ul li ul li a:focus,
+  .vlist ul li ul li ul li ul li a:hover,
+  .vlist ul li ul li ul li ul li a:active { background-color:#a88; color:#fff; }
+  
+  .vlist ul li span.accessKey {
+    display:inline;
+    width:auto;
+    padding:0;
+    border:0 none;
+    font-weight:normal;
+    text-decoration:underline;
+  }
+  .vlist ul li span.showAccessKey {
+    display:inline;
+    width:auto;
+    padding:0;
+    border:0 none;
+    font-weight:normal;
+    font-style:italic;
+    font-size:85%;
+    color:red;
+    margin-left:0.3em;
+  }
+  
+}
+
+@media screen, print {
+.vlist ul dfn, .vlist ul .hidden {position:absolute; left:-1000em; width:20em;}
+
+}
