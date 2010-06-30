@@ -1,7 +1,7 @@
 /*
  * if20 project ... http://if-20.com
  * if20 YAML Templates for TYPO3
- * Version: 1.1.0
+ * Version: 1.2.0
  * copyright by Ralf-René Schröder - image[FORMAT]
  * if_yaml@image-format.eu 
  *   
@@ -14,7 +14,7 @@
 ################################################################################
 ### site constants 
 constants {
-  IF_YAML_VERSION = 1.1.0
+  IF_YAML_VERSION = 1.2.0
 }
 
 ################################################################################
@@ -61,8 +61,8 @@ config {
   noPageTitle = 0
   pageTitleFirst = 1
   headerComment (
-  developer template
-  based on: if20 YAML Templates for TYPO3 °.°.°http://if-20.com°.°.° copyright Ralf-Rene Schroeder - image[FORMAT]
+  {$if_yaml.conf.headerComment}
+  based on: if20 Framework Templates YAML °.°.°http://if-20.com°.°.° copyright Ralf-Rene Schroeder - image[FORMAT]
 )
   language = {$if_yaml.lang.std.isoCode}
   sys_language_uid = {$if_yaml.lang.std.UID}
@@ -952,7 +952,8 @@ lib.modul.submenu {
       NO = 1
       NO.ATagTitle.field = abstract // description // subtitle
       NO.allWrap = |<span class="hidden">.</span>
-      NO.wrapItemAndSub = <li>|</li>
+      NO.wrapItemAndSub.insertData = 1
+      NO.wrapItemAndSub = <li class="menuid-{field:uid}">|</li>
       NO.stdWrap.htmlSpecialChars = 1
       NO.linkWrap = {$if_yaml.nav.sub.linkWrap}
       NO.ATagBeforeWrap = 1
@@ -962,7 +963,7 @@ lib.modul.submenu {
       CUR = 1
       CUR < .NO
       CUR.allWrap = <strong>|</strong><span class="hidden">.</span>
-      CUR.wrapItemAndSub = <li id="current">|</li>
+      CUR.wrapItemAndSub = <li id="current" class="menuid-{field:uid}">|</li>
       CUR.doNotLinkIt = 1
       CUR.stdWrap.htmlSpecialChars = 1
       IFSUB = 1
@@ -977,13 +978,22 @@ lib.modul.submenu {
     4.wrap = <ul class="level-4">|</ul>
   }
 }
-### Delete entire lib.modul.submenu if user has set the appropriate option
-[globalVar = LIT:1 = {$if_yaml.nav.sub.switchOff}]
-lib.modul.submenu >
+
+### set the Headline as Link
+[globalVar = LIT:1 = {$if_yaml.nav.sub.headlineLink}]
+lib.modul.submenu.20.typolink.parameter.data = leveluid : 1
+[global]
+### deactivate the Link when in first level
+[treeLevel = 1] && [globalVar = LIT:1 = {$if_yaml.nav.sub.headlineLink}]
+lib.modul.submenu.20.typolink.parameter.data >
 [global]
 ### Delete headline of submenu if user has set the appropriate option
 [globalVar = LIT:1 = {$if_yaml.nav.sub.headlineOff}]
 lib.modul.submenu.20 >
+[global]
+### Delete entire lib.modul.submenu if user has set the appropriate option
+[globalVar = LIT:1 = {$if_yaml.nav.sub.switchOff}]
+lib.modul.submenu >
 [global]
 
 ################################################################################

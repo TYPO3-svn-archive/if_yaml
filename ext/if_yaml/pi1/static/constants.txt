@@ -86,18 +86,20 @@ if_yaml.conf.userIndexExternalsOn = 0
 if_yaml.conf.userIndexMetaTagsOn = 0
 # cat=if_yaml_expert/other/la; type=options[all,cached,output]; label=XHTML cleaning:Tries to clean up the output to make it XHTML compliant and a bit more. (all = the content is always processed before it may be stored in cache. cached = only if the page is put into the cache. output = only the output code just before it's echoed out.)
 if_yaml.conf.userXhtmlCleaning = all
-# cat=if_yaml_expert/other/ma; type=options[ltr,rtl]; label=Text direction:Sets text direction for whole document (useful for display of Arabic, Hebrew pages). Basically the value becomes the attribute value of "dir" for the <html> tag. (ltr = Left-To-Right, rtl = Right-To-Left)
+# cat=if_yaml_expert/other/lb; type=options[ltr,rtl]; label=Text direction:Sets text direction for whole document (useful for display of Arabic, Hebrew pages). Basically the value becomes the attribute value of "dir" for the <html> tag. (ltr = Left-To-Right, rtl = Right-To-Left)
 if_yaml.conf.userHtmlTagDir = ltr
-# cat=if_yaml_expert/other/na; type=boolean; label=Prefix comments off?:This is for debugging your TypoScript Code. If switched On, HTML comments are added like <!-- Output of lib.header.20 [begin] --> and <!-- Output of lib.header.20 [end] --> to find the output of an element easier in HTML source. The COA-Elements must be prepared to do this. Turn off for production environments!
+# cat=if_yaml_expert/other/ma; type=boolean; label=Prefix comments off?:This is for debugging your TypoScript Code. If switched On, HTML comments are added like <!-- Output of lib.header.20 [begin] --> and <!-- Output of lib.header.20 [end] --> to find the output of an element easier in HTML source. The COA-Elements must be prepared to do this. Turn off for production environments!
 if_yaml.conf.userDisablePrefComm = 1
-# cat=if_yaml_expert/other/oa; type=boolean; label=Show Filler-Link?:If switched on, a link is shown at the end of each page, to fill in dummy text. This is for testing the layout.
+# cat=if_yaml_expert/other/mb; type=boolean; label=Show Filler-Link?:If switched on, a link is shown at the end of each page, to fill in dummy text. This is for testing the layout.
 if_yaml.conf.devFillerLinkOn = 0
-# cat=if_yaml_expert/other/pa; type=boolean; label=Access Keys Off?:Switch off alle access keys used in menus.
+# cat=if_yaml_expert/other/na; type=boolean; label=Access Keys Off?:Switch off alle access keys used in menus.
 if_yaml.conf.accessKeysAndDfnOff = 1
-# cat=if_yaml_expert/other/pb; type=boolean; label=Access Key Help Off?:If access keys are switched on, they can be shown after the pagetitle (e.g. (ALT-E)) if this feature is enabled.
+# cat=if_yaml_expert/other/nb; type=boolean; label=Access Key Help Off?:If access keys are switched on, they can be shown after the pagetitle (e.g. (ALT-E)) if this feature is enabled.
 if_yaml.conf.accessKeyHelpOff = 1
-# cat=if_yaml_expert/other/qa; type=boolean; label=Use PNG-fix:For display transparent PNG files in IE <7 (not includet now)
+# cat=if_yaml_expert/other/pa; type=boolean; label=Use PNG-fix:For display transparent PNG files in IE <7 (not includet now)
 if_yaml.conf.pngFixOn = 0
+# cat=if_yaml_expert/other/pb; type=string; label=header Comment:Your own copyright notice...
+if_yaml.conf.headerComment = developer template
 
 ######################################
 ###             statistic          ###
@@ -262,19 +264,21 @@ if_yaml.nav.main.2nd.useForJsMenu = 0
 if_yaml.nav.sub.switchOff = 0
 # cat=if_yaml_navigations/other/gb; type=wrap; label=Sub-Nav, wrap around:
 if_yaml.nav.sub.allWrap = <div id="submenu" class="vlist" role="navigation">|</div>
-# cat=if_yaml_navigations/other/gc; type=boolean; label=Sub-Nav, switchOff headline:Maybe your design requires this.
-if_yaml.nav.sub.headlineOff = 0
-# cat=if_yaml_navigations/other/gd; type=int+; label=Sub-Nav, entryLevel:The submenu is the menu in a column left side or right, by default it shows pages and subpages of the SECOND level in your pagetree.
+# cat=if_yaml_navigations/other/gc; type=int+; label=Sub-Nav, entryLevel:The submenu is the menu in a column left side or right, by default it shows pages and subpages of the SECOND level in your pagetree.
 if_yaml.nav.sub.entryLevel = 1
-# cat=if_yaml_navigations/other/ge; type=boolean; label=Sub-Nav, expand levels:By default only subpages of the current page are shown. Expand ALL and you see all subpages
+# cat=if_yaml_navigations/other/gd; type=boolean; label=Sub-Nav, expand levels:By default only subpages of the current page are shown. Expand ALL and you see all subpages
 if_yaml.nav.sub.expandToggle = 0
-# cat=if_yaml_navigations/other/gf; type=string; label=Sub-Nav, excludeList:Enter a comma-separated list of page-IDs here, to be excluded from sub navigation.
+# cat=if_yaml_navigations/other/ge; type=string; label=Sub-Nav, excludeList:Enter a comma-separated list of page-IDs here, to be excluded from sub navigation.
 if_yaml.nav.sub.excludeList =
-# cat=if_yaml_navigations/other/gg; type=wrap; label=Sub-Nav, headlineWrap:
+# cat=if_yaml_navigations/other/gf; type=boolean; label=Sub-Nav, switchOff headline:Maybe your design requires this.
+if_yaml.nav.sub.headlineOff = 0
+# cat=if_yaml_navigations/other/gg; type=boolean; label=Sub-Nav, make headline as link:is deaktivatet for first level
+if_yaml.nav.sub.headlineLink = 1
+# cat=if_yaml_navigations/other/gh; type=wrap; label=Sub-Nav, headlineWrap:
 if_yaml.nav.sub.headlineWrap = <h6 class="vlist">|</h6>
-# cat=if_yaml_navigations/other/gh; type=wrap; label=Sub-Nav, linkWrap:
+# cat=if_yaml_navigations/other/gi; type=wrap; label=Sub-Nav, linkWrap:
 if_yaml.nav.sub.linkWrap = |
-# cat=if_yaml_navigations/other/gi; type=wrap; label=Sub-Nav, ifsubLinkWrap:
+# cat=if_yaml_navigations/other/gj; type=wrap; label=Sub-Nav, ifsubLinkWrap:
 if_yaml.nav.sub.ifsubLinkWrap = |
 
 ######################################
@@ -455,19 +459,23 @@ if_yaml.content.extended.allWrap = <div id="extended" role="complementary"> | </
 if_yaml.content.footer.switchOff = 0
 # cat=if_yaml_content/other/lb; type=wrap; label=Footer, wrap around:
 if_yaml.content.footer.allWrap = <div id="footer" role="contentinfo"> | </div>
-# cat=if_yaml_content/language/lc0; type=string; label=Footer Links(std):HTML-Code for the footer (standard language).
+# cat=if_yaml_content/other/lc; type=boolean; label=footer_content, switchOff:You turn off the footer_content with copyright notice
+if_yaml.content.footer_content.switchOff = 0
+# cat=if_yaml_content/other/ld; type=wrap; label=footer_content, wrap around:
+if_yaml.content.footer_content.wrap = <div id="footer_content" role="contentinfo"> | </div>
+# cat=if_yaml_content/language/le0; type=string; label=Footer Links(std):HTML-Code for the footer (standard language).
 if_yaml.lang.std.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
-# cat=if_yaml_content/language/lc1; type=string; label=Footer Links(1st):HTML-Code for the footer (first foreign language).
+# cat=if_yaml_content/language/le1; type=string; label=Footer Links(1st):HTML-Code for the footer (first foreign language).
 if_yaml.lang.1st.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
-# cat=if_yaml_content/language/lc2; type=string; label=Footer Links(2nd):HTML-Code for the footer (second foreign language).
+# cat=if_yaml_content/language/le2; type=string; label=Footer Links(2nd):HTML-Code for the footer (second foreign language).
 if_yaml.lang.2nd.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
-# cat=if_yaml_content/language/lc3; type=string; label=Footer Links(3rd):HTML-Code for the footer (third foreign language).
+# cat=if_yaml_content/language/le3; type=string; label=Footer Links(3rd):HTML-Code for the footer (third foreign language).
 if_yaml.lang.3rd.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
-# cat=if_yaml_content/language/lc4; type=string; label=Footer Links(4th):HTML-Code for the footer (fourth foreign language).
+# cat=if_yaml_content/language/le4; type=string; label=Footer Links(4th):HTML-Code for the footer (fourth foreign language).
 if_yaml.lang.4th.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
-# cat=if_yaml_content/language/lc5; type=string; label=Footer Links(5th):HTML-Code for the footer (fifth foreign language).
+# cat=if_yaml_content/language/le5; type=string; label=Footer Links(5th):HTML-Code for the footer (fifth foreign language).
 if_yaml.lang.5th.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
-# cat=if_yaml_content/language/lc6; type=string; label=Footer Links(6th):HTML-Code for the footer (sixth foreign language).
+# cat=if_yaml_content/language/le6; type=string; label=Footer Links(6th):HTML-Code for the footer (sixth foreign language).
 if_yaml.lang.6th.content.footer.htmlCode = This layout is based on &copy; <a href="http://www.yaml.de/en/" target="_blank">YAML</a> | TYPO3 Template &copy; <a href="http://www.image-format.eu/" target="_blank">image[FORMAT]</a> for the <a href="http://if-20.com/" target="_blank">iF20 project</a>.
 
 #########################################################################################################
@@ -478,7 +486,7 @@ if_yaml.content.replace.H1.switchOn = 0
 # cat=if_yaml_headlines/other/a2; type=color; label=H1 - fontcolor:If replaced with an image, choose font color here.
 if_yaml.content.replace.H1.imageColor = #776655
 # cat=if_yaml_headlines/other/a3; type=boolean; label=H1 - background transparency:Set color of top-left pixel to transparent.
-if_yaml.content.replace.H1.bagTransparency = 0
+if_yaml.content.replace.H1.bgTransparency = 0
 # cat=if_yaml_headlines/other/a4; type=color; label=H1 - background color:If replaced with an image, choose background color here or set a transparent background.
 if_yaml.content.replace.H1.bgColor = #ffffff
 # cat=if_yaml_headlines/other/a5; type=boolean; label=H1 - use niceText option?:Depending on the font you use, this renders ugly sometimes. Just turn it off if the result is not good.

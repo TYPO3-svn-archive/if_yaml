@@ -25,7 +25,7 @@ $TCA['tt_content']['columns']['colPos']['config']['items']['7']['1'] = 7;
 //Show "media" on pages of type shortcut
 t3lib_div::loadTCA('pages');
 
-t3lib_extMgm::addPlugin(array('LLL:EXT:if_yaml/locallang_db.xml:tt_content.list_type_pi1', $_EXTKEY.'_pi1'),'list_type');
+//t3lib_extMgm::addPlugin(array('LLL:EXT:if_yaml/locallang_db.xml:tt_content.list_type_pi1', $_EXTKEY.'_pi1'),'list_type');
 
 t3lib_extMgm::addStaticFile($_EXTKEY,"pi1/static/","if20 if_yaml");
 ?>

@@ -32,9 +32,9 @@ $EM_CONF[$_EXTKEY] = array(
 	'version' => '1.1.0',
 	'constraints' => array(
 		'depends' => array(
-			'templavoila' => '1.4.1-',
-			'ods_tv_sysfolders' => '',
-			'if_yaml' => '1.0.0-',
+			'templavoila' => '1.4.4-',
+			'ods_tv_sysfolders' => '0.3.2-',
+			'if_yaml' => '1.2.0-',
 		),
 		'conflicts' => array(
 			'if_yaml_jetts' => '',

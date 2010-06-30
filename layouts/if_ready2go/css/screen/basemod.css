@@ -12,7 +12,7 @@
  * 
  * "Framework Templates for TYPO3"
  * @package         if_yaml
- * @version         1.0.0   
+ * @version         1.2.0   
  * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
  * @license          
  * @link            http://if-20.com  ...  http://www.image-format.eu
@@ -120,21 +120,21 @@
  * ### Header #########################
  * ####################################
  */ 
-  #header h1 { font-weight:bold; font-size:2.5em; letter-spacing:-2px; line-height:65%; color:#000; }
+  #header h1 { font-weight:bold; font-size:2.5em; letter-spacing:-2px; line-height:65%; color:#000; z-index:30;}
   #header h1 span {display:block; height:1px; width:1px; overflow:hidden; line-height:105px;}
   #header span { color:#999; }
   
-  #header #logo {position:absolute; top:0; left:0; padding:10px; z-index:11; }
+  #header #logo {position:absolute; top:0; left:0; padding:10px; z-index:20; }
   #header #logo img.headImg1 {}
-  #header #banner {position:absolute; top:25px; right:10px; z-index:10; }
+  #header #banner {position:absolute; top:40px; right:10px; z-index:10; border: 2px groove lightBlue; }
   #header #banner img.headImg2 {}
   
-  #header #searchbox {position:absolute; top:3px; right:300px; font-size:11px;}
+  #header #searchbox {position:absolute; top:3px; right:300px; font-size:11px; z-index:40; }
   #header #searchbox input {margin-left:0;}
   #header #searchbox form span {display:block; font-weight:bold; color:#aaa;}
   #header #searchbox form input {width:170px; height:13px;}
   
-  #header #topnav {top:2px; font-size:0.9em; color:#aaa; background:transparent;}
+  #header #topnav {top:2px; font-size:0.9em; color:#aaa; background:transparent; z-index:50; }
   #header #topnav span.accessKey {text-decoration:underline;}
   #header #topnav span.showAccessKey {font-size:80%; font-style:italic;}
   #header #topnav a { color: #999; font-weight: normal; background:transparent; text-decoration:none; }

@@ -35,7 +35,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'rlmp_tmplselector' => '',
 			'automaketemplate' => '',
 			'kb_nescefe' => '',
-			'if_yaml' => '1.0.0-',
+			'if_yaml' => '1.2.0-',
 		),
 		'conflicts' => array(
 			'if_yaml_jetts' => '',

@@ -12,7 +12,7 @@
  * 
  * "Framework Templates for TYPO3"
  * @package         if_yaml
- * @version         1.0.0   
+ * @version         1.2.0   
  * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
  * @license          
  * @link            http://if-20.com  ...  http://www.image-format.eu
@@ -50,7 +50,7 @@
   /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
   body {
     font-family:Arial, Helvetica, sans-serif;
-    font-size:75.00%;
+    font-size:83.00%;
     color:#444;
   }
 
