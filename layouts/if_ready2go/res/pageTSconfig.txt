@@ -32,16 +32,10 @@ TCEFORM.tt_content.container {
 
 TCEFORM.tt_content.section_frame {
   addItems {
-    50 = DIV-50
-    51 = DIV-51
-    52 = DIV-52
-    53 = DIV-53
+    50 = TEST
   }
   altLabels {
-    50 = Label for 50
-    51 = Label for 51
-    52 = Label for 52
-    53 = Label for 53
+    50 = Label for TEST
   }
 }
 
@@ -69,7 +63,7 @@ RTE.default {
 
 RTE.colors {
   color1 {
-    name = My color 1
+    name = name-color1
     value = #ff0000
   }
 }

@@ -1,9 +1,12 @@
 /*
  * if20 project ... http://if-20.com
  * if20 YAML Templates for TYPO3
- * Version: 1.2.0
+ * Version: 1.2.1
  * copyright by Ralf-René Schröder - image[FORMAT]
  * if_yaml@image-format.eu 
+ * 
+ * some TScode (impossible to write this parts new becaus of form follows function) 
+ * is inspired and partly directly got from former extension dbttv written by dieter bunkerd  
  *   
  */
 
@@ -14,49 +17,26 @@
 ################################################################################
 ### site constants 
 constants {
-  IF_YAML_VERSION = 1.2.0
+  IF_YAML_VERSION = 1.2.1
 }
 
 ################################################################################
 ### TYPO3 config array
 config {
-  linkVars = L(1-6)
-  uniqueLinkVars = 1
   renderCharset = utf-8
   metaCharset = utf-8
   disableCharsetHeader = 0
   enableContentLengthHeader = 1
   sendCacheHeaders = 1
-  doctype = {$if_yaml.conf.docTypeToUse}
-#  xmlprologue = none
-  doctypeSwitch = {$if_yaml.conf.doctypesw_cond}
-  htmlTag_langKey = {$if_yaml.lang.std.isoCode}
-  htmlTag_dir = {$if_yaml.conf.userHtmlTagDir}
   removeDefaultJS = external
-#  removeDefaultJS = 1
   inlineStyle2TempFile = 1
   debug = 0
   sword_standAlone = 0
   sword_noMixedCase = 0
   intTarget = _self
   extTarget = _blank
-#  spamProtectEmailAddresses = ascii
-  spamProtectEmailAddresses = 5
-  spamProtectEmailAddresses_atSubst = <span class="mailprotect">if20</span><span>&#064;</span>
-  spamProtectEmailAddresses_lastDotSubst = <span class="mailprotect">if20</span><span>&#046;</span>
   noScaleUp = 1
   no_cache = 0
-#  additionalHeaders = Content-Type:text/html;charset=utf-8
-  stat = {$if_yaml.conf.stat.switchOn}
-  stat_apache = {$if_yaml.conf.stat.apacheSetting}
-  stat_apache_logfile = {$if_yaml.conf.stat.apacheLogFile}
-  stat_mysql = {$if_yaml.conf.stat.mysqlSetting}
-#  stat_excludeBEuserHits =
-#  stat_excludeIPList =
-#  stat_apache_pagenames =
-#  stat_apache_notExtended =
-#  stat_apache_noHost =
-#  stat_titleLen =
   content_from_pid_allowOutsideDomain = 1
   noPageTitle = 0
   pageTitleFirst = 1
@@ -64,22 +44,27 @@ config {
   {$if_yaml.conf.headerComment}
   based on: if20 Framework Templates YAML °.°.°http://if-20.com°.°.° copyright Ralf-Rene Schroeder - image[FORMAT]
 )
-  language = {$if_yaml.lang.std.isoCode}
-  sys_language_uid = {$if_yaml.lang.std.UID}
-  locale_all = {$if_yaml.lang.std.locale}
-  sys_language_mode = content_fallback
-  sys_language_overlay = hideNonTranslated
-  simulateStaticDocuments = 0
   admPanel = {$if_yaml.conf.userAdmPanelOn}
+  doctype = {$if_yaml.conf.docTypeToUse}
+  doctypeSwitch = {$if_yaml.conf.doctypesw_cond}
+  htmlTag_dir = {$if_yaml.conf.userHtmlTagDir}
   index_enable = {$if_yaml.conf.userIndexingOn}
   index_externals = {$if_yaml.conf.userIndexExternalsOn}
   index_metatags = {$if_yaml.conf.userIndexMetaTagsOn}
+  stat = {$if_yaml.conf.stat.switchOn}
+  stat_apache = {$if_yaml.conf.stat.apacheSetting}
+  stat_apache_logfile = {$if_yaml.conf.stat.apacheLogFile}
+  stat_mysql = {$if_yaml.conf.stat.mysqlSetting}
   xhtml_cleaning = {$if_yaml.conf.userXhtmlCleaning}
   disablePrefixComment = {$if_yaml.conf.userDisablePrefComm}
+  spamProtectEmailAddresses = 5
+  spamProtectEmailAddresses_atSubst = <span class="mailprotect">if20</span><span>&#064;</span>
+  spamProtectEmailAddresses_lastDotSubst = <span class="mailprotect">if20</span><span>&#046;</span>
 }
 
-################################################################################
-### If using simulateStaticDocuments
+################################################################
+### simulateStaticDocuments
+config.simulateStaticDocuments = 0
 [globalVar = LIT:1 = {$if_yaml.conf.url.simStatDocOn}]&&[globalVar = LIT:1 > {$if_yaml.conf.url.realUrlOn}]&&[globalVar = LIT:1 > {$if_yaml.conf.url.coolUriOn}]
 config {
   simulateStaticDocuments = 1
@@ -90,7 +75,7 @@ config {
 [global]
 
 ################################################################
-### If using realURL
+### realURL
 [globalVar = LIT:1 = {$if_yaml.conf.url.realUrlOn}]
 config {
   baseURL = {$if_yaml.conf.url.userBaseUrl}
@@ -100,7 +85,7 @@ config {
 [global]
 
 ################################################################
-### If using cooluri
+### cooluri
 [globalVar = LIT:1 = {$if_yaml.conf.url.coolUriOn}]
 config {
   baseURL = {$if_yaml.conf.url.userBaseUrl}
@@ -111,42 +96,64 @@ config {
 [global]
 
 ################################################################
-### Language-specific settings
+### Language settings
+config {
+  linkVars = L(1-6)
+  uniqueLinkVars = 1
+  sys_language_mode = content_fallback
+  sys_language_overlay = hideNonTranslated
+  sys_language_uid = {$if_yaml.lang.std.UID}
+  language = {$if_yaml.lang.std.isoCode}
+  locale_all = {$if_yaml.lang.std.locale}
+  htmlTag_langKey = {$if_yaml.lang.std.isoCode}
+}
 [globalVar = GP:L = {$if_yaml.lang.1st.UID}]
-config.sys_language_uid = {$if_yaml.lang.1st.UID}
-config.language = {$if_yaml.lang.1st.isoCode}
-config.locale_all = {$if_yaml.lang.1st.locale}
-config.htmlTag_langKey = {$if_yaml.lang.1st.isoCode}
+config {
+  sys_language_uid = {$if_yaml.lang.1st.UID}
+  language = {$if_yaml.lang.1st.isoCode}
+  locale_all = {$if_yaml.lang.1st.locale}
+  htmlTag_langKey = {$if_yaml.lang.1st.isoCode}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
-config.sys_language_uid = {$if_yaml.lang.2nd.UID}
-config.language = {$if_yaml.lang.2nd.isoCode}
-config.locale_all = {$if_yaml.lang.2nd.locale}
-config.htmlTag_langKey = {$if_yaml.lang.2nd.isoCode}
+config {
+  sys_language_uid = {$if_yaml.lang.2nd.UID}
+  language = {$if_yaml.lang.2nd.isoCode}
+  locale_all = {$if_yaml.lang.2nd.locale}
+  htmlTag_langKey = {$if_yaml.lang.2nd.isoCode}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
-config.sys_language_uid = {$if_yaml.lang.3rd.UID}
-config.language = {$if_yaml.lang.3rd.isoCode}
-config.locale_all = {$if_yaml.lang.3rd.locale}
-config.htmlTag_langKey = {$if_yaml.lang.3rd.isoCode}
+config {
+  sys_language_uid = {$if_yaml.lang.3rd.UID}
+  language = {$if_yaml.lang.3rd.isoCode}
+  locale_all = {$if_yaml.lang.3rd.locale}
+  htmlTag_langKey = {$if_yaml.lang.3rd.isoCode}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.4th.UID}]
-config.sys_language_uid = {$if_yaml.lang.4th.UID}
-config.language = {$if_yaml.lang.4th.isoCode}
-config.locale_all = {$if_yaml.lang.4th.locale}
-config.htmlTag_langKey = {$if_yaml.lang.4th.isoCode}
+config {
+  sys_language_uid = {$if_yaml.lang.4th.UID}
+  language = {$if_yaml.lang.4th.isoCode}
+  locale_all = {$if_yaml.lang.4th.locale}
+  htmlTag_langKey = {$if_yaml.lang.4th.isoCode}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.5th.UID}]
-config.sys_language_uid = {$if_yaml.lang.5th.UID}
-config.language = {$if_yaml.lang.5th.isoCode}
-config.locale_all = {$if_yaml.lang.5th.locale}
-config.htmlTag_langKey = {$if_yaml.lang.5th.isoCode}
+config {
+  sys_language_uid = {$if_yaml.lang.5th.UID}
+  language = {$if_yaml.lang.5th.isoCode}
+  locale_all = {$if_yaml.lang.5th.locale}
+  htmlTag_langKey = {$if_yaml.lang.5th.isoCode}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.6th.UID}]
-config.sys_language_uid = {$if_yaml.lang.6th.UID}
-config.language = {$if_yaml.lang.6th.isoCode}
-config.locale_all = {$if_yaml.lang.6th.locale}
-config.htmlTag_langKey = {$if_yaml.lang.6th.isoCode}
+config {
+  sys_language_uid = {$if_yaml.lang.6th.UID}
+  language = {$if_yaml.lang.6th.isoCode}
+  locale_all = {$if_yaml.lang.6th.locale}
+  htmlTag_langKey = {$if_yaml.lang.6th.isoCode}
+}
 [global]
 
 
@@ -231,40 +238,54 @@ plugin.tx_apimacmade_pi1 {
 
 ################################################################################
 ## tq_seo metatags
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.std.isoCode}
-plugin.tq_seo.metaTags.description = {$plugin.tq_seo.metaTags.description}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords}
-
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.std.isoCode}
+  description = {$plugin.tq_seo.metaTags.description}
+  keywords = {$plugin.tq_seo.metaTags.keywords}
+}
 [globalVar = GP:L = {$if_yaml.lang.1st.UID}]
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.1st.isoCode}
-plugin.tq_seo.metaTags.description = {$plugin.tq_seo.metaTags.description.1st}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.1st}
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.1st.isoCode}
+  description = {$plugin.tq_seo.metaTags.description.1st}
+  keywords = {$plugin.tq_seo.metaTags.keywords.1st}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.2nd.UID}]
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.2nd.isoCode}
-plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.2nd}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.2nd}
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.2nd.isoCode}
+  description =  {$plugin.tq_seo.metaTags.description.2nd}
+  keywords = {$plugin.tq_seo.metaTags.keywords.2nd}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.3rd.UID}]
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.3rd.isoCode}
-plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.3rd}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.3rd}
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.3rd.isoCode}
+  description =  {$plugin.tq_seo.metaTags.description.3rd}
+  keywords = {$plugin.tq_seo.metaTags.keywords.3rd}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.4th.UID}]
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.4th.isoCode}
-plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.4th}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.4th}
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.4th.isoCode}
+  description =  {$plugin.tq_seo.metaTags.description.4th}
+  keywords = {$plugin.tq_seo.metaTags.keywords.4th}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.5th.UID}]
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.5th.isoCode}
-plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.5th}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.5th}
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.5th.isoCode}
+  description =  {$plugin.tq_seo.metaTags.description.5th}
+  keywords = {$plugin.tq_seo.metaTags.keywords.5th}
+}
 [global]
 [globalVar = GP:L = {$if_yaml.lang.6th.UID}]
-plugin.tq_seo.metaTags.language = {$if_yaml.lang.6th.isoCode}
-plugin.tq_seo.metaTags.description =  {$plugin.tq_seo.metaTags.description.6th}
-plugin.tq_seo.metaTags.keywords = {$plugin.tq_seo.metaTags.keywords.6th}
+plugin.tq_seo.metaTags {
+  language = {$if_yaml.lang.6th.isoCode}
+  description =  {$plugin.tq_seo.metaTags.description.6th}
+  keywords = {$plugin.tq_seo.metaTags.keywords.6th}
+}
 [global]
+
 config.titleTagFunction = user_tqseo_pagetitle->main
 page {
   headerData.84113002 = USER

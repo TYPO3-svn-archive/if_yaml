@@ -8,11 +8,11 @@
  */
 
 ################################################################################
-### dropdown sitemap  
+### dropdown sitemap ... CSS for dropdown sitemap was moved and edited in content.css  
 plugin.tx_dropdownsitemap_pi1._CSS_DEFAULT_STYLE >
 
 ################################################################################
-### cssstyledcontent (Copied to content.css, in order to be able to modify them there.)
+### cssstyledcontent ... CSS for cssstyledcontent was moved and edited in content.css
 plugin.tx_cssstyledcontent._CSS_DEFAULT_STYLE >
 
 ################################################################################
@@ -44,7 +44,7 @@ plugin.tx_felogin_pi1._CSS_DEFAULT_STYLE >
 plugin.tx_rgtabs_pi1.pathToCSS >
 
 ################################################################################
-## perfectlightbox ... delete inclusion of CSS, because we put it in content.css 
+## perfectlightbox ... CSS for perfectlightbox was moved and edited in content.css 
 page.headerData.1337.1 >
 [globalVar = TSFE:id = 23]
 page.headerData.1337.99 = TEXT
@@ -52,14 +52,14 @@ page.headerData.1337.99.value = <link rel="stylesheet" href="{$if_yaml.templates
 [global]
 
 ################################################################################
-### tt_news
+### tt_news ... CSS for tt_news was moved and edited in content.css
 plugin.tt_news {
   _CSS_DEFAULT_STYLE >
   displayLatest.subheader_stdWrap.crop = 100 | ... | 1
 }
 
 ################################################################################
-### indexedsearch
+### indexedsearch ... CSS for indexedsearch was moved and edited in content.css
 plugin.tx_indexedsearch {
   _CSS_DEFAULT_STYLE >
   _DEFAULT_PI_VARS.results = 10
@@ -96,22 +96,9 @@ plugin.tx_indexedsearch {
 tt_content.stdWrap.innerWrap.cObject {
 ## redifinition of existing ones:
 #  1.value = <div class="frame01">|</div>
-#  5.value = <div class="frame05">|</div>
-#  6.value = <div class="frame06">|</div>
-#  10.value = <div class="frame10">|</div>
-#  11.value = <div class="frame11">|</div>
-#  12.value = <div class="frame12">|</div>
-#  20.value = <div class="frame20">|</div>
-#  21.value = <div class="frame21">|</div>
 ## definition of own:
   50 = TEXT
-  50.value = <div class="frame50">|</div>
-  51 = TEXT
-  51.value = <div class="frame51">|</div>
-  52 = TEXT
-  52.value = <div class="frame52">|</div>
-  53 = TEXT
-  53.value = <div class="frame53">|</div>
+  50.value = <div class="frameTEST">|</div>
 }
 
 ################################################################################

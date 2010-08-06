@@ -246,35 +246,6 @@
    * @section content-misc
    */
 
-
-  
-/* #####################################################################
-** ### Spezielle Formatanweisungen des TYPO3 Templates #################
-** #####################################################################
-*/
-
-#col1_content form select {margin-bottom:1em; width:100%;}
-
-/* Content element "table" */
-table.contenttable {font-size:0.8em; width:100%; margin:0 0 1em 0; border-collapse:collapse; empty-cells:show;}
-table.contenttable caption {text-align:left; font-weight:bold; color:#888; margin-bottom:0.2em;}
-table.contenttable th {height:2.0em; background:#4E5155; color:white; padding:2px 7px 2px 7px; border-left:solid 2px #fff; border-right:solid 2px #fff; border-top:solid 2px #fff; border-bottom:solid 2px #fff;}
-table.contenttable tr.tr-odd {background: #eee;}
-table.contenttable tr.tr-even {background: #e3e3e3;}
-table.contenttable td {height:3.0em; padding:2px 7px 2px 7px; border-left:solid 2px #fff; border-right:solid 2px #fff; border-top:solid 2px #fff; border-bottom:solid 2px #fff; text-align:left; font-weight:normal}
-.tx-newloginbox-pi1 thead th, .tx-newloginbox-pi1 th {background:none; padding:0; color:#222;}
-.tx-newloginbox-pi1 input {margin:0;}
-
-.csc-textpicHeader h3 {margin:0em 0 0.3em 0; padding-top:0;}
-
-input, textarea {margin-left:1em; padding:2px; width:auto; font:1em Verdana, Arial, Helvetica, Sans-Serif; border:1px #ccc solid; background:#fafafa; color:#777;}
-input[type=text]:focus, textarea:focus {background:#f0f0f0; color:#333; border-color:#666;}
-img {border:0;}
-p.csc-linkToTop {text-align:right; margin:0;}
-p.csc-form-label-req {font-weight:bold;}
-.csc-caption {font-size:0.9em; background-color:#E0E7F5; padding:2px;}
-dd.csc-textpic-caption {font-style:italic; font-size:0.9em; background-color:#E0E7F5; padding:0;}
-
 /* #############################
 ** ### felogin #################
 ** #############################
@@ -561,95 +532,130 @@ div.flexi div.right {margin-left:5px;}
 /* deleted in setup and copied to here, to make it easier to edit */
 /* default styles for extension "tx_cssstyledcontent" */
 /* Captions */
-DIV.csc-textpic-caption-c .csc-textpic-caption {text-align:center;}
-DIV.csc-textpic-caption-r .csc-textpic-caption {text-align:right;}
-DIV.csc-textpic-caption-l .csc-textpic-caption {text-align:left;}
+DIV.csc-textpic-caption-c .csc-textpic-caption { text-align: center; }
+DIV.csc-textpic-caption-r .csc-textpic-caption { text-align: right; }
+DIV.csc-textpic-caption-l .csc-textpic-caption { text-align: left; }
 /* Needed for noRows setting */
-DIV.csc-textpic DIV.csc-textpic-imagecolumn {float:left; display:inline;}
+DIV.csc-textpic DIV.csc-textpic-imagecolumn { float: left; display: inline; }
 /* Border just around the image */
-DIV.csc-textpic-border DIV.csc-textpic-imagewrap .csc-textpic-image IMG {border:2px solid black; padding:0px 0px;}
-DIV.csc-textpic-imagewrap {padding:0;}
-DIV.csc-textpic IMG {border:none;}
+DIV.csc-textpic-border DIV.csc-textpic-imagewrap IMG {border:2px solid black; padding:0px 0px;}
+DIV.csc-textpic-imagewrap { padding: 0; }
+DIV.csc-textpic IMG { border: none; }
 /* DIV: This will place the images side by side */
-DIV.csc-textpic DIV.csc-textpic-imagewrap DIV.csc-textpic-image {float:left;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap DIV.csc-textpic-image { float: left; }
 /* UL: This will place the images side by side */
-DIV.csc-textpic DIV.csc-textpic-imagewrap UL {list-style:none; margin:0; padding:0;}
-DIV.csc-textpic DIV.csc-textpic-imagewrap UL LI {float:left; margin:0; padding:0;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap UL { list-style: none; margin: 0; padding: 0; }
+DIV.csc-textpic DIV.csc-textpic-imagewrap UL LI { float: left; margin: 0; padding: 0; }
 /* DL: This will place the images side by side */
-DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image {float:left;}
-DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DT {float:none;}
-DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD {float:none;}
-DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD IMG {border:none;} /* FE-Editing Icons */
-DL.csc-textpic-image {margin:0;}
-DL.csc-textpic-image DT {margin:0; display:inline;}
-DL.csc-textpic-image DD {margin: 0;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image { float: left; }
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DT { float: none; }
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD { float: none; }
+DIV.csc-textpic DIV.csc-textpic-imagewrap DL.csc-textpic-image DD IMG { border: none; } /* FE-Editing Icons */
+DL.csc-textpic-image { margin: 0; }
+DL.csc-textpic-image DT { margin: 0; display: inline; }
+DL.csc-textpic-image DD { margin: 0; }
 /* Clearer */
-DIV.csc-textpic-clear {clear:both;}
+DIV.csc-textpic-clear { clear: both; }
 /* Margins around images: */
 /* Pictures on left, add margin on right */
 DIV.csc-textpic-left DIV.csc-textpic-imagewrap .csc-textpic-image,
 DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
 DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap .csc-textpic-image {
-	display:inline; /* IE fix for double-margin bug */
-	margin-right:10px;
+	display: inline; /* IE fix for double-margin bug */
+	margin-right: 10px;
 }
 /* Pictures on right, add margin on left */
 DIV.csc-textpic-right DIV.csc-textpic-imagewrap .csc-textpic-image,
 DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap .csc-textpic-image,
 DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap .csc-textpic-image {
-	display:inline; /* IE fix for double-margin bug */
-	margin-left:10px;
+	display: inline; /* IE fix for double-margin bug */
+	margin-left: 10px;
 }
 /* Pictures centered, add margin on left */
 DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image {
-	display:inline; /* IE fix for double-margin bug */
-	margin-left:10px;
+	display: inline; /* IE fix for double-margin bug */
+	margin-left: 10px;
 }
-DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption {margin:0;}
-DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image IMG {margin:0;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image .csc-textpic-caption { margin: 0; }
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image IMG { margin: 0; vertical-align:bottom; }
 /* Space below each image (also in-between rows) */
-DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image {margin-bottom:5px;}
-DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow {margin-bottom:5px; display:block;}
-DIV.csc-textpic DIV.csc-textpic-imagerow {clear: both;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-image { margin-bottom: 5px; }
+DIV.csc-textpic-equalheight DIV.csc-textpic-imagerow { margin-bottom: 5px; display: block; }
+DIV.csc-textpic DIV.csc-textpic-imagerow { clear: both; }
+DIV.csc-textpic DIV.csc-textpic-single-image IMG { margin-bottom: 5px; }
+/* IE7 hack for margin between image rows */	
+*+html DIV.csc-textpic DIV.csc-textpic-imagerow .csc-textpic-image { margin-bottom: 0; }
+*+html DIV.csc-textpic DIV.csc-textpic-imagerow { margin-bottom: 5px; }
 /* No margins around the whole image-block */
-DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-firstcol {margin-left:0px !important;}
-DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-lastcol {margin-right:0px !important;}
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-firstcol { margin-left: 0px !important; }
+DIV.csc-textpic DIV.csc-textpic-imagewrap .csc-textpic-lastcol { margin-right: 0px !important; }
 /* Add margin from image-block to text (in case of "Text w/ images") */
 DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap,
-DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {
-	margin-right:10px !important;
-}
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {margin-right: 10px !important; }
 DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap,
-DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {
-	margin-left:10px !important;
-}
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap { margin-left: 10px !important; }
 /* Positioning of images: */
 /* Above */
-DIV.csc-textpic-above DIV.csc-textpic-text {clear:both;}
+DIV.csc-textpic-above DIV.csc-textpic-text { clear: both; }
 /* Center (above or below) */
-DIV.csc-textpic-center {text-align:center; /* IE-hack */}
-DIV.csc-textpic-center DIV.csc-textpic-imagewrap {margin:0 auto;}
-DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image {text-align:left; /* Remove IE-hack */}
-DIV.csc-textpic-center DIV.csc-textpic-text {text-align:left; /* Remove IE-hack */}
+DIV.csc-textpic-center { text-align: center; /* IE-hack */ }
+DIV.csc-textpic-center DIV.csc-textpic-imagewrap { margin: 0 auto; }
+DIV.csc-textpic-center DIV.csc-textpic-imagewrap .csc-textpic-image { text-align: left; /* Remove IE-hack */ }
+DIV.csc-textpic-center DIV.csc-textpic-text { text-align: left; /* Remove IE-hack */ }
 /* Right (above or below) */
-DIV.csc-textpic-right DIV.csc-textpic-imagewrap {float:right;}
-DIV.csc-textpic-right DIV.csc-textpic-text {clear:right;}
+DIV.csc-textpic-right DIV.csc-textpic-imagewrap { float: right; }
+DIV.csc-textpic-right DIV.csc-textpic-text { clear: right; }
 /* Left (above or below) */
-DIV.csc-textpic-left DIV.csc-textpic-imagewrap {float:left;}
-DIV.csc-textpic-left DIV.csc-textpic-text {clear:left;}
+DIV.csc-textpic-left DIV.csc-textpic-imagewrap { float: left; }
+DIV.csc-textpic-left DIV.csc-textpic-text { clear: left; }
 /* Left (in text) */
-DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap {float:left;}
+DIV.csc-textpic-intext-left DIV.csc-textpic-imagewrap { float: left; }
 /* Right (in text) */
-DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap {float:right;}
+DIV.csc-textpic-intext-right DIV.csc-textpic-imagewrap { float: right; }
 /* Right (in text, no wrap around) */
-DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap {float:right; clear:both;}
+DIV.csc-textpic-intext-right-nowrap DIV.csc-textpic-imagewrap { float: right; clear: both; }
 /* Hide from IE5-mac. Only IE-win sees this. \*/
-* html DIV.csc-textpic-intext-right-nowrap .csc-textpic-text {height:1%;}
+* html DIV.csc-textpic-intext-right-nowrap .csc-textpic-text { height: 1%; }
 /* End hide from IE5/mac */
 /* Left (in text, no wrap around) */
-DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap {float:left; clear:both;}
+DIV.csc-textpic-intext-left-nowrap DIV.csc-textpic-imagewrap { float: left; clear: both; }
 /* Hide from IE5-mac. Only IE-win sees this. \*/
-* html DIV.csc-textpic-intext-left-nowrap .csc-textpic-text {height:1%;}
+* html DIV.csc-textpic-intext-left-nowrap .csc-textpic-text,
+* html .csc-textpic-intext-left ol,
+* html .csc-textpic-intext-left ul { height: 1%; }
 /* End hide from IE5/mac */
+DIV.csc-textpic DIV.csc-textpic-imagerow-last { margin-bottom: 0; }
+/* Browser fixes: */
+/* Fix for unordered and ordered list with image "In text, left" */
+.csc-textpic-intext-left ol, .csc-textpic-intext-left ul {padding-left: 40px; overflow: auto; }
+
+/* #####################################################################
+** ### Spezielle Formatanweisungen des TYPO3 Templates #################
+** #####################################################################
+*/
+
+#col1_content form select {margin-bottom:1em; width:100%;}
+
+/* Content element "table" */
+table.contenttable {font-size:0.8em; width:100%; margin:0 0 1em 0; border-collapse:collapse; empty-cells:show;}
+table.contenttable caption {text-align:left; font-weight:bold; color:#888; margin-bottom:0.2em;}
+table.contenttable th {height:2.0em; background:#4E5155; color:white; padding:2px 7px 2px 7px; border-left:solid 2px #fff; border-right:solid 2px #fff; border-top:solid 2px #fff; border-bottom:solid 2px #fff;}
+table.contenttable tr.tr-odd {background: #eee;}
+table.contenttable tr.tr-even {background: #e3e3e3;}
+table.contenttable td {height:3.0em; padding:2px 7px 2px 7px; border-left:solid 2px #fff; border-right:solid 2px #fff; border-top:solid 2px #fff; border-bottom:solid 2px #fff; text-align:left; font-weight:normal}
+.tx-newloginbox-pi1 thead th, .tx-newloginbox-pi1 th {background:none; padding:0; color:#222;}
+.tx-newloginbox-pi1 input {margin:0;}
+
+.csc-textpicHeader h3 {margin:0em 0 0.3em 0; padding-top:0;}
+
+input, textarea {margin-left:1em; padding:2px; width:auto; font:1em Verdana, Arial, Helvetica, Sans-Serif; border:1px #ccc solid; background:#fafafa; color:#777;}
+input[type=text]:focus, textarea:focus {background:#f0f0f0; color:#333; border-color:#666;}
+img {border:0;}
+p.csc-linkToTop {text-align:right; margin:0;}
+p.csc-form-label-req {font-weight:bold;}
+.csc-caption {font-size:0.9em; background-color:#E0E7F5; padding:2px;}
+DIV.csc-textpic-imagewrap dd.csc-textpic-caption {font-style:italic; font-size:0.9em; padding:0; background-color:wheat; }
+DIV.csc-textpic-border DIV.csc-textpic-imagewrap dd.csc-textpic-caption {background-color:#E0E7F5; }
+DIV.csc-textpic-border DIV.csc-textpic-imagewrap dl.csc-textpic-image IMG {border-color: #E0E7F5; }
 
 }

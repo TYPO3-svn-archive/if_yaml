@@ -150,7 +150,7 @@ if_yaml.content.header.allWrap = <div id="header" role="banner"> | </div>
 ######################################
 if_yaml.content.header.image.1st.switchOff = 0
 if_yaml.content.header.image.1st.allWrap = <div id="logo">|</div>
-if_yaml.content.header.image.1st.overridePageResource = 1
+if_yaml.content.header.image.1st.override = 1
 if_yaml.content.header.image.1st.overrideFile = logo.png
 if_yaml.content.header.image.1st.linkOn = 1
 if_yaml.content.header.image.1st.linkUID = 23
@@ -160,7 +160,7 @@ if_yaml.content.header.image.1st.linkUID = 23
 ######################################
 if_yaml.content.header.image.2nd.switchOff = 0
 if_yaml.content.header.image.2nd.allWrap = <div id="banner">|</div>
-if_yaml.content.header.image.2nd.overridePageResource = 1
+if_yaml.content.header.image.2nd.override = 1
 if_yaml.content.header.image.2nd.overrideFile = banner.jpg
 if_yaml.content.header.image.2nd.linkOn = 0
 if_yaml.content.header.image.2nd.linkUID = 23
