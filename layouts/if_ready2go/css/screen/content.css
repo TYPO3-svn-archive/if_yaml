@@ -634,6 +634,11 @@ DIV.csc-textpic DIV.csc-textpic-imagerow-last { margin-bottom: 0; }
 ** #####################################################################
 */
 
+/*Frontend editieren (feeditadvanced)*/
+div.feEditAdvanced-allWrapper div.feEditAdvanced-editPanelDiv { position: inherit ! important; }
+div.feEditAdvanced-allWrapper, div.feEditAdvanced-contentWrapper { overflow: hidden ! important; } 
+
+
 #col1_content form select {margin-bottom:1em; width:100%;}
 
 /* Content element "table" */

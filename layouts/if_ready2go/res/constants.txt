@@ -111,10 +111,10 @@ if_yaml.nav.main.1st.tabNav.headerWrap = |
 if_yaml.nav.main.useSecondTabNav = 0
 if_yaml.nav.main.2nd.tabNav.allWrap = <div id="nav_main_2" class="hlist">|</div>
 if_yaml.nav.main.2nd.tabNav.entryLevel = 1
-if_yaml.nav.main.2nd.tabnav.excludeList =
-if_yaml.nav.main.2nd.tabnav.linkWrap = <span>|</span>
-if_yaml.nav.main.2nd.tabnav.ifsubLinkWrap = |
-if_yaml.nav.main.2nd.tabnav.headerWrap = |
+if_yaml.nav.main.2nd.tabNav.excludeList =
+if_yaml.nav.main.2nd.tabNav.linkWrap = <span>|</span>
+if_yaml.nav.main.2nd.tabNav.ifsubLinkWrap = |
+if_yaml.nav.main.2nd.tabNav.headerWrap = |
 if_yaml.nav.main.2nd.useForJsMenu = 0
 
 ######################################

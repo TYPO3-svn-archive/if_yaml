@@ -57,6 +57,7 @@ plugin.tt_news {
   _CSS_DEFAULT_STYLE >
   displayLatest.subheader_stdWrap.crop = 100 | ... | 1
 }
+plugin.tt_news.displayLatest.listImageMode = {$plugin.tt_news.latestImageMode}
 
 ################################################################################
 ### indexedsearch ... CSS for indexedsearch was moved and edited in content.css
