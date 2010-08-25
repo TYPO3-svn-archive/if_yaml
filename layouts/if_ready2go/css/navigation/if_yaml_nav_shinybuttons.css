@@ -94,6 +94,7 @@
   }
 
   .hlist ul li#current strong,
+  .hlist ul li.active a {background:transparent; color:#fff; text-decoration:none; }
   .hlist ul li.active a:focus,
   .hlist ul li.active a:hover,
   .hlist ul li.active a:active { background:transparent; color:#fff; text-decoration:none; }
