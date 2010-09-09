@@ -1,13 +1,14 @@
-/*
- * if20 project ... http://if-20.com
- * if20 YAML Templates for TYPO3
- * Version: 1.3.0
- * copyright by Ralf-René Schröder - image[FORMAT]
- * if_yaml@image-format.eu 
- * 
- * some TScode (impossible to write this parts new becaus of form follows function) 
- * is inspired and partly directly got from former extension dbttv written by dieter bunkerd  
- *   
+/****************
+ * "Framework Templates, YAML for TYPO3"
+ * @copyright       Copyright 2010, René Schröder ... image[FORMAT]
+ * @license         CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
+ *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
+ * @link            http://if-20.com
+ * @packages        if_yaml ... if_ready2go
+ * @version         1.3.0  
+ * @partly based on  
+ *  
+ * @file                 
  */
 
 #########################
@@ -17,7 +18,7 @@
 ################################################################################
 ### site constants 
 constants {
-  IF_YAML_VERSION = 1.2.1
+  IF_YAML_VERSION = 1.3.0
 }
 
 ################################################################################

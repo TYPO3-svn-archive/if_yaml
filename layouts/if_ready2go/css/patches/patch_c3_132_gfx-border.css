@@ -1,12 +1,22 @@
 @charset "UTF-8";
-/**
- * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
- * (en) IE patch stylesheet 
- * (de) IE-Anpassungs-Stylesheet
- *
- * @creator       YAML Builder V1.2 (http://builder.yaml.de)
- * @file          patch_c3_132_m1_gfx-border.css
- * @-yaml-minver  3.2
+/****************
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ * @copyright  Copyright 2005-2010, Dirk Jesse
+ * @license    CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *             YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link       http://www.yaml.de
+ * @package    yaml
+ * @version    3.2.1
+ * 
+ * "Framework Templates, YAML for TYPO3"
+ * @copyright  Copyright 2010, René Schröder ... image[FORMAT]
+ * @license    CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
+ *             if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
+ * @link       http://if-20.com
+ * @packages   if_yaml ... if_ready2go
+ * @version    1.3.0  
+ * 
+ * @file                 
  */
 
 /* Layout-independent adjustments | Layout-unabhängige Anpassungen ----------------------------------- */

@@ -1,12 +1,16 @@
 @charset "UTF-8";
-/**
+/***
  * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
- * (en) IE patch stylesheet 
- * (de) IE-Anpassungs-Stylesheet
- *
- * @creator       YAML Builder V1.2 (http://builder.yaml.de)
- * @file          patch_c3_132_m1_fullpage.css
- * @-yaml-minver  3.2
+ * @version           3.2.1 
+ * @created with      YAML Builder V1.2 (http://builder.yaml.de)
+ * 
+ * "Framework Templates, YAML for TYPO3"
+ * @package           if_yaml ... if_ready2go
+ * @version           1.3.0   
+ * @copyright         René Schröder ... image[FORMAT]
+ * @license           CC_3.0
+ * @link              http://if-20.com
+ * @partly based on 
  */
 
 /* Layout independent adjustments | Layout-unabhängige Anpassungen ----------------------------------- */

@@ -1,23 +1,22 @@
 @charset "UTF-8";
-/**
+/****************
  * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
- * @copyright       Copyright 2005-2010, Dirk Jesse
- * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
- *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
- * @link            http://www.yaml.de
- * @package         yaml
- * @version         3.2.1
- * @revision        $Revision: 443 $
- * @lastmodified    $Date: 2009-12-31 18:05:05 +0100 (Do, 31. Dez 2009) $
+ * @copyright  Copyright 2005-2010, Dirk Jesse
+ * @license    CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *             YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link       http://www.yaml.de
+ * @package    yaml
+ * @version    3.2.1
  * 
- * "Framework Templates for TYPO3"
- * @package         if_yaml
- * @version         1.2.0   
- * @copyright       Copyright 2010, Ralf-René Schröder ... image[FORMAT]
- * @license          
- * @link            http://if-20.com  ...  http://www.image-format.eu
+ * "Framework Templates, YAML for TYPO3"
+ * @copyright  Copyright 2010, René Schröder ... image[FORMAT]
+ * @license    CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
+ *             if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
+ * @link       http://if-20.com
+ * @packages   if_yaml ... if_ready2go
+ * @version    1.3.0  
  * 
- * Layoutexample    if_yaml    
+ * @file                 
  */
 
 /* import core styles | Basis-Stylesheets einbinden */
@@ -32,7 +31,6 @@
 @import url(screen/basemod.css);
 @import url(screen/basemod_c3_rows123.css);
 
-/* @import url(screen/basemod_colored-columns.css); */
 /* @import url(screen/basemod_gfx-border.css); */
 @import url(screen/basemod_equal-heights.css);
 

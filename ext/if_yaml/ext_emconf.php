@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "if_yaml".
 #
-# Auto generated 19-05-2010 22:53
+# Auto generated 07-09-2010 18:35
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,9 +15,9 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'TypoScript library for TYPO3, Template with tons of examples.',
 	'category' => 'templates',
 	'shy' => 0,
-	'version' => '1.1.0',
-	'dependencies' => 'css_styled_content,package_manager',
-	'conflicts' => 'db_tap,db_yamltv,db_ttv',
+	'version' => '1.2.0',
+	'dependencies' => '',
+	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => '',
@@ -25,7 +25,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'uploadfolder' => 0,
 	'createDirs' => '',
 	'modify_tables' => '',
-	'clearcacheonload' => 1,
+	'clearcacheonload' => 0,
 	'lockType' => '',
 	'author' => 'Ralf-Rene Schroeder',
 	'author_email' => 'if_yaml@image-format.eu',
@@ -46,9 +46,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:9:{s:9:"ChangeLog";s:4:"50f8";s:21:"ext_conf_template.txt";s:4:"3445";s:12:"ext_icon.gif";s:4:"dcf5";s:17:"ext_localconf.php";s:4:"5f22";s:14:"ext_tables.php";s:4:"11a9";s:16:"locallang_db.xml";s:4:"d8d1";s:14:"doc/manual.sxw";s:4:"bdbc";s:24:"pi1/static/constants.txt";s:4:"0aa9";s:20:"pi1/static/setup.txt";s:4:"ac94";}',
-	'suggests' => array(
-	),
+	'_md5_values_when_last_written' => 'a:9:{s:9:"ChangeLog";s:4:"50f8";s:21:"ext_conf_template.txt";s:4:"9ea0";s:12:"ext_icon.gif";s:4:"dcf5";s:17:"ext_localconf.php";s:4:"5f22";s:14:"ext_tables.php";s:4:"bec5";s:16:"locallang_db.xml";s:4:"d8d1";s:14:"doc/manual.sxw";s:4:"bdbc";s:24:"pi1/static/constants.txt";s:4:"7559";s:20:"pi1/static/setup.txt";s:4:"ac94";}',
 );
 
 ?>
