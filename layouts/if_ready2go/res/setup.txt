@@ -5,9 +5,8 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -50,10 +49,6 @@ plugin.tx_rgtabs_pi1.pathToCSS >
 ################################################################################
 ## perfectlightbox ... CSS for perfectlightbox was moved and edited in content.css 
 page.headerData.1337.1 >
-[globalVar = TSFE:id = 23]
-page.headerData.1337.99 = TEXT
-page.headerData.1337.99.value = <link rel="stylesheet" href="{$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}res/pin.txt" type="text/css" media="screen,projection" />
-[global]
 
 ################################################################################
 ### tt_news ... CSS for tt_news was moved and edited in content.css
@@ -107,4 +102,36 @@ tt_content.stdWrap.innerWrap.cObject {
 }
 
 ################################################################################
-###
+### sp_better_contact
+plugin.tx_spbettercontact_pi1 {
+	formTemplate	= {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}better_contact/form.html
+	emailTemplate	= {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}better_contact/email.html
+	locallangFile	= {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.layoutHtmlDir}better_contact/locallang.xml
+#	emailRecipients	= 
+#	emailSender	= 
+#	emailAdmin	= 
+#	replyTo		= user
+#	emailCharset	= utf-8
+#	showMaliciousInput= clean
+#	adminMails	= bot
+#	messageCount	= 10
+#	waitingTime	= 60
+	fields {
+        	salutation {
+			required     = 0
+			minLength    = 1
+ 			maxLength    =
+			regex        =
+			disallowed   =
+			allowed      =
+        }
+        	contactme {
+			required     = 0
+			minLength    = 1
+ 			maxLength    =
+			regex        =
+			disallowed   =
+			allowed      =
+        }
+    }
+}

@@ -5,9 +5,8 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -150,24 +149,35 @@ if_yaml.content.header.switchOff = 0
 if_yaml.content.header.allWrap = <div id="header" role="banner"> | </div>
 
 ######################################
+###        headerimage-bg         ###
+######################################
+if_yaml.content.header.image.bg.switchOff = 0
+if_yaml.content.header.image.bg.listNum = 1
+if_yaml.content.header.image.bg.override = 1
+if_yaml.content.header.image.bg.overrideFile = images/dummy-layout/bg_header.gif
+if_yaml.content.header.image.bg.data = repeat-x scroll top left #232324
+
+######################################
 ###        headerimage-1st         ###
 ######################################
 if_yaml.content.header.image.1st.switchOff = 0
 if_yaml.content.header.image.1st.allWrap = <div id="logo">|</div>
+if_yaml.content.header.image.1st.listNum = 2
 if_yaml.content.header.image.1st.override = 1
-if_yaml.content.header.image.1st.overrideFile = logo.png
+if_yaml.content.header.image.1st.overrideFile = images/dummy-layout/logo.png
 if_yaml.content.header.image.1st.linkOn = 1
-if_yaml.content.header.image.1st.linkUID = 23
+if_yaml.content.header.image.1st.linkUID = 1
 
 ######################################
 ###        headerimage-2nd         ###
 ######################################
 if_yaml.content.header.image.2nd.switchOff = 0
 if_yaml.content.header.image.2nd.allWrap = <div id="banner">|</div>
+if_yaml.content.header.image.2nd.listNum = 0
 if_yaml.content.header.image.2nd.override = 1
-if_yaml.content.header.image.2nd.overrideFile = banner.jpg
+if_yaml.content.header.image.2nd.overrideFile = images/dummy-layout/banner.jpg
 if_yaml.content.header.image.2nd.linkOn = 0
-if_yaml.content.header.image.2nd.linkUID = 23
+if_yaml.content.header.image.2nd.linkUID = 1
 
 ######################################
 ###           searchbox            ###
@@ -243,7 +253,7 @@ plugin.tx_dropdownsitemap_pi1 {
 }
 ################################################################################
 plugin.perfectlightbox {
-  libraryToUse = mootools
+  libraryToUse = jquery
 }
 ################################################################################
 plugin.tq_seo.metaTags {

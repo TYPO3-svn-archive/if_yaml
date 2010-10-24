@@ -1,9 +1,9 @@
 # cat=file; type=string; label=YAMLcore URL:set the url of the YAML framework file to download.
-if_yamlCore_url = http://download.if-20.com/if_yaml/if_yamlcore_3.2.1.zip
+if_yamlCore_url = http://download.if-20.com/if_yaml/if_yamlcore_3.3.0.zip
 # cat=file; type=string; label=additional Files URL:set the url of the additional files to download (flags, scripts, fonts)
-if_additional_url = http://download.if-20.com/if_yaml/if_additional_1.3.0.zip
+if_additional_url = http://download.if-20.com/if_yaml/if_additional_1.4.0.zip
 # cat=file; type=string; label=iF ready2go URL:set the url of the if_ready2go Template to download.
-if_ready2go_url = http://download.if-20.com/if_yaml/if_ready2go_1.3.0.zip
+if_ready2go_url = http://download.if-20.com/if_yaml/if_ready2go_1.4.0.zip
 # cat=file; type=string; label=individual layout URL:set the url of an aditional Template file to download.
 if_layout_A_url =
 # cat=file; type=string; label=individual layout URL:set the url of an aditional Template file to download.

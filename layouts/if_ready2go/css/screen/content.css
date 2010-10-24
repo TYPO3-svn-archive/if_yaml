@@ -1,21 +1,21 @@
-@charset "UTF-8";
 /****************
  * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
- * @copyright  Copyright 2005-2010, Dirk Jesse
- * @license    CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
- *             YAML-C (http://www.yaml.de/en/license/license-conditions.html)
- * @link       http://www.yaml.de
- * @package    yaml
- * @version    3.2.1
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
  * 
  * "Framework Templates, YAML for TYPO3"
- * @copyright  Copyright 2010, René Schröder ... image[FORMAT]
- * @license    CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
- *             if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
- * @link       http://if-20.com
- * @packages   if_yaml ... if_ready2go
- * @version    1.3.0  
- * 
+ * @copyright       Copyright 2010, René Schröder ... image[FORMAT]
+ * @license         CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
+ *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
+ * @link            http://if-20.com
+ * @packages        if_yaml ... if_ready2go
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
    
@@ -49,10 +49,12 @@
   /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
   body {
     font-family:Arial, Helvetica, sans-serif;
-    font-size:83.00%;
+    font-size:75.00%;
     color:#444;
   }
 
+  /* (en) hiding additional mailprotect class */
+  /* (de) verstecken der zusätzlichen mailprotect Klasse */
   a span.mailprotect {
 	left:-1000em;
 	position:absolute;
@@ -100,10 +102,7 @@
 
   p { line-height:1.5em; margin:0 0 1em 0; }
 
-  blockquote, cite, q {
-    font-family:Georgia, "Times New Roman", Times, serif;
-    font-style:italic;
-  }
+  blockquote, cite, q {font-style:italic; font-family:Georgia, "Times New Roman", Times, serif; }
   blockquote { margin:0 0 1em 1.6em; color:#666; }
 
   strong,b { font-weight:bold; }
@@ -150,12 +149,12 @@
   #topnav a {color:#ccc; font-weight:normal; background:transparent; text-decoration:none;}
   #topnav a:focus, 
   #topnav a:hover,
-  #topnav a:active {color:#fff; text-decoration:underline; background-color:transparent;}
+  #topnav a:active {color:#fff; text-decoration:underline; background-color:transparent; }
   
   #footer a {color:#999; background:transparent; font-weight:bold;}
   #footer a:focus, 
   #footer a:hover,
-  #footer a:active {color:#4D87C7; background-color:transparent; text-decoration:underline;}
+  #footer a:active {color:#4D87C7; background-color:transparent; text-decoration:underline; }
   
     /**
    * (en) Emphasizing external Hyperlinks via CSS
@@ -165,7 +164,6 @@
    * @app-yaml-default    disabled
    */
 
-  /*
   #main a[href^="http://www.my-domain.com"],
   #main a[href^="https://www.my-domain.com"]
   {
@@ -174,7 +172,7 @@
     background-repeat: no-repeat;
     background-position: 0 0.45em;
   }
-  */
+
 
   /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
 
@@ -230,13 +228,13 @@
   th,td { padding:0.5em; }
   thead th { color:#000; border-bottom:2px #800 solid; }
   tbody th { background:#e0e0e0; color:#333; }
-  tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+  tbody th[scope="row"], tbody th.sub { }
 
   tbody th { border-bottom:1px solid #fff; text-align:left; }
   tbody td { border-bottom:1px solid #eee; }
 
   tbody tr:hover th[scope="row"],
-  tbody tr:hover tbody th.sub { background:#f0e8e8; }
+  tbody tr:hover tbody th.sub {  }
   tbody tr:hover td { background:#fff8f8; }
   
   /**
@@ -382,15 +380,15 @@ p.news-catmenu-header {line-height:1em; margin:0;}
 */
 .csc-sitemap {}
 .csc-sitemap ul {list-style:none; margin:0;}
-.csc-sitemap li {margin:0; background:transparent url(../../images/sitemap-first-level.gif) no-repeat left top; padding:0 0 0 20px;}
-.csc-sitemap li ul li {background:transparent url(../../images/sitemap.gif) no-repeat left top;}
+.csc-sitemap li {margin:0; background:transparent url(../../images/icons/sitemap-first-level.gif) no-repeat left top; padding:0 0 0 20px;}
+.csc-sitemap li ul li {background:transparent url(../../images/icons/sitemap.gif) no-repeat left top;}
 .csc-sitemap li a {border:1px solid #4D87C7; margin:0 0 5px 0; padding:0 0 0 7px; display:block; background:#4D87C7; text-decoration:none; color:#222;}
 .csc-sitemap li ul li a {border:none; border-bottom:1px solid #4D87C7; margin:0 0 5px 0; padding:0 0 0 7px; display:block; background:transparent; text-decoration:none; color:#222;}
 .csc-sitemap li a:hover {background:#eee; border:1px solid #eee;}
 .csc-sitemap li ul li a:hover {border:none; border-bottom:1px solid #eee;}
 
 /* #############################
-** ### Mail-Formular ###########
+** ### Mail-Formular (only for standard mailform)
 ** #############################
 */
 form#mailform fieldset {border:1px solid #ccc; padding:1em; background:#fafafa;}
@@ -406,6 +404,24 @@ fieldset.csc-mailform label span {color:red;}
 input#mailformformtype_mail {margin-left:0em; background:#fafafa; cursor:pointer;}
 input#mailformformtype_mail:hover {background:#f0f0f0;}
 .csc-mailform-field select {margin-left:1em; border:1px #ccc solid; background:#fafafa; color:#777;}
+
+/* #############################
+** ### better_contact modifications (basic ist in yaml/screen/forms.css)
+** #############################
+*/
+.yform .type-text input, .yform .type-text textarea, .yform .type-select select {
+  border:1px solid #ddd;
+  margin-left:0;
+}
+.yform div.type-text, .yform div.type-select, .yform div.type-check, .yform div.type-button {margin:0; }
+.yform .message {margin-bottom:1px; }
+.yform div.error {padding:0.5em;margin-bottom:0.5em; }
+
+.tx_spbettercontact_captcha_image img {margin-left:30%; }
+.tx_spbettercontact_info {}
+.tx_spbettercontact_message {}
+.tx_spbettercontact_message .tx_spbettercontact_info_positive {}
+.tx_spbettercontact_message .tx_spbettercontact_info_negative {}
 
 /* #############################
 ** ### Datei-Links #############
@@ -482,22 +498,22 @@ div.flexi div.right {margin-left:5px;}
 */
 /* Shared styles for lightbox & slimbox*/
 #overlay {position:absolute; top:0; left:0; width:100%; height:100%; background-color:#000000; /*cursor:pointer;*/ z-index:90; }
-#prevLink, #nextLink {display:block; position:absolute; top:0; width:35%; height:100%; background:transparent url(../../images/blank.gif) no-repeat; /* Trick IE into showing hover */ }
+#prevLink, #nextLink {display:block; position:absolute; top:0; width:35%; height:100%; background:transparent url(../../images/lightbox/blank.gif) no-repeat; /* Trick IE into showing hover */ }
 #prevLink {left:0; float:left; }
 #nextLink {right:0; float:right; }
-#prevLink:hover {background:transparent url(../../images/prev.gif) no-repeat 0% 15%; }
-#nextLink:hover {background:transparent url(../../images/next.gif) no-repeat 100% 15%; }
+#prevLink:hover {background:transparent url(../../images/lightbox/prev.gif) no-repeat 0% 15%; }
+#nextLink:hover {background:transparent url(../../images/lightbox/next.gif) no-repeat 100% 15%; }
 #playLink,#pauseLink,#saveLink,#closeLink {display:block; float:right; width:26px; height:26px; margin-left:1.0em; }
 /* Set these two to the actual dimensions of your images! If they differ in size you have to set them seperately!*/
-#playLink {background:transparent url(../../images/play.gif) no-repeat center; }
-#pauseLink {background:transparent url(../../images/pause.gif) no-repeat center; }
-#saveLink {background:transparent url(../../images/save.gif) no-repeat center; }
-#closeLink {background:transparent url(../../images/close.gif) no-repeat center; }
+#playLink {background:transparent url(../../images/lightbox/play.gif) no-repeat center; }
+#pauseLink {background:transparent url(../../images/lightbox/pause.gif) no-repeat center; }
+#saveLink {background:transparent url(../../images/lightbox/save.gif) no-repeat center; }
+#closeLink {background:transparent url(../../images/lightbox/close.gif) no-repeat center; }
 /* Slimbox-only*/
 #sbOverlay { position:fixed; left:0; top:0; width:100%; height:100%; background-color:#000; cursor:pointer; z-index:99; }
 #sbCenter, #sbBottomContainer { position:absolute; left:50%; overflow:hidden; background-color:#fff; z-index:100; }
 #sbCenter a, #sbBottomContainer a { text-decoration:none; border:none; outline:none; }
-.sbLoading {background:#fff url(../../images/loading.gif) no-repeat center; }
+.sbLoading {background:#fff url(../../images/lightbox/loading.gif) no-repeat center; }
 #sbImage {position:absolute; left:0; top:0; border:10px solid #fff; background-repeat:no-repeat; }
 #sbBottom {font-family:tahoma, arial, sans-serif; font-size:11px; color:#666; line-height:1.4em; text-align:left; padding:0 10px 10px 10px; }
 #sbCaption {width:66%; font-weight:bold; margin-bottom:0.1em; }
@@ -512,7 +528,7 @@ div.flexi div.right {margin-left:5px;}
 #lbLightbox img {width:auto; height:auto; border:none; }
 #lbOuterImageContainer {position:relative; background-color:#fff; width:250px; height:250px; margin:0 auto; }
 #lbImageContainer {padding:10px; }
-#lbLoading {position:absolute; z-index:110;top:40%; left:0%;height:25%;	width:100%;	text-align:center;line-height:0;background:#fff url(../../images/loading.gif) no-repeat center; }
+#lbLoading {position:absolute; z-index:110;top:40%; left:0%;height:25%;	width:100%;	text-align:center;line-height:0;background:#fff url(../../images/lightbox/loading.gif) no-repeat center; }
 #lbHoverNav {position:absolute; top:0;left:0;	height:100%;width:100%; z-index:10; }
 #lbImageContainer>#lbHoverNav {left:0; }
 #lbImageDataContainer {font-family:tahoma, arial, sans-serif; font-size:11px; background-color:#fff;margin:0 auto; line-height:1.4em; overflow:auto; width:100%; }
@@ -661,5 +677,34 @@ p.csc-form-label-req {font-weight:bold;}
 DIV.csc-textpic-imagewrap dd.csc-textpic-caption {font-style:italic; font-size:0.9em; padding:0; background-color:wheat; }
 DIV.csc-textpic-border DIV.csc-textpic-imagewrap dd.csc-textpic-caption {background-color:#E0E7F5; }
 DIV.csc-textpic-border DIV.csc-textpic-imagewrap dl.csc-textpic-image IMG {border-color: #E0E7F5; }
+
+div.csc-textpic-border div.csc-textpic-imagewrap img {border:2px solid black; padding:0; }
+div.csc-textpic-border div.csc-textpic-imagewrap .csc-textpic-image img {border-color: black; }
+
+#main .tx-jfmulticontent-pi1 .anythingSlider {
+height:360px;
+margin:0 auto 15px;
+position:relative;
+width:512px;
+}
+#main .tx-jfmulticontent-pi1 .anythingSlider .wrapper {
+height:324px;
+left:0;
+margin:0 46px;
+overflow:auto;
+position:absolute;
+top:0;
+width:420px;
+}
+#main .tx-jfmulticontent-pi1 .anythingSlider .wrapper ul li {
+display:block;
+float:left;
+height:317px;
+margin:0;
+padding:0;
+width:420px;
+}
+#main .tx-jfmulticontent-pi1 .anythingSlider .wrapper ul li div {padding:1em; }
+
 
 }

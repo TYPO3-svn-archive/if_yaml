@@ -1,21 +1,21 @@
-@charset "UTF-8";
 /****************
  * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
- * @copyright  Copyright 2005-2010, Dirk Jesse
- * @license    CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
- *             YAML-C (http://www.yaml.de/en/license/license-conditions.html)
- * @link       http://www.yaml.de
- * @package    yaml
- * @version    3.2.1
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
  * 
  * "Framework Templates, YAML for TYPO3"
- * @copyright  Copyright 2010, René Schröder ... image[FORMAT]
- * @license    CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
- *             if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
- * @link       http://if-20.com
- * @packages   if_yaml ... if_ready2go
- * @version    1.3.0  
- * 
+ * @copyright       Copyright 2010, René Schröder ... image[FORMAT]
+ * @license         CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
+ *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
+ * @link            http://if-20.com
+ * @packages        if_yaml ... if_ready2go
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -42,7 +42,7 @@
 
   /* (en) Marginal areas & page background */
   /* (de) Randbereiche & Seitenhintergrund */
-  body { background: #4d87c7 url("../../images/body_bg.jpg") repeat-y top center scroll; padding: 10px 0; }
+  body { background: #4d87c7 url("../../images/dummy-layout/body_bg.jpg") repeat-y top center scroll; padding: 10px 0; }
 
   /* (en) Centering layout in old IE-versions */
   /* (de) Zentrierung des Layouts in alten IE-versionen */
@@ -56,19 +56,18 @@
 
   /* (en) clear for main layout elements */
   /* (de) clear der Hauptelemente des Layouts */
-  #header, #nav, #main, #extended, #footer {clear:both; }
+  #header, #nav, #main, #extended, #footer {clear:both; position:relative; }
 
   /* (en) Designing main layout elements */
   /* (de) Gestaltung der Hauptelemente des Layouts */
-  #header {height:130px; color:#fff; background:#232324 url("../../images/bg_header.gif") repeat-x;}
+  #header {height:130px; color:#fff; background:#232324 url("../../images/dummy-layout/bg_header.gif") repeat-x;}
 
   #nav_main {}
 
   #main { background: #fff; padding: 0; }
   
   #extended {
-    background:url("../../images/body_bg.jpg") repeat-y scroll center top #4D87C7;
-    clear:both;
+    background:url("../../images/dummy-layout/body_bg.jpg") repeat-y scroll center top #4D87C7;
     padding:10px 20px;
   }
 
@@ -125,15 +124,16 @@
   
   #header #logo {position:absolute; top:0; left:0; padding:10px; z-index:20; }
   #header #logo img.headImg1 {}
-  #header #banner {position:absolute; top:40px; right:10px; z-index:10; border: 2px groove lightBlue; }
+  #header #banner { border:1px groove lightgrey; position:absolute; right:6px; top:28px; z-index:10; }
   #header #banner img.headImg2 {}
+  #header .headerslide {position:absolute; top:0; left:0; padding:0; margin:0; z-index:1; }
   
   #header #searchbox {position:absolute; top:3px; right:300px; font-size:11px; z-index:40; }
   #header #searchbox input {margin-left:0;}
   #header #searchbox form span {display:block; font-weight:bold; color:#aaa;}
   #header #searchbox form input {width:170px; height:13px;}
   
-  #header #topnav {top:2px; font-size:0.9em; color:#aaa; background:transparent; z-index:50; }
+  #header #topnav {top:2px; font-size:0.9em; color:#aaa; background:transparent; z-index:50; position:absolute; top:0; right:10px;  }
   #header #topnav span.accessKey {text-decoration:underline;}
   #header #topnav span.showAccessKey {font-size:80%; font-style:italic;}
   #header #topnav a { color: #999; font-weight: normal; background:transparent; text-decoration:none; }

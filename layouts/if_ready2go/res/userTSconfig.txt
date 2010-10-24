@@ -5,13 +5,12 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
 options {
-  RTESmallWidth = 700
-  RTESmallHeight = 500
+  RTESmallWidth = 600
+  RTESmallHeight = 400
 }

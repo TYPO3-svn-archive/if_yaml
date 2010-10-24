@@ -5,11 +5,14 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
- * @file                 
+ * @version         1.4.0  
+ * @thanks to 
+ *         
+ * @file 
+ *                                   
+ * @hint            if you want to change the layout-path, please change line 21 and 93                 
  */
+
 
 TSFE.constants.if_yaml {
   templatesDir = fileadmin/templates/
@@ -29,85 +32,85 @@ mod.SHARED {
   defaultLanguageLabel = english
 }
 
+mod.web_txtemplavoilaM1.recordDisplay_tables = tt_news 
+
 # for nescefe templates  (UID of the layout sysfolder)
-TCEFORM.tt_content.container {
-	 PAGE_TSCONFIG_ID = 29
-}
+TCEFORM.tt_content.container.PAGE_TSCONFIG_ID = 29
 
 TCEFORM.tt_content.section_frame {
   addItems {
-    50 = TEST
+    50 = -TEST
   }
   altLabels {
-    50 = Label for TEST
+    50 = TEST pageTSconfig.txt
   }
 }
 
-RTE.default {
-  hidePStyleItems = div,blockquote,address,h6
-  contentCSS = fileadmin/templates/layouts/if_ready2go/css/screen/typo3-RTE.css
-  showTagFreeClasses = 0
-  showButtons = *
-  hideButtons = lefttoright, righttoleft, fontstyle, fontsize, showhelp, textcolor, bgcolor, left, strikethrough, underline, inserttag, user, findreplace
-  keepButtonGroupTogether = 1
-  classesCharacter = mono,file,directory,infoHeadline,questionHeadline,stopHeadline,underline,strikethrough
-  classesParagraph = code,note,important,warning,info,question,stop,citation,csc-frame-frame1,csc-frame-frame2,align-center,align-left,align-right,align-justify
-  allowedClasses = mono,file,directory,infoHeadline,questionHeadline,stopHeadline,code,note,important,warning,info,question,stop,citation,csc-frame-frame1,csc-frame-frame2,align-center,align-left,align-right,align-justify,underline,strikethrough
-  proc {
-    allowedClasses < RTE.default.allowedClasses
-  }
-  FE {
-    proc  {
-      allowedClasses < RTE.default.allowedClasses
+RTE {
+  classesAnchor {
+    externalLink {
+      class = external-link
+      type = url
+      image >
+      titleText =
+    }
+    externalLinkInNewWindow {
+      class = external-link-new-window
+      type = url
+      image >
+      titleText =
+    }
+    internalLink {
+      class = internal-link
+      type = page
+      image >
+      titleText =
+    }
+    internalLinkInNewWindow {
+      class = internal-link-new-window
+      type = page
+      image >
+      titleText =
+    }
+    download {
+      class = download
+      type = file
+      image >
+      titleText =
+    }
+    mail {
+      class = mail
+      type = mail
+      image >
+      titleText =
     }
   }
-  ignoreMainStyleOverride = 0
-  mainStyleOverride = body.htmlarea-content-body {font-family:'Trebuchet MS', sans-serif;}
-}
-
-RTE.colors {
-  color1 {
-    name = name-color1
-    value = #ff0000
+  colors {
+    color1 {
+      name = name-color1
+      value = #ff0000
+    }
   }
-}
-RTE.default.colors = color1
-
-RTE.classesAnchor {
-  externalLink {
-    class = external-link
-    type = url
-    image >
-    titleText =
-  }
-  externalLinkInNewWindow {
-    class = external-link-new-window
-    type = url
-    image >
-    titleText =
-  }
-  internalLink {
-    class = internal-link
-    type = page
-    image >
-    titleText =
-  }
-  internalLinkInNewWindow {
-    class = internal-link-new-window
-    type = page
-    image >
-    titleText =
-  }
-  download {
-    class = download
-    type = file
-    image >
-    titleText =
-  }
-  mail {
-    class = mail
-    type = mail
-    image >
-    titleText =
+  default {
+    hidePStyleItems = div,blockquote,address,h6
+    contentCSS = fileadmin/templates/layouts/if_ready2go/css/screen/typo3-RTE.css
+    showTagFreeClasses = 0
+    showButtons = *
+    hideButtons = lefttoright, righttoleft, fontstyle, fontsize, showhelp, textcolor, bgcolor, left, strikethrough, underline, inserttag, user, findreplace
+    keepButtonGroupTogether = 1
+    classesCharacter = mono,file,directory,infoHeadline,questionHeadline,stopHeadline,underline,strikethrough
+    classesParagraph = code,note,important,warning,info,question,stop,citation,csc-frame-frame1,csc-frame-frame2,align-center,align-left,align-right,align-justify
+    allowedClasses = mono,file,directory,infoHeadline,questionHeadline,stopHeadline,code,note,important,warning,info,question,stop,citation,csc-frame-frame1,csc-frame-frame2,align-center,align-left,align-right,align-justify,underline,strikethrough
+    proc {
+      allowedClasses < RTE.default.allowedClasses
+    }
+    FE {
+      proc  {
+        allowedClasses < RTE.default.allowedClasses
+      }
+    }
+    ignoreMainStyleOverride = 0
+    mainStyleOverride = body.htmlarea-content-body {font-family:'Trebuchet MS', sans-serif;}
+    colors = color1
   }
 }

@@ -5,9 +5,8 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -18,7 +17,7 @@
 ################################################################################
 ### site constants 
 constants {
-  IF_YAML_VERSION = 1.3.0
+  IF_YAML_VERSION = 1.4.0
 }
 
 ################################################################################
@@ -43,7 +42,7 @@ config {
   pageTitleFirst = 1
   headerComment (
   {$if_yaml.conf.headerComment}
-  based on: if20 Framework Templates YAML °.°.°http://if-20.com°.°.° copyright Ralf-Rene Schroeder - image[FORMAT]
+  based on: if20 Framework Templates, YAML for TYPO3 °.°.°http://if-20.com°.°.° copyright Ralf-Rene Schroeder - image[FORMAT]
 )
   admPanel = {$if_yaml.conf.userAdmPanelOn}
   doctype = {$if_yaml.conf.docTypeToUse}
@@ -563,6 +562,51 @@ lib.modul.nav_top >
 [global]
 
 ################################################################################
+### lib.modul.header_image_bg
+### background image in header
+page.headerData.979 = TEXT
+page.headerData.979 {
+    typolink.parameter.data = TSFE:id
+    typolink.additionalParams = &type=79
+    typolink.returnLast = url
+    wrap = <link rel="stylesheet" type="text/css" href="|" />
+}
+
+dynamicCss979 = PAGE
+dynamicCss979 {
+  typeNum = 79
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders = Content-type: text/css
+    admPanel = 0
+  }
+  10 = IMG_RESOURCE
+  10 {
+    file {
+      import = /uploads/media/
+      import.data = levelmedia:-1, slide
+      import.listNum = {$if_yaml.content.header.image.bg.listNum}
+#      width = 123c
+#      height = 123c
+    }
+    stdWrap.wrap (
+#header { background: url(|) {$if_yaml.content.header.image.bg.data};}
+)
+  }
+}
+
+### Variant: manual file override
+[globalVar = LIT:1 = {$if_yaml.content.header.image.bg.override}]
+dynamicCss979.10 = TEXT
+dynamicCss979.10.value = /{$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.content.header.image.bg.overrideFile}
+[global]
+
+[globalVar = LIT:1 = {$if_yaml.content.header.image.bg.switchOff}]
+dynamicCss979 >
+page.headerData.979 >
+[global]
+
+################################################################################
 ### lib.modul.header_image_1st
 ### First image in header id="logo"
 lib.modul.header_image_1st = COA
@@ -575,7 +619,7 @@ lib.modul.header_image_1st {
         required = 1
         data = levelmedia: -1, slide
         wrap = uploads/media/ |
-        listNum = 0
+        listNum = {$if_yaml.content.header.image.1st.listNum}
       }
     }
   }
@@ -583,7 +627,7 @@ lib.modul.header_image_1st {
 ### Variant: manual file override
 [globalVar = LIT:1 = {$if_yaml.content.header.image.1st.override}]
 lib.modul.header_image_1st.10 = TEXT
-lib.modul.header_image_1st.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}images/{$if_yaml.content.header.image.1st.overrideFile}
+lib.modul.header_image_1st.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.content.header.image.1st.overrideFile}
 [global]
 
 lib.modul.header_image_1st.stdWrap.prefixComment = 2|Output of lib.modul.header_image_1st
@@ -591,33 +635,17 @@ lib.modul.header_image_1st.stdWrap.outerWrap.cObject = COA
 lib.modul.header_image_1st.stdWrap.outerWrap.cObject {
   wrap = {$if_yaml.content.header.image.1st.allWrap}
   10 = TEXT
-  10.value = <img class="headImg1" src="|"
-  20 = TEXT
-  20.value = alt="
-  30 = TEXT
-  30.data = page:title
-  40 = TEXT
-  40.value = "
-  50 = TEXT
-  50.value = title="
-  60 = TEXT
-  60.data = page:title
-  70 = TEXT
-  70.value = " />
+  10.value = <img class="headImg1" src="|" alt="Logo-{page:title}" title="Logo-{page:title}" />
+  10.insertData = 1
 }
 ### Variant: User has chosen to link it with homepage
 [globalVar = LIT:1 = {$if_yaml.content.header.image.1st.linkOn}]
 lib.modul.header_image_1st.stdWrap.outerWrap.cObject {
   10 = TEXT
-  10.value = <img class="headImg1" src="|" alt="" title="Home" />
+  10.value = <img class="headImg1" src="|" alt="Logo-{page:title}" title="Logo-{page:title}" />
+  10.insertData = 1
   10.typolink.parameter = {$if_yaml.content.header.image.1st.linkUID}
   10.typolink.target =
-  20 >
-  30 >
-  40 >
-  50 >
-  60 >
-  70 >
 }
 [global]
 
@@ -638,7 +666,7 @@ lib.modul.header_image_2nd {
         required = 1
         data = levelmedia: -1, slide
         wrap = uploads/media/ |
-        listNum = 1
+        listNum = {$if_yaml.content.header.image.2nd.listNum}
       }
     }
   }
@@ -646,46 +674,44 @@ lib.modul.header_image_2nd {
 ### Variant: manual file override
 [globalVar = LIT:1 = {$if_yaml.content.header.image.2nd.override}]
 lib.modul.header_image_2nd.10 = TEXT
-lib.modul.header_image_2nd.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}images/{$if_yaml.content.header.image.2nd.overrideFile}
+lib.modul.header_image_2nd.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.content.header.image.2nd.overrideFile}
 [global]
 
 lib.modul.header_image_2nd.stdWrap.prefixComment = 2|Output of lib.modul.header_image_2nd
 lib.modul.header_image_2nd.stdWrap.outerWrap.cObject = COA
 lib.modul.header_image_2nd.stdWrap.outerWrap.cObject {
-    wrap = {$if_yaml.content.header.image.2nd.allWrap}
-    10 = TEXT
-    10.value = <img class="headImg2" src="|"
-    20 = TEXT
-    20.value = alt="
-    30 = TEXT
-    30.data = page:title
-    40 = TEXT
-    40.value = "
-    50 = TEXT
-    50.value = title="
-    60 = TEXT
-    60.data = page:title
-    70 = TEXT
-    70.value = " />
+  wrap = {$if_yaml.content.header.image.2nd.allWrap}
+  10 = TEXT
+  10.value = <img class="headImg2" src="|" alt="Banner-{page:title}" title="Banner-{page:title}" />
+  10.insertData = 1
 }
 ### Variant: User has chosen to link it
 [globalVar = LIT:1 = {$if_yaml.content.header.image.2nd.linkOn}]
 lib.modul.header_image_2nd.stdWrap.outerWrap.cObject {
-    10 = TEXT
-    10.value = <img class="headImg2" src="|" alt="" title="Home" />
-    10.typolink.parameter = {$if_yaml.content.header.image.2nd.linkUID}
-    10.typolink.target =
-    20 >
-    30 >
-    40 >
-    50 >
-    60 >
-    70 >
+  10 = TEXT
+  10.value = <img class="headImg2" src="|" alt="Banner-{page:title}" title="Banner-{page:title}" />
+  10.insertData = 1
+  10.typolink.parameter = {$if_yaml.content.header.image.2nd.linkUID}
+  10.typolink.target =
 }
 [global]
 
 [globalVar = LIT:1 = {$if_yaml.content.header.image.2nd.switchOff}]
 lib.modul.header_image_2nd >
+[global]
+
+################################################################################
+### lib.modul.headerslide
+lib.modul.headerslide = RECORDS
+lib.modul.headerslide {
+  wrap = {$if_yaml.content.header.slide.allWrap}
+  source = {$if_yaml.content.header.slide.contentElementId}
+  dontCheckPid = 1
+  tables = tt_content
+}
+
+[globalVar = LIT:1 = {$if_yaml.content.header.slide.switchOff}]
+lib.modul.headerslide >
 [global]
 
 ################################################################################
@@ -1170,6 +1196,7 @@ lib.area.header {
   20 =< lib.modul.nav_top
   30 =< lib.modul.header_image_1st
   40 =< lib.modul.header_image_2nd
+  60 =< lib.modul.headerslide
 }
 
 [globalVar = LIT:1 = {$if_yaml.conf.specialTypeSite}]

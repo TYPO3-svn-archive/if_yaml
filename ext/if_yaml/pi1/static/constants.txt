@@ -5,9 +5,8 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -309,36 +308,64 @@ if_yaml.content.header.switchOff = 0
 if_yaml.content.header.allWrap = <div id="header" role="banner"> | </div>
 
 ######################################
+###         headerimage-bg        ###
+######################################
+# cat=if_yaml_content/other/ae; type=boolean; label=Header BG-image, switchOff:NOTICE: The header images must be stored within the page you want to display them. They are inherited to all pages below. By default the two images are stored in "Rootpage" only, hence they are inherited to ALL pages.
+if_yaml.content.header.image.bg.switchOff = 0
+# cat=if_yaml_content/other/af; type=int+; label=Header BG-image, listNum:
+if_yaml.content.header.image.bg.listNum = 1
+# cat=if_yaml_content/other/ag; type=boolean; label=Header BG-image, override page ressources:
+if_yaml.content.header.image.bg.override = 1
+# cat=if_yaml_content/other/ah; type=string; label=Header BG-image, override: path and filename based on layout directory:
+if_yaml.content.header.image.bg.overrideFile = images/dummy-layout/bg_header.gif
+# cat=if_yaml_content/other/ai; type=string; label=Header BG-image, additional data: Params in background tag ... no-repeat top left transparent scroll:
+if_yaml.content.header.image.bg.data = repeat-x scroll top left #232324
+
+######################################
 ###        headerimage-1st         ###
 ######################################
 # cat=if_yaml_content/other/ba; type=boolean; label=Header 1st-image, switchOff:NOTICE: The header images must be stored within the page you want to display them. They are inherited to all pages below. By default the two images are stored in "Rootpage" only, hence they are inherited to ALL pages.
 if_yaml.content.header.image.1st.switchOff = 0
 # cat=if_yaml_content/other/bb; type=wrap; label=Header 1st-image, wrap around:
 if_yaml.content.header.image.1st.allWrap = <div id="logo">|</div>
-# cat=if_yaml_content/other/bc; type=boolean; label=Header 1st-image, override page ressources:
-if_yaml.content.header.image.1st.override = 0
-# cat=if_yaml_content/other/bd; type=string; label=Header 1st-image, override: path and filename based on images/ in layout:
-if_yaml.content.header.image.1st.overrideFile = 
-# cat=if_yaml_content/other/be; type=boolean; label=Header 1st-image, make a link:
+# cat=if_yaml_content/other/bc; type=int+; label=Header 1st-image, listNum:
+if_yaml.content.header.image.1st.listNum = 2
+# cat=if_yaml_content/other/bd; type=boolean; label=Header 1st-image, override page ressources:
+if_yaml.content.header.image.1st.override = 1
+# cat=if_yaml_content/other/be; type=string; label=Header 1st-image, override: path and filename based on layout directory:
+if_yaml.content.header.image.1st.overrideFile = images/dummy-layout/logo.gif
+# cat=if_yaml_content/other/bf; type=boolean; label=Header 1st-image, make a link:
 if_yaml.content.header.image.1st.linkOn = 1
-# cat=if_yaml_content/other/bf; type=int+; label=Header 1st-image, link UID:
-if_yaml.content.header.image.1st.linkUID = 23
+# cat=if_yaml_content/other/bg; type=int+; label=Header 1st-image, link UID:
+if_yaml.content.header.image.1st.linkUID = 1
 
 ######################################
 ###         headerimage-2nd        ###
 ######################################
-# cat=if_yaml_content/other/ca; type=boolean; label=Header 2nd-image, switchOff:NOTICE: The header images must be stored within the page you want to display them. They are inherited to all pages below. By default the two images are stored in "Rootpage" only, hence they are inherited to ALL pages.
+# cat=if_yaml_content/other/bj; type=boolean; label=Header 2nd-image, switchOff:NOTICE: The header images must be stored within the page you want to display them. They are inherited to all pages below. By default the two images are stored in "Rootpage" only, hence they are inherited to ALL pages.
 if_yaml.content.header.image.2nd.switchOff = 0
-# cat=if_yaml_content/other/cb; type=wrap; label=Header 2nd-image, wrap around:
+# cat=if_yaml_content/other/bk; type=wrap; label=Header 2nd-image, wrap around:
 if_yaml.content.header.image.2nd.allWrap = <div id="banner">|</div>
-# cat=if_yaml_content/other/cc; type=boolean; label=Header 2nd-image, override page ressources:
+# cat=if_yaml_content/other/bl; type=int+; label=Header 2nd-image, listNum:
+if_yaml.content.header.image.2nd.listNum = 0
+# cat=if_yaml_content/other/bm; type=boolean; label=Header 2nd-image, override page ressources:
 if_yaml.content.header.image.2nd.override = 0
-# cat=if_yaml_content/other/cd; type=string; label=Header 2nd-image, override: path and filename based on images/ in layout:
-if_yaml.content.header.image.2nd.overrideFile = 
-# cat=if_yaml_content/other/ce; type=boolean; label=Header 2nd-image, make a link:
+# cat=if_yaml_content/other/bn; type=string; label=Header 2nd-image, override: path and filename based on layout directory:
+if_yaml.content.header.image.2nd.overrideFile = images/dummy-layout/banner.jpg
+# cat=if_yaml_content/other/bo; type=boolean; label=Header 2nd-image, make a link:
 if_yaml.content.header.image.2nd.linkOn = 0
-# cat=if_yaml_content/other/cf; type=int+; label=Header 2nd-image, link UID:
-if_yaml.content.header.image.2nd.linkUID = 23
+# cat=if_yaml_content/other/bp; type=int+; label=Header 2nd-image, link UID:
+if_yaml.content.header.image.2nd.linkUID = 1
+
+######################################
+###         headerimage-2nd        ###
+######################################
+# cat=if_yaml_content/other/ca; type=boolean; label=Headerslide, switchOff:
+if_yaml.content.header.slide.switchOff = 0
+# cat=if_yaml_content/other/cb; type=wrap; label=Headerslide, wrap around:
+if_yaml.content.header.slide.allWrap = <div id="headerslide">|</div>
+# cat=if_yaml_content/other/cc; type=int+; label=Headerslide, contentElementId: standard is uid 375 in the folder "einzelne elemente""
+if_yaml.content.header.slide.contentElementId = 375
 
 ######################################
 ###           searchbox            ###
@@ -419,33 +446,33 @@ if_yaml.lang.6th.content.cscDateFormat =
 ######################################
 ###            linkToTop           ###
 ######################################
-# cat=if_yaml_content/language/ja0; type=wrap; label=Link to top Text(std):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja0; type=string; label=Link to top Text(std):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.std.content.linkTextToTop = To top
-# cat=if_yaml_content/language/ja1; type=wrap; label=Link to top Text(1st):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja1; type=string; label=Link to top Text(1st):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.1st.content.linkTextToTop = To top
-# cat=if_yaml_content/language/ja2; type=wrap; label=Link to top Text(2nd):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja2; type=string; label=Link to top Text(2nd):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.2nd.content.linkTextToTop = To top
-# cat=if_yaml_content/language/ja3; type=wrap; label=Link to top Text(3rd):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja3; type=string; label=Link to top Text(3rd):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.3rd.content.linkTextToTop = To top
-# cat=if_yaml_content/language/ja4; type=wrap; label=Link to top Text(4th):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja4; type=string; label=Link to top Text(4th):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.4th.content.linkTextToTop = To top
-# cat=if_yaml_content/language/ja5; type=wrap; label=Link to top Text(5th):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja5; type=string; label=Link to top Text(5th):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.5th.content.linkTextToTop = To top
-# cat=if_yaml_content/language/ja6; type=wrap; label=Link to top Text(6th):Text for "Link-To-Top" (small Icon):
+# cat=if_yaml_content/language/ja6; type=string; label=Link to top Text(6th):Text for "Link-To-Top" (small Icon):
 if_yaml.lang.6th.content.linkTextToTop = To top
-# cat=if_yaml_content/language/jb0; type=wrap; label=Link to top Image(std):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb0; type=string; label=Link to top Image(std):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.std.content.linkImageToTop = images/icons/top.gif
-# cat=if_yaml_content/language/jb1; type=wrap; label=Link to top Image(1st):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb1; type=string; label=Link to top Image(1st):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.1st.content.linkImageToTop = images/icons/top.gif
-# cat=if_yaml_content/language/jb2; type=wrap; label=Link to top Image(2nd):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb2; type=string; label=Link to top Image(2nd):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.2nd.content.linkImageToTop = images/icons/top.gif
-# cat=if_yaml_content/language/jb3; type=wrap; label=Link to top Image(3rd):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb3; type=string; label=Link to top Image(3rd):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.3rd.content.linkImageToTop = images/icons/top.gif
-# cat=if_yaml_content/language/jb4; type=wrap; label=Link to top Image(4th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb4; type=string; label=Link to top Image(4th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.4th.content.linkImageToTop = images/icons/top.gif
-# cat=if_yaml_content/language/jb5; type=wrap; label=Link to top Image(5th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb5; type=string; label=Link to top Image(5th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.5th.content.linkImageToTop = images/icons/top.gif
-# cat=if_yaml_content/language/jb6; type=wrap; label=Link to top Image(6th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
+# cat=if_yaml_content/language/jb6; type=string; label=Link to top Image(6th):Image for "Link-To-Top" (small Icon):based on layoutdirectory
 if_yaml.lang.6th.content.linkImageToTop = images/icons/top.gif
 
 ######################################

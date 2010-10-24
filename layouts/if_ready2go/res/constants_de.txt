@@ -5,9 +5,8 @@
  *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
  * @link            http://if-20.com
  * @packages        if_yaml ... if_ready2go
- * @version         1.3.0  
- * @partly based on  
- *  
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -25,18 +24,18 @@ styles.content.mailform.badMess = You must fill in these fields:
 ###            language 
 if_yaml.lang.templateUsesLanguages = 1
 
-# (on worldrecord the following languages are defined: en=1 and de=2)
+# (on TYPO3symbol record the following languages are defined: en=1 and de=2)
 # it is good practise to set the standardlanguage to "0" - but it will also work (not realy tested) if you use the language ID (in this case "2")
 if_yaml.lang.std.UID = 0
 if_yaml.lang.std.isoCode = de
-if_yaml.lang.std.locale = german
-#if_yaml.lang.std.locale = de_DE.utf8
+#if_yaml.lang.std.locale = german
+if_yaml.lang.std.locale = de_DE.utf8
 # you have to set the right locale !!!
 
 if_yaml.lang.1st.UID = 1
 if_yaml.lang.1st.isoCode = en
-if_yaml.lang.1st.locale = english
-#if_yaml.lang.std.locale = en_EN.utf8
+#if_yaml.lang.1st.locale = english
+if_yaml.lang.1st.locale = en_EN.utf8
 # you have to set the right locale !!!
 
 ######################################

@@ -1,21 +1,21 @@
-@charset "UTF-8";
 /****************
  * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
- * @copyright  Copyright 2005-2010, Dirk Jesse
- * @license    CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
- *             YAML-C (http://www.yaml.de/en/license/license-conditions.html)
- * @link       http://www.yaml.de
- * @package    yaml
- * @version    3.2.1
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 466 $
  * 
  * "Framework Templates, YAML for TYPO3"
- * @copyright  Copyright 2010, René Schröder ... image[FORMAT]
- * @license    CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
- *             if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
- * @link       http://if-20.com
- * @packages   if_yaml ... if_ready2go
- * @version    1.3.0  
- * 
+ * @copyright       Copyright 2010, René Schröder ... image[FORMAT]
+ * @license         CC-A 3.0 (http://creativecommons.org/licenses/by/3.0/),
+ *                  if20-C (http://if-20.com/downloadbereich/lizenzmodell/)
+ * @link            http://if-20.com
+ * @packages        if_yaml ... if_ready2go
+ * @version         1.4.0  
+ * @thanks to        
  * @file                 
  */
 
@@ -30,8 +30,7 @@
     height: 150px;
     font-size:0;
     margin-bottom: -75px;
-  } 
-  
+  }   
   .trans-border-top .tl {
     float:left;
     width: 150px;
@@ -40,7 +39,6 @@
     background-image: url(../../images/gfx-border/if_yaml/png24/tl.png);
     background-position: top left;
   }
-
   .trans-border-top .tr {
     float:right;
     width: 150px;
@@ -49,7 +47,6 @@
     background-image: url(../../images/gfx-border/if_yaml/png24/tr.png);
     background-position: top right;
   }
-
   .trans-border-top .tc {
     float:none;
     margin: 0 150px;
@@ -59,22 +56,18 @@
     background-position: top center;
     background-repeat:repeat-x;
   } 
-
-
   .trans-border-left {
     padding-left: 75px;
     background-image:  url(../../images/gfx-border/if_yaml/png24/cl.png);
     background-repeat:no-repeat;
     background-position:left 75px;
   }
-
   .trans-border-right {
     padding-right: 75px;
     background-image:  url(../../images/gfx-border/if_yaml/png24/cr.png);
     background-repeat:no-repeat;
     background-position:right 75px;
   }
-
   .trans-border-bottom {
     overflow:hidden;
     width: auto;
@@ -82,7 +75,6 @@
     margin-top: 0px;
     font-size:0;
   }
-
   .trans-border-bottom .bl {
     position:relative; /* IE Fix | z-index */
     float:left;
@@ -91,7 +83,6 @@
     background-image: url(../../images/gfx-border/if_yaml/png24/bl.png);
     background-position: bottom left;
   }
-
   .trans-border-bottom .br {
     position:relative; /* IE Fix | z-index */
     float:right;
@@ -100,7 +91,6 @@
     background-image: url(../../images/gfx-border/if_yaml/png24/br.png);
     background-position: bottom right;
   }
-
   .trans-border-bottom .bc {
     position:relative; /* IE Fix | z-index */
     float:none;

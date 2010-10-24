@@ -7,9 +7,9 @@ if ((TYPO3_MODE == 'BE'))
 	$TYPO3_CONF_VARS['EXTCONF']['package_manager']['packages'][$_EXTKEY]['yamlCore']=array(
 		'url' 		=>$_EXTCONF['if_yamlCore_url']
 		,'license'=>  'http://www.yaml.de/de/lizenz/lizenzbedingungen.html'
-		,'path'		=> 	'../../../fileadmin/templates/yaml/'
+		,'path'		=> 	'../../../fileadmin/templates/'
 		,'files'	=>	''
-		,'pathToRemove' => 'yaml/'
+		,'pathToRemove' => ''
 	);
 	$TYPO3_CONF_VARS['EXTCONF']['package_manager']['packages'][$_EXTKEY]['additionalFiles']=array(
 		'url' 		=>$_EXTCONF['if_additional_url']
