@@ -17,7 +17,7 @@ styles.content.imgtext.captionSplit = 1
 styles.content.imgtext.imageTextSplit = 1
 content.pageFrameObj =
 
-[browser = msie]
+[browser = msie] && [version = <7]
 if_yaml.conf.doctypesw_cond = 1
 [else]
 if_yaml.conf.doctypesw_cond = 0
@@ -358,7 +358,7 @@ if_yaml.content.header.image.2nd.linkOn = 0
 if_yaml.content.header.image.2nd.linkUID = 1
 
 ######################################
-###         headerimage-2nd        ###
+###           headerslide          ###
 ######################################
 # cat=if_yaml_content/other/ca; type=boolean; label=Headerslide, switchOff:
 if_yaml.content.header.slide.switchOff = 0

@@ -583,22 +583,21 @@ dynamicCss979 {
   10 = IMG_RESOURCE
   10 {
     file {
-      import = /uploads/media/
+      import = uploads/media/
       import.data = levelmedia:-1, slide
       import.listNum = {$if_yaml.content.header.image.bg.listNum}
 #      width = 123c
 #      height = 123c
     }
-    stdWrap.wrap (
-#header { background: url(|) {$if_yaml.content.header.image.bg.data};}
-)
+    stdWrap.wrap = /|
+    stdWrap.outerWrap = #header { background: url(|) {$if_yaml.content.header.image.bg.data};}
   }
 }
 
 ### Variant: manual file override
 [globalVar = LIT:1 = {$if_yaml.content.header.image.bg.override}]
 dynamicCss979.10 = TEXT
-dynamicCss979.10.value = /{$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.content.header.image.bg.overrideFile}
+dynamicCss979.10.value = {$if_yaml.templatesDir}{$if_yaml.allLayoutsDir}{$if_yaml.layoutDir}{$if_yaml.content.header.image.bg.overrideFile}
 [global]
 
 [globalVar = LIT:1 = {$if_yaml.content.header.image.bg.switchOff}]
