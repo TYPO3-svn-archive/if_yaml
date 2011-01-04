@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Default form template</title>
+</head>
+<body>
+<h1>Default form template</h1>
+<p>The following markers could be set:</p>
+<div style="font-family: monospace; font-size:11px; background:#E6EFF9; border:1px dashed #000000; margin-bottom: 24px;">
+	<pre>
+    // General markers
+    ###URL_SELF###
+    ###FORM_NAME###
+    ###FORM_ID###
+    ###INFO###
+    ###HIDDEN###
+    ###SUBMIT###
+    ###SUBMIT_VALUE###
+    ###CHARSET###
+    ###ANCHOR###
+
+    // Show all messages of all fields as list
+    ###MESSAGES###
+
+    // Show inline messages for each field
+    ###MSG_<FIELDNAME>###
+
+    // Add error class to each field
+    ###ERR_<FIELDNAME>###
+
+    // Show the value of input fields
+    ###VALUE_<FIELDNAME>###
+
+    // Set state of a checkbox
+    ###CHECKED_<FIELDNAME>###
+
+    // Set state of a radio button
+    ###CHECKED_<FIELDNAME>_[###<SAME_AS_VALUE>###]###
+
+    // Set state of a select option
+    ###SELECTED_<FIELDNAME>_[###<SAME_AS_VALUE>###]###
+
+    // Show labels for the input fields
+    ###LABEL_<FIELDNAME>###
+
+    // Show required symbol for the input fields
+    ###REQUIRED_<FIELDNAME>###
+
+    // Show your own markers (define via TypoScript - see manual)
+    ###<NAME_OF_MY_MARKER>###
+
+    // Show your own locallang labels (see manual)
+    ###LLL:<label_name>###
+
+    // Show page information
+    ###PAGE:<db_fieldname>###
+
+    // Show plugin information
+    ###PLUGIN:<db_fieldname>###
+
+    // Show user information
+    ###USER:<db_fieldname>###
+
+    // Show captcha (see manual)
+    ###CAPTCHA_DATA###
+    ###CAPTCHA_FILE###
+    ###SR_FREECAP_NOTICE###
+    ###SR_FREECAP_CANT_READ###
+    ###SR_FREECAP_IMAGE###
+    ###SR_FREECAP_ACCESSIBLE###
+    ###CAPTCHA_FIELD###
+	</pre>
+</div>
+
+<!-- ###TEMPLATE### begin -->
+	###ANCHOR###
+  <form action="###URL_SELF###" method="post" name="###FORM_NAME###" id="###FORM_ID###" accept-charset="###CHARSET###" class="yform columnar" role="application">
+  <fieldset>
+  <legend><span>###LLL:fieldset-1-label###</span></legend>		
+		<div class="info">
+  		<!--	Required info -->
+  		<p class="tx_spbettercontact_info">###LLL:required_info###</p>	      
+  		<!-- 	Show message if mail is sent -->
+  		<p class="tx_spbettercontact_message">###INFO###</p> 		
+		</div>    	
+
+    <div class="type-select ###ERR_SALUTATION###">
+      <strong class="message">###MSG_SALUTATION###</strong>
+      <label for="###SALUTATION###">###LABEL_SALUTATION### ###REQUIRED_SALUTATION###</label>
+      <select name="###SALUTATION###" id="###SALUTATION###" size="1">
+        <option value="0" selected="selected" disabled="disabled">###LLL:salutation-option-00###</option>
+        <option ###SELECTED_SALUTATION_[###LLL:salutation-option-01###]###>###LLL:salutation-option-01###</option>
+        <option ###SELECTED_SALUTATION_[###LLL:salutation-option-02###]###>###LLL:salutation-option-02###</option>
+        <option ###SELECTED_SALUTATION_[###LLL:salutation-option-03###]###>###LLL:salutation-option-03###</option>
+      </select>
+    </div>
+    
+    <!-- Field for name -->
+    <div class="type-text ###ERR_NAME###">
+      <strong class="message">###MSG_NAME###</strong>
+      <label for="###NAME###">###LABEL_NAME### ###REQUIRED_NAME###</label>
+      <input type="text" id="###NAME###" name="###NAME###" value="###VALUE_NAME###" class="###ERR_NAME###" />  
+    </div>
+
+		<!-- Field for phone -->
+    <div class="type-text ###ERR_TEL###">
+      <strong class="message">###MSG_TEL###</strong>
+      <label for="###TEL###">###LABEL_TEL### ###REQUIRED_TEL###</label>
+      <input type="text" id="###TEL###" name="###TEL###" value="###VALUE_TEL###" />  
+    </div>		
+		
+		<!-- Field for fax -->
+    <div class="type-text ###ERR_FAX###">
+      <strong class="message">###MSG_FAX###</strong>
+      <label for="###FAX###">###LABEL_FAX### ###REQUIRED_FAX###</label>
+      <input type="text" id="###FAX###" name="###FAX###" value="###VALUE_FAX###" />  
+    </div>
+
+		<!-- Field for street -->
+    <div class="type-text ###ERR_STREET###">
+      <strong class="message">###MSG_STREET###</strong>
+      <label for="###STREET###">###LABEL_STREET### ###REQUIRED_STREET###</label>
+      <input type="text" id="###STREET###" name="###STREET###" value="###VALUE_STREET###" />  
+    </div>			
+		
+    <!-- Field for city  -->
+    <div class="type-text ###ERR_CITY###">
+      <strong class="message">###MSG_CITY###</strong>
+      <label for="###CITY###">###LABEL_CITY### ###REQUIRED_CITY###</label>
+      <input type="text" id="###CITY###" name="###CITY###" value="###VALUE_CITY###" />  
+    </div> 
+
+		<!-- Field for email -->
+    <div class="type-text ###ERR_EMAIL###">
+      <strong class="message">###MSG_EMAIL###</strong>
+      <label for="###EMAIL###">###LABEL_EMAIL### ###REQUIRED_EMAIL###</label>
+      <input type="text" id="###EMAIL###" name="###EMAIL###" value="###VALUE_EMAIL###" />  
+    </div> 
+
+		<!--  Field for message  -->
+    <div class="type-text ###ERR_MESSAGE###">
+      <strong class="message">###MSG_MESSAGE###</strong>
+      <label for="###MESSAGE###">###LABEL_MESSAGE### ###REQUIRED_MESSAGE###</label>
+      <textarea name="###MESSAGE###" rows="10" class="###ERR_MESSAGE###">###VALUE_MESSAGE###</textarea>  
+    </div>
+    
+		<!--  Field for checkbox  -->
+    <div class="type-check ###ERR_CONTACTME###">
+      <input type="checkbox" id="###CONTACTME###" name="###CONTACTME###" ###CHECKED_CONTACTME### /> 
+      <label for="###CONTACTME###">###LLL:contactme###</label>
+    </div> 
+
+  	<!--  Add captcha from sub-templates below if configured -->
+    ###CAPTCHA_FIELD###
+
+  </fieldset> 
+  
+	<!-- Submit button --> 
+  <div class="type-button">
+    <!--   <input type="button" value="###LLL:button1###" class="button" id="button1" name="button1" /> -->
+    <input type="reset" value="###LLL:reset###" class="reset" id="###RESET###" name="###RESET###" />
+    <input type="submit" value="###SUBMIT_VALUE###" class="submit" id="###SUBMIT###" name="###SUBMIT###" />
+  </div> 
+   
+	<!-- Hidden fields for bot test 
+	<div class="tx_spbettercontact_hidden">###HIDDEN###</div>
+	-->
+</form>
+<!-- ###TEMPLATE### end -->
+
+
+
+<!-- ###SUB_TEMPLATE_SR_FREECAP### begin -->
+<div class="type-text ###ERR_CAPTCHA###">
+  <strong class="message">###MSG_CAPTCHA###</strong>
+  <label for="###CAPTCHA###">###LABEL_CAPTCHA### ###REQUIRED_CAPTCHA###</label>
+  <input type="text" id="###CAPTCHA###" name="###CAPTCHA###" value="###VALUE_CAPTCHA###" />  
+  <div class="tx_spbettercontact_captcha">
+  	<div class="tx_spbettercontact_captcha_image">###SR_FREECAP_IMAGE###</div>
+  	<div class="tx_spbettercontact_captcha_cant_read">###SR_FREECAP_CANT_READ###</div>
+  	<div class="tx_spbettercontact_captcha_accessible">###SR_FREECAP_ACCESSIBLE###</div>
+  </div>
+</div>
+<!-- ###SUB_TEMPLATE_SR_FREECAP### end -->
+
+<!-- ###SUB_TEMPLATE_JM_RECAPTCHA### begin -->
+<div class="type-text ###ERR_CAPTCHA###">
+  <strong class="message">###MSG_CAPTCHA###</strong>
+  <label for="###CAPTCHA###">###LABEL_CAPTCHA### ###REQUIRED_CAPTCHA###</label>
+  <div class="tx_spbettercontact_captcha">###CAPTCHA_DATA###</div>
+</div>
+<!-- ###SUB_TEMPLATE_JM_RECAPTCHA### end -->
+
+<!-- ###SUB_TEMPLATE_CAPTCHA### begin -->
+<div class="type-text ###ERR_CAPTCHA###">
+  <strong class="message">###MSG_CAPTCHA###</strong>
+  <label for="###CAPTCHA###">###LABEL_CAPTCHA### ###REQUIRED_CAPTCHA###</label>
+  <input type="text" id="###CAPTCHA###" name="###CAPTCHA###" value="###VALUE_CAPTCHA###" />  
+  <div class="tx_spbettercontact_captcha">
+  	<div class="tx_spbettercontact_captcha_image">
+      <img src="###CAPTCHA_FILE###" alt="captcha image" />
+	  </div>
+  </div>
+</div>
+<!-- ###SUB_TEMPLATE_CAPTCHA### end -->
+
+<!-- ###SUB_TEMPLATE_MATHGUARD### begin -->
+<div class="type-text ###ERR_CAPTCHA###">
+  <strong class="message">###MSG_CAPTCHA###</strong>
+  <div class="tx_spbettercontact_captcha">###CAPTCHA_DATA###</div>
+</div>
+<!-- ###SUB_TEMPLATE_MATHGUARD### end -->
+
+</body>
+</html>

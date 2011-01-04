@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Default email template</title>
+</head>
+<body>
+<h1>Default email template</h1>
+<p>The following markers could be set:</p>
+<div style="font-family: monospace; font-size:11px; background:#E6EFF9; border:1px dashed #000000; margin-bottom: 24px;">
+	<pre>
+    // General markers
+    ###URL_SELF###
+    ###INFO###
+    ###HIDDEN###
+    ###SUBMIT###
+    ###SUBMIT_VALUE###
+    ###CHARSET###
+
+
+    // Show all messages of all fields as list
+    ###MESSAGES###
+
+
+    // Show inline messages for each field
+    ###MSG_<FIELDNAME>###
+
+
+    // Add error class to each field
+    ###ERR_<FIELDNAME>###
+
+
+    // Show the value of input fields
+    ###VALUE_<FIELDNAME>###
+
+
+    // Set state of a checkbox (radio and select do not need this)
+    ###CHECKED_<FIELDNAME>###
+
+
+    // Show labels for the input fields
+    ###LABEL_<FIELDNAME>###
+
+
+    // Show required symbol for the input fields
+    ###REQUIRED_<FIELDNAME>###
+
+
+    // Show data from a spam attack
+    ###SPAM_DATE###
+    ###SPAM_TIME###
+    ###SPAM_IP###
+    ###SPAM_METHOD###
+    ###SPAM_BROWSER###
+    ###SPAM_SYSTEM###
+    ###SPAM_AGENT###
+    ###SPAM_REFERER###
+
+
+    // Show the values of the hidden input fields
+    ###SPAM_VALUE_<FIELDNAME>###
+    ###SPAM_CHECKED_<FIELDNAME>###
+
+
+    // Show your own markers (define via TypoScript - see manual)
+    ###<NAME_OF_MY_MARKER>###
+
+
+    // Show your own locallang labels (see manual)
+    ###LLL:<label_name>###
+
+
+    // Show page information
+    ###PAGE:<db_fieldname>###
+
+
+    // Show plugin information
+    ###PLUGIN:<db_fieldname>###
+
+
+    // Show user information
+    ###USER:<db_fieldname>###
+	</pre>
+</div>
+
+
+
+
+
+<!-- ###MAIL_MESSAGE_SENDER_PLAIN### begin -->
+Hello ###VALUE_NAME###,
+
+Thank you for your message.
+We will answer your question as soon as possible.
+
+Best regards,
+
+Your company
+<!-- ###MAIL_MESSAGE_SENDER_PLAIN### end -->
+
+
+
+
+<!-- ###MAIL_MESSAGE_SENDER_HTML### begin -->
+<p>Hello ###VALUE_NAME###,<br />
+<br />
+Thank you for your message.<br />
+We will answer your question as soon as possible.<br />
+<br />
+Best regards,<br />
+<br />
+Your company</p>
+<!-- ###MAIL_MESSAGE_SENDER_HTML### end -->
+
+
+
+
+<!-- ###MAIL_MESSAGE_ADMIN_PLAIN### begin -->
+Hello Admin,
+
+Someone has sent a message:
+
+###LABEL_NAME### ###VALUE_NAME###
+###LABEL_TEL### ###VALUE_TEL###
+###LABEL_FAX### ###VALUE_FAX###
+###LABEL_STREET### ###VALUE_STREET###
+###LABEL_CITY### ###VALUE_CITY###
+###LABEL_EMAIL### ###VALUE_EMAIL###
+
+###VALUE_MESSAGE###
+
+Best regards,
+
+Your contact form
+<!-- ###MAIL_MESSAGE_ADMIN_PLAIN### end -->
+
+
+
+
+<!-- ###MAIL_MESSAGE_ADMIN_HTML### begin -->
+<p>Hello Admin,<br />
+<br />
+Someone has sent a message:</p>
+<table>
+    <tr>
+        <td width="80"><strong>###LABEL_NAME###</strong></td>
+        <td>###VALUE_NAME###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>###LABEL_TEL###</strong></td>
+        <td>###VALUE_TEL###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>###LABEL_FAX###</strong></td>
+        <td>###VALUE_FAX###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>###LABEL_STREET###</strong></td>
+        <td>###VALUE_STREET###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>###LABEL_CITY###</strong></td>
+        <td>###VALUE_CITY###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>###LABEL_EMAIL###</strong></td>
+        <td>###VALUE_EMAIL###</td>
+    </tr>
+</table>
+<p>###VALUE_MESSAGE###<br />
+<br />
+Best regards,<br />
+<br />
+Your contact form</p>
+<!-- ###MAIL_MESSAGE_ADMIN_HTML### end -->
+
+
+
+
+
+<!-- ###MAIL_MESSAGE_SPAM_PLAIN### begin -->
+Hello Admin,
+
+Someone has tried to send a message:
+
+
+=============================================
+General data:
+=============================================
+Date:       ###SPAM_DATE###
+Time:       ###SPAM_TIME###
+IP:         ###SPAM_IP###
+Browser:    ###SPAM_BROWSER###
+System:     ###SPAM_SYSTEM###
+Referer:    ###SPAM_REFERER###
+Method:     ###SPAM_METHOD###
+
+=============================================
+Visible fields:
+=============================================
+Name:       ###VALUE_NAME###
+Phone:      ###VALUE_TEL###
+Fax:        ###VALUE_FAX###
+Street:     ###VALUE_STREET###
+City:       ###VALUE_CITY###
+Email:      ###VALUE_EMAIL###
+Message:    ###VALUE_MESSAGE###
+
+=============================================
+Hidden fields:
+=============================================
+Name:       ###SPAM_VALUE_NAME###
+Phone:      ###SPAM_VALUE_TEL###
+Fax:        ###SPAM_VALUE_FAX###
+Street:     ###SPAM_VALUE_STREET###
+City:       ###SPAM_VALUE_CITY###
+Email:      ###SPAM_VALUE_EMAIL###
+Message:    ###SPAM_VALUE_MESSAGE###
+
+
+Best regards,
+
+Your contact form
+<!-- ###MAIL_MESSAGE_SPAM_PLAIN### end -->
+
+
+
+
+
+<!-- ###MAIL_MESSAGE_SPAM_HTML### begin -->
+<p>Hello Admin,<br />
+<br />
+Someone has tried to send a message:</p>
+<h2>General data</h2>
+<table>
+    <tr>
+        <td width="80"><strong>Date:</strong></td>
+        <td>###SPAM_DATE###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Time:</strong></td>
+        <td>###SPAM_TIME###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>IP:</strong></td>
+        <td>###SPAM_IP###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Browser:</strong></td>
+        <td>###SPAM_BROWSER###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>System:</strong></td>
+        <td>###SPAM_SYSTEM###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Referer:</strong></td>
+        <td>###SPAM_REFERER###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Method:</strong></td>
+        <td>###SPAM_METHOD###</td>
+    </tr>
+</table>
+<h2>Visible fields</h2>
+<table>
+    <tr>
+        <td width="80"><strong>Name:</strong></td>
+        <td>###VALUE_NAME###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Phone:</strong></td>
+        <td>###VALUE_TEL###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Fax:</strong></td>
+        <td>###VALUE_FAX###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Street:</strong></td>
+        <td>###VALUE_STREET###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>City:</strong></td>
+        <td>###VALUE_CITY###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Email:</strong></td>
+        <td>###VALUE_EMAIL###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Message:</strong></td>
+        <td>###VALUE_MESSAGE###</td>
+    </tr>
+</table>
+<h2>Hidden fields</h2>
+<table>
+    <tr>
+        <td width="80"><strong>Name:</strong></td>
+        <td>###SPAM_VALUE_NAME###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Phone:</strong></td>
+        <td>###SPAM_VALUE_TEL###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Fax:</strong></td>
+        <td>###SPAM_VALUE_FAX###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Street:</strong></td>
+        <td>###SPAM_VALUE_STREET###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>City:</strong></td>
+        <td>###SPAM_VALUE_CITY###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Email:</strong></td>
+        <td>###SPAM_VALUE_EMAIL###</td>
+    </tr>
+    <tr>
+        <td width="80"><strong>Message:</strong></td>
+        <td>###SPAM_VALUE_MESSAGE###</td>
+    </tr>
+</table>
+<p>Best regards,<br />
+<br />
+Your contact form</p>
+<!-- ###MAIL_MESSAGE_SPAM_HTML### end -->
+
+
+
+
+
+<!-- ###MAIL_SUBJECT_SENDER### begin -->
+Thank you for your message
+<!-- ###MAIL_SUBJECT_SENDER### end -->
+
+
+
+
+
+<!-- ###MAIL_SUBJECT_ADMIN### begin -->
+###VALUE_NAME### has sent an message
+<!-- ###MAIL_SUBJECT_ADMIN### end -->
+
+
+
+
+
+<!-- ###MAIL_SUBJECT_SPAM### begin -->
+Someone has tried to send a message
+<!-- ###MAIL_SUBJECT_SPAM### end -->
+
+
+
+</body>
+</html>
