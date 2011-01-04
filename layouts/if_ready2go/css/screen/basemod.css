@@ -133,7 +133,7 @@
   #header #searchbox form span {display:block; font-weight:bold; color:#aaa;}
   #header #searchbox form input {width:170px; height:13px;}
   
-  #header #topnav {top:2px; font-size:0.9em; color:#aaa; background:transparent; z-index:50; position:absolute; top:0; right:10px;  }
+  #header #topnav {font-size:0.9em; color:#aaa; background:transparent; z-index:50; position:absolute; top:0; right:10px;  }
   #header #topnav span.accessKey {text-decoration:underline;}
   #header #topnav span.showAccessKey {font-size:80%; font-style:italic;}
   #header #topnav a { color: #999; font-weight: normal; background:transparent; text-decoration:none; }
